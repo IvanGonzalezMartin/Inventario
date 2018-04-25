@@ -39,6 +39,29 @@ class StockEntity
     private $stock;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $delete;
+
+    /**
+     * @return mixed
+     */
+    public function getDelete()
+    {
+        return $this->delete;
+    }
+
+    /**
+     * @param mixed $delete
+     */
+    public function setDelete($delete): void
+    {
+        $this->delete = $delete;
+    }
+
+
+
+    /**
      * @return mixed
      */
     public function getId()

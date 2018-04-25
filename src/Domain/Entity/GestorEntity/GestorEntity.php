@@ -38,33 +38,40 @@ class GestorEntity
     private $password;
 
     /**
-<<<<<<< HEAD
      * @ORM\Column(type="boolean" ,options={"default":true})
-=======
-     * @ORM\Column(type="boolean")
->>>>>>> Entity
      */
     private $active;
 
     /**
-<<<<<<< HEAD
      * @ORM\Column(type="string" ,length=255)
-=======
-     * @ORM\Column(type="string", nullable=false)
->>>>>>> Entity
      */
     private $email;
 
     /**
-<<<<<<< HEAD
      * @ORM\Column(type="string" ,length=255)
      */
-    private $adminPhoto;
-=======
-     * @ORM\Column(type="string")
+    private $Photo;
+
+    /**
+     * @ORM\Column(type="boolean")
      */
-    private $photo;
->>>>>>> Entity
+    private $delete;
+
+    /**
+     * @return mixed
+     */
+    public function getDelete()
+    {
+        return $this->delete;
+    }
+
+    /**
+     * @param mixed $delete
+     */
+    public function setDelete($delete): void
+    {
+        $this->delete = $delete;
+    }
 
     /**
      * @return mixed
@@ -75,17 +82,6 @@ class GestorEntity
     }
 
     /**
-<<<<<<< HEAD
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-=======
->>>>>>> Entity
      * @return mixed
      */
     public function getName()
@@ -96,11 +92,7 @@ class GestorEntity
     /**
      * @param mixed $name
      */
-<<<<<<< HEAD
-    public function setName($name)
-=======
     public function setName($name): void
->>>>>>> Entity
     {
         $this->name = $name;
     }
@@ -116,11 +108,7 @@ class GestorEntity
     /**
      * @param mixed $role
      */
-<<<<<<< HEAD
-    public function setRole($role)
-=======
     public function setRole($role): void
->>>>>>> Entity
     {
         $this->role = $role;
     }
@@ -136,11 +124,7 @@ class GestorEntity
     /**
      * @param mixed $password
      */
-<<<<<<< HEAD
-    public function setPassword($password)
-=======
     public function setPassword($password): void
->>>>>>> Entity
     {
         $this->password = $password;
     }
@@ -156,11 +140,7 @@ class GestorEntity
     /**
      * @param mixed $active
      */
-<<<<<<< HEAD
-    public function setActive($active)
-=======
     public function setActive($active): void
->>>>>>> Entity
     {
         $this->active = $active;
     }
@@ -176,11 +156,7 @@ class GestorEntity
     /**
      * @param mixed $email
      */
-<<<<<<< HEAD
-    public function setEmail($email)
-=======
     public function setEmail($email): void
->>>>>>> Entity
     {
         $this->email = $email;
     }
@@ -188,31 +164,16 @@ class GestorEntity
     /**
      * @return mixed
      */
-<<<<<<< HEAD
-    public function getAdminPhoto()
-    {
-        return $this->adminPhoto;
-    }
-
-    /**
-     * @param mixed $adminPhoto
-     */
-    public function setAdminPhoto($adminPhoto)
-    {
-        $this->adminPhoto = $adminPhoto;
-=======
     public function getPhoto()
     {
-        return $this->photo;
+        return $this->Photo;
     }
 
     /**
-     * @param mixed $photo
+     * @param mixed $Photo
      */
-    public function setPhoto($photo): void
+    public function setPhoto($Photo): void
     {
-        $this->photo = $photo;
->>>>>>> Entity
+        $this->Photo = $Photo;
     }
-
 }

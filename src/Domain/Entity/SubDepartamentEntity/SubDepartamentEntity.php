@@ -37,5 +37,61 @@ class SubDepartamentEntity
      */
     private $delete;
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDepartamentId()
+    {
+        return $this->departamentId;
+    }
+
+    /**
+     * @param mixed $departamentId
+     */
+    public function setDepartamentId($departamentId): void
+    {
+        $this->departamentId = $departamentId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @param mixed $nombre
+     */
+    public function setNombre($nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDelete()
+    {
+        return $this->delete;
+    }
+
+    /**
+     * @param mixed $delete
+     */
+    public function setDelete($delete): void
+    {
+        $this->delete = $delete;
+    }
+
 
 }

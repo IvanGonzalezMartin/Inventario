@@ -12,10 +12,6 @@
 
 namespace App\Infrastructure\Entity\OrderRepository;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> Entity
 use App\Domain\Entity\OrderEntity\OrderEntityRepository;
 
 class OrderDoctrineRepository implements OrderEntityRepository

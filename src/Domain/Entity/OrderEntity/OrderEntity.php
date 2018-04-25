@@ -17,15 +17,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\OrderRepository\OrderDoctrineRepository")
  */
-<<<<<<< HEAD
+
 
 class OrderEntity
 {
-=======
-class OrderEntity
-{
 
->>>>>>> Entity
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -34,10 +30,6 @@ class OrderEntity
     private $id;
 
     /**
-<<<<<<< HEAD
-     * @ORM\Column(typ)
-     */
-=======
      * @ORM\Column(type="integer", nullable=false)
      */
     private $employeeCode;
@@ -217,6 +209,4 @@ class OrderEntity
     {
         $this->deleteDate = $deleteDate;
     }
-
->>>>>>> Entity
 }

@@ -37,6 +37,27 @@ class ClothesEntity
     private $deleteClothe;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $foto;
+
+    /**
+     * @return mixed
+     */
+    public function getFoto()
+    {
+        return $this->foto;
+    }
+
+    /**
+     * @param mixed $foto
+     */
+    public function setFoto($foto): void
+    {
+        $this->foto = $foto;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
