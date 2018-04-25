@@ -69,7 +69,7 @@ class UserEntity
     private $endOfContractDate;
 
     /**
-     * @ORM\Column(type="date", nullable=false)
+     * @ORM\Column(type="boolean", nullable=false)
      */
     private $possibleHiring;
 
