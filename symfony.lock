@@ -215,8 +215,14 @@
     "symfony/yaml": {
         "version": "v4.0.8"
     },
+    "tecnickcom/tcpdf": {
+        "version": "6.2.17"
+    },
     "twig/twig": {
         "version": "v2.4.8"
+    },
+    "whiteoctober/tcpdf-bundle": {
+        "version": "1.0.3"
     },
     "zendframework/zend-code": {
         "version": "3.3.0"
