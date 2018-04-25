@@ -28,14 +28,31 @@ class ClothesCategoryEntity
     private $clotheName;
 
     /**
-     * @return mixed
+     * @ORM\Column(type="string")
      */
+    private $typeId;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $delete;
 
+    /**
+     * @return mixed
+     */
+    public function getTypeId()
+    {
+        return $this->typeId;
+    }
+
+    /**
+     * @param mixed $typeId
+     */
+    public function setTypeId($typeId): void
+    {
+        $this->typeId = $typeId;
+    }
+    
     /**
      * @return mixed
      */

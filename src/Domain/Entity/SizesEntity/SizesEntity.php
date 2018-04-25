@@ -34,6 +34,27 @@ class SizesEntity
     private $delete;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $typeId;
+
+    /**
+     * @return mixed
+     */
+    public function getTypeId()
+    {
+        return $this->typeId;
+    }
+
+    /**
+     * @param mixed $typeId
+     */
+    public function setTypeId($typeId): void
+    {
+        $this->typeId = $typeId;
+    }
+
+    /**
      * @return mixed
      */
     public function getDelete()
