@@ -8,8 +8,9 @@
 
 namespace App\Domain\Entity\DepartamentEntity;
 
+use Doctrine\ORM\Mapping as ORM;
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ClothesCategoryRepository\ClothesCategoryRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\DepartamentRepository\DepartamentDoctrineRepository")
  */
 class DepartamentEntity
 {
@@ -29,4 +30,46 @@ class DepartamentEntity
      * @ORM\Column(type="boolean")
      */
     private $deleteDepartament;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDepartamentName()
+    {
+        return $this->departamentName;
+    }
+
+    /**
+     * @param mixed $departamentName
+     */
+    public function setDepartamentName($departamentName)
+    {
+        $this->departamentName = $departamentName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeleteDepartament()
+    {
+        return $this->deleteDepartament;
+    }
+
+    /**
+     * @param mixed $deleteDepartament
+     */
+    public function setDeleteDepartament($deleteDepartament)
+    {
+        $this->deleteDepartament = $deleteDepartament;
+    }
+
+
 }

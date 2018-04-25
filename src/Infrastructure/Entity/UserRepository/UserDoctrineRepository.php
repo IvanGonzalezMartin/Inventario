@@ -11,7 +11,7 @@ namespace App\Infrastructure\Entity\UserRepository;
 
 use App\Domain\Entity\UserEntity\UserEntityRepository;
 
-class UserRepository implements UserEntityRepository
+class UserDoctrineRepository implements UserEntityRepository
 {
 
 }

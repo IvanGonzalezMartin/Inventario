@@ -11,7 +11,7 @@ namespace App\Domain\Entity\UserEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\UserRepository\UserRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\UserRepository\UserDoctrineRepository")
  */
 
 class UserEntity
@@ -62,6 +62,16 @@ class UserEntity
      * @ORM\Column(type="string", length=255)
      */
     private $photo;
+
+    /**
+     * @ORM\Column(type="date", nullable=false)
+     */
+    private $endOfContractDate;
+
+    /**
+     * @ORM\Column(type="date", nullable=false)
+     */
+    private $possibleHiring;
 
     /**
      * @return mixed
@@ -199,6 +209,35 @@ class UserEntity
         $this->photo = $photo;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getEndOfContractDate()
+    {
+        return $this->endOfContractDate;
+    }
 
+    /**
+     * @param mixed $endOfContractDate
+     */
+    public function setEndOfContractDate($endOfContractDate)
+    {
+        $this->endOfContractDate = $endOfContractDate;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getPossibleHiring()
+    {
+        return $this->possibleHiring;
+    }
+
+    /**
+     * @param mixed $possibleHiring
+     */
+    public function setPossibleHiring($possibleHiring)
+    {
+        $this->possibleHiring = $possibleHiring;
+    }
 }

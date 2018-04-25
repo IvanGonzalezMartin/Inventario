@@ -11,7 +11,7 @@ namespace App\Domain\Entity\ClothesCategoryEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ClothesCategoryRepository\ClothesCategoryRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ClothesCategoryRepository\ClothesCategoryDoctrineRepository")
  */
 class ClothesCategoryEntity
 {
@@ -26,4 +26,30 @@ class ClothesCategoryEntity
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $clotheName;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClotheName()
+    {
+        return $this->clotheName;
+    }
+
+    /**
+     * @param mixed $clotheName
+     */
+    public function setClotheName($clotheName)
+    {
+        $this->clotheName = $clotheName;
+    }
+
+
 }

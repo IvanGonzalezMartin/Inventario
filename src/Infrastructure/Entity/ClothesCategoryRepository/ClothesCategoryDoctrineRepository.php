@@ -10,7 +10,7 @@ namespace App\Infrastructure\Entity\ClothesCategoryRepository;
 
 use App\Domain\Entity\ClothesCategoryEntity\ClothesCategoryEntityRepository;
 
-class ClothesCategoryRepository implements ClothesCategoryEntityRepository
+class ClothesCategoryDoctrineRepository implements ClothesCategoryEntityRepository
 {
 
 }
