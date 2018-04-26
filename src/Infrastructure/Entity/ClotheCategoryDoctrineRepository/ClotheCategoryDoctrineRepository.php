@@ -3,8 +3,8 @@
 namespace App\Infrastructure\Entity\ClotheCategoryDoctrineRepository;
 
 use App\Entity\ClotheCategory;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\EntityRepository;
+
 
 /**
  * @method ClotheCategory|null find($id, $lockMode = null, $lockVersion = null)
@@ -12,12 +12,8 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method ClotheCategory[]    findAll()
  * @method ClotheCategory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ClotheCategoryDoctrineRepository extends ServiceEntityRepository
+class ClotheCategoryDoctrineRepository extends EntityRepository
 {
-    public function __construct(RegistryInterface $registry)
-    {
-        parent::__construct($registry, ClotheCategory::class);
-    }
 
 //    /**
 //     * @return ClotheCategory[] Returns an array of ClotheCategory objects
