@@ -5,7 +5,7 @@ namespace App\Domain\Model\Clothe;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ClotheDoctrineRepository\ClotheDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\ClotheDoctrineRepository\ClotheDoctrineRepository")
  */
 class Clothe
 {
