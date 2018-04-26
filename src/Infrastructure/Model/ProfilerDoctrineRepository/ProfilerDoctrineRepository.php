@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\ProfilerDoctrineRepository;
 
 use App\Domain\Model\Profiler\Profiler;
+use App\Domain\Model\Profiler\ProfilerRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method Profiler[]    findAll()
  * @method Profiler[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProfilerDoctrineRepository extends EntityRepository
+class ProfilerDoctrineRepository extends EntityRepository implements ProfilerRepository
 {
 
 //    /**

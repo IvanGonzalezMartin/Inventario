@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\ManagerDoctrineRepository;
 
 use App\Domain\Model\Manager\Manager;
+use App\Domain\Model\Manager\ManagerRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method Manager[]    findAll()
  * @method Manager[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ManagerDoctrineRepository extends EntityRepository
+class ManagerDoctrineRepository extends EntityRepository implements ManagerRepository
 {
 
 //    /**

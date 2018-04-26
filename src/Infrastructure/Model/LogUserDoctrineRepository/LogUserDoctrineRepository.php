@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\LogUserDoctrineRepository;
 
 use App\Domain\Model\LogUser\LogUser;
+use App\Domain\Model\LogUser\LogUserRepository;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -11,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
  * @method LogUser[]    findAll()
  * @method LogUser[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class LogUserDoctrineRepository extends EntityRepository
+class LogUserDoctrineRepository extends EntityRepository implements LogUserRepository
 {
 
 //    /**

@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\ClotheCategoryDoctrineRepository;
 
 use App\Domain\Model\ClotheCategory\ClotheCategory;
+use App\Domain\Model\ClotheCategory\ClotheCategoryRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method ClotheCategory[]    findAll()
  * @method ClotheCategory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ClotheCategoryDoctrineRepository extends EntityRepository
+class ClotheCategoryDoctrineRepository extends EntityRepository implements ClotheCategoryRepository
 {
 
 //    /**

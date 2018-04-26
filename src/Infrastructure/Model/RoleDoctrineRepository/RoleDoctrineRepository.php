@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\RoleDoctrineRepository;
 
 use App\Domain\Model\Role\Role;
+use App\Domain\Model\Role\RoleRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method Role[]    findAll()
  * @method Role[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class RoleDoctrineRepository extends EntityRepository
+class RoleDoctrineRepository extends EntityRepository implements RoleRepository
 {
 //    /**
 //     * @return Role[] Returns an array of Role objects

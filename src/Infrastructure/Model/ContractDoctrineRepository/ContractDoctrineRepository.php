@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\ContractDoctrineRepository;
 
 use App\Domain\Model\Contract\Contract;
+use App\Domain\Model\Contract\ContractRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method Contract[]    findAll()
  * @method Contract[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ContractDoctrineRepository extends EntityRepository
+class ContractDoctrineRepository extends EntityRepository implements ContractRepository
 {
 
 //    /**

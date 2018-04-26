@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\SizesDoctrineRepository;
 
 use App\Domain\Model\Sizes\Sizes;
+use App\Domain\Model\Sizes\SizesRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method Sizes[]    findAll()
  * @method Sizes[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SizesDoctrineRepository extends EntityRepository
+class SizesDoctrineRepository extends EntityRepository implements SizesRepository
 {
 //    /**
 //     * @return Sizes[] Returns an array of Sizes objects

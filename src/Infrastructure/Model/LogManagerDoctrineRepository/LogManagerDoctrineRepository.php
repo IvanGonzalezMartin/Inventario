@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\LogManagerDoctrineRepository;
 
 use App\Domain\Model\LogManager\LogManager;
+use App\Domain\Model\LogManager\LogManagerRepository;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -11,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
  * @method LogManager[]    findAll()
  * @method LogManager[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class LogManagerDoctrineRepository extends EntityRepository
+class LogManagerDoctrineRepository extends EntityRepository implements LogManagerRepository
 {
 
 //    /**

@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\OrderDoctrineRepository;
 
 use App\Domain\Model\Order\Order;
+use App\Domain\Model\Order\OrderRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method Order[]    findAll()
  * @method Order[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class OrderDoctrineRepository extends EntityRepository
+class OrderDoctrineRepository extends EntityRepository implements OrderRepository
 {
 //    /**
 //     * @return Order[] Returns an array of Order objects

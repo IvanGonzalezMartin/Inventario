@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\UserDoctrineRepository;
 
 use App\Domain\Model\User\User;
+use App\Domain\Model\User\UserRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method User[]    findAll()
  * @method User[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UserDoctrineRepository extends EntityRepository
+class UserDoctrineRepository extends EntityRepository implements UserRepository
 {
 
 //    /**

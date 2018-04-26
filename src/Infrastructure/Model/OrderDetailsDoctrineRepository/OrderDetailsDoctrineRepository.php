@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\OrderEntityDoctrineRepository;
 
 use App\Domain\Model\OrderDetails\OrderDetails;
+use App\Domain\Model\OrderDetails\OrderDetailsRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method OrderDetails[]    findAll()
  * @method OrderDetails[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class OrderEntityDoctrineRepository extends EntityRepository
+class OrderDetailsDoctrineRepository extends EntityRepository implements OrderDetailsRepository
 {
 
 //    /**

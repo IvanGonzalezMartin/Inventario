@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\GenderDoctrineRepository;
 
 use App\Domain\Model\Gender\Gender;
+use App\Domain\Model\Gender\GenderRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method Gender[]    findAll()
  * @method Gender[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class GenderDoctrineRepository extends EntityRepository
+class GenderDoctrineRepository extends EntityRepository implements GenderRepository
 {
 
 //    /**

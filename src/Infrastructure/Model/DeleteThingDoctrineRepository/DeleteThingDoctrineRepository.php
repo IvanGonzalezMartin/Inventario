@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\DeleteThingDoctrineRepository;
 
 use App\Domain\Model\DeleteThing\DeleteThing;
+use App\Domain\Model\DeleteThing\DeleteThingRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method DeleteThing[]    findAll()
  * @method DeleteThing[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DeleteThingDoctrineRepository extends EntityRepository
+class DeleteThingDoctrineRepository extends EntityRepository implements DeleteThingRepository
 {
 //    /**
 //     * @return DeleteThing[] Returns an array of DeleteThing objects

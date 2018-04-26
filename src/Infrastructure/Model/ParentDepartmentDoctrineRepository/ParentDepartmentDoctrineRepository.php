@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\ParentDepartmentDoctrineRepository;
 
 use App\Domain\Model\ParentDepartment\ParentDepartment;
+use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method ParentDepartment[]    findAll()
  * @method ParentDepartment[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ParentDepartmentDoctrineRepository extends EntityRepository
+class ParentDepartmentDoctrineRepository extends EntityRepository implements ParentDepartmentRepository
 {
 
 //    /**

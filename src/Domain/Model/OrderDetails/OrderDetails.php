@@ -5,7 +5,7 @@ namespace App\Domain\Model\OrderDetails;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\OrderEntityDoctrineRepository\OrderEntityDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\OrderDetailsDoctrineRepository\OrderDetailsDoctrineRepository")
  */
 class OrderDetails
 {

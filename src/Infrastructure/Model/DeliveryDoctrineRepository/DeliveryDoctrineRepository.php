@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Model\DeliveryDoctrineRepository;
 
 use App\Domain\Model\Delivery\Delivery;
+use App\Domain\Model\Delivery\DeliveryRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -12,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
  * @method Delivery[]    findAll()
  * @method Delivery[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DeliveryDoctrineRepository extends EntityRepository
+class DeliveryDoctrineRepository extends EntityRepository implements DeliveryRepository
 {
 
 //    /**
