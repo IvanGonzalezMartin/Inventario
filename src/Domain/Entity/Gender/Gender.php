@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\Gender;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\GenderRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\GenderDoctrineRepository\GenderDoctrineRepository")
  */
 class Gender
 {

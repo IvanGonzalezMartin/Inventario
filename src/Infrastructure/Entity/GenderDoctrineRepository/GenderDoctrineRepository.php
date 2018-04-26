@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\GenderDoctrineRepository;
 
 use App\Entity\Gender;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Gender[]    findAll()
  * @method Gender[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class GenderRepository extends ServiceEntityRepository
+class GenderDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

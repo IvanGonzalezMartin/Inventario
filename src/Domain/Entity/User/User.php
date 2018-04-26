@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\User;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\UserDoctrineRepository\UserDoctrineRepository")
  */
 class User
 {
@@ -62,7 +62,7 @@ class User
     private $profilerSizesID;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $contractID;
 

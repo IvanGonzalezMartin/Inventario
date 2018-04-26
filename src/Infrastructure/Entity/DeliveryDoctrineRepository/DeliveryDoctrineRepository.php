@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\DeliveryDoctrineRepository;
 
 use App\Entity\Delivery;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Delivery[]    findAll()
  * @method Delivery[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DeliveryRepository extends ServiceEntityRepository
+class DeliveryDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

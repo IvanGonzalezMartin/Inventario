@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\ProfilerDetails;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ProfilerDetailsRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ProfilerDetailsDoctrineRepository\ProfilerDetailsDoctrineRepository")
  */
 class ProfilerDetails
 {
@@ -17,7 +17,7 @@ class ProfilerDetails
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $profilerID;
 

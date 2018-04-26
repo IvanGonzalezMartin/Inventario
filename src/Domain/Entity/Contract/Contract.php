@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\Contract;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ContractRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ContractDoctrineRepository\ContractDoctrineRepository")
  */
 class Contract
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\SizeType;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\SizeTypeRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\SizeTypeDoctrineRepository\SizeTypeDoctrineRepository")
  */
 class SizeType
 {

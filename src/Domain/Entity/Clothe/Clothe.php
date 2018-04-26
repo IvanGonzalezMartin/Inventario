@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\Clothe;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ClotheRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ClotheDoctrineRepository\ClotheDoctrineRepository")
  */
 class Clothe
 {
@@ -20,6 +20,8 @@ class Clothe
      * @ORM\Column(type="integer", nullable=false)
      */
     private $clotheCategoryID;
+
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)

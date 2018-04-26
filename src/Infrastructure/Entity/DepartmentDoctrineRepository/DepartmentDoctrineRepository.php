@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\DepartmentDoctrineRepository;
 
 use App\Entity\Department;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Department[]    findAll()
  * @method Department[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DepartmentRepository extends ServiceEntityRepository
+class DepartmentDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

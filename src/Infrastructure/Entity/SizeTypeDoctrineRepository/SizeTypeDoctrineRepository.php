@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\SizeTypeDoctrineRepository;
 
 use App\Entity\SizeType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method SizeType[]    findAll()
  * @method SizeType[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SizeTypeRepository extends ServiceEntityRepository
+class SizeTypeDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

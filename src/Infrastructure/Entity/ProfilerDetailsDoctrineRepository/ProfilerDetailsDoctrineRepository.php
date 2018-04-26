@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\ProfilerDetailsDoctrineRepository;
 
 use App\Entity\ProfilerDetails;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method ProfilerDetails[]    findAll()
  * @method ProfilerDetails[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProfilerDetailsRepository extends ServiceEntityRepository
+class ProfilerDetailsDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

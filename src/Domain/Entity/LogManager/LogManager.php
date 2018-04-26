@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\LogManager;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\LogManagerRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\LogManagerDoctrineRepository\LogManagerDoctrineRepository")
  */
 class LogManager
 {

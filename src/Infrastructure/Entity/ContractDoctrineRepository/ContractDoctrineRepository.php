@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\ContractDoctrineRepository;
 
 use App\Entity\Contract;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Contract[]    findAll()
  * @method Contract[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ContractRepository extends ServiceEntityRepository
+class ContractDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

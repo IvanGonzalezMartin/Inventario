@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\Profiler;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ProfilerRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ProfilerDoctrineRepository\ProfilerDoctrineRepository")
  */
 class Profiler
 {

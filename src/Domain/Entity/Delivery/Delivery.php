@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\Delivery;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\DeliveryRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\DeliveryDoctrineRepository\DeliveryDoctrineRepository")
  */
 class Delivery
 {

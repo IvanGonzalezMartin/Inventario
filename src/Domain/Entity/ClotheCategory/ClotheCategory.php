@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\ClotheCategory;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ClotheCategoryRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ClotheCategoryDoctrineRepository\ClotheCategoryDoctrineRepository")
  */
 class ClotheCategory
 {

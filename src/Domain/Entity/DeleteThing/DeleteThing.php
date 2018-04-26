@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\DeleteThing;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\DeleteThingRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\DeleteThingDoctrineRepository\DeleteThingDoctrineRepository")
  */
 class DeleteThing
 {

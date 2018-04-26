@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\ManagerDoctrineRepository;
 
 use App\Entity\Manager;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Manager[]    findAll()
  * @method Manager[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ManagerRepository extends ServiceEntityRepository
+class ManagerDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

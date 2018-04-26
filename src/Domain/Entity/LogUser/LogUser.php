@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Entity\LogUser;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\LogUserRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\LogUserDoctrineRepository\LogUserDoctrineRepository")
  */
 class LogUser
 {

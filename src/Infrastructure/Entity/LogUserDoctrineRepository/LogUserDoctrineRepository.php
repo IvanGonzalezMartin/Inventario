@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\LogUserDoctrineRepository;
 
 use App\Entity\LogUser;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method LogUser[]    findAll()
  * @method LogUser[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class LogUserRepository extends ServiceEntityRepository
+class LogUserDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

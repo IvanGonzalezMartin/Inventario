@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\ClotheDoctrineRepository;
 
 use App\Entity\Clothe;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Clothe[]    findAll()
  * @method Clothe[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ClotheRepository extends ServiceEntityRepository
+class ClotheDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

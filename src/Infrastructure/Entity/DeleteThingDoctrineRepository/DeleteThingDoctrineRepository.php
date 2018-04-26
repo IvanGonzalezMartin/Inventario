@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\DeleteThingDoctrineRepository;
 
 use App\Entity\DeleteThing;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method DeleteThing[]    findAll()
  * @method DeleteThing[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DeleteThingRepository extends ServiceEntityRepository
+class DeleteThingDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

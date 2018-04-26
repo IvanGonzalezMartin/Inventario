@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Entity\OrderEntityDoctrineRepository;
 
 use App\Entity\OrderDetails;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method OrderDetails[]    findAll()
  * @method OrderDetails[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class OrderEntityRepository extends ServiceEntityRepository
+class OrderEntityDoctrineRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
