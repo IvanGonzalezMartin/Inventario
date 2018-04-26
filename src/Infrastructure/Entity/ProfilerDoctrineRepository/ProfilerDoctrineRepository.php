@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ProfilerSizes;
+use App\Entity\Profiler;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method ProfilerSizes|null find($id, $lockMode = null, $lockVersion = null)
- * @method ProfilerSizes|null findOneBy(array $criteria, array $orderBy = null)
- * @method ProfilerSizes[]    findAll()
- * @method ProfilerSizes[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Profiler|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Profiler|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Profiler[]    findAll()
+ * @method Profiler[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProfilerSizesRepository extends ServiceEntityRepository
+class ProfilerRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, ProfilerSizes::class);
+        parent::__construct($registry, Profiler::class);
     }
 
 //    /**
-//     * @return ProfilerSizes[] Returns an array of ProfilerSizes objects
+//     * @return Profiler[] Returns an array of Profiler objects
 //     */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ProfilerSizesRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ProfilerSizes
+    public function findOneBySomeField($value): ?Profiler
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')
