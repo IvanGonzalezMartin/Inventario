@@ -4,7 +4,7 @@ namespace App\Infrastructure\Model\ClotheDoctrineRepository;
 
 
 use App\Domain\Model\Clothe\Clothe;
-use App\Domain\Model\Clothe\ClotheInterfaceRepository;
+use App\Domain\Model\Clothe\ClotheRepository;
 use Doctrine\ORM\EntityRepository;
 
 
@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityRepository;
  * @method Clothe[]    findAll()
  * @method Clothe[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ClotheDoctrineRepository extends EntityRepository implements ClotheInterfaceRepository
+class ClotheDoctrineRepository extends EntityRepository implements ClotheRepository
 {
 
 //    /**

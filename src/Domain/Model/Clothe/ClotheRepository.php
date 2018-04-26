@@ -9,7 +9,7 @@
 namespace App\Domain\Model\Clothe;
 
 
-interface ClotheInterfaceRepository
+interface ClotheRepository
 {
 
 }
