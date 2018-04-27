@@ -2,10 +2,11 @@
 
 namespace App\Domain\Model\Role;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\RoleDoctrineRepository\RoleDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\RoleDoctrineRepository\RoleDoctrineRepository")
  */
 class Role
 {
@@ -27,7 +28,7 @@ class Role
     private $description;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
 
@@ -60,13 +61,25 @@ class Role
         return $this;
     }
 
-    public function getDeleteID(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteID(?int $deleteID): self
+    /**
+     * @param string $deleteID
+     * @return Role
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteID(string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;

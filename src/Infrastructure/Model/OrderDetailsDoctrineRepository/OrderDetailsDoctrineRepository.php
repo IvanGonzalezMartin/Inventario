@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Model\OrderEntityDoctrineRepository;
+namespace App\Infrastructure\Model\OrderDetailsDoctrineRepository;
 
 use App\Domain\Model\OrderDetails\OrderDetails;
 use App\Domain\Model\OrderDetails\OrderDetailsRepository;

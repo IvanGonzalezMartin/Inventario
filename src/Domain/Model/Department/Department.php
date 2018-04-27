@@ -2,10 +2,11 @@
 
 namespace App\Domain\Model\Department;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\DepartmentDoctrineRepository\DepartmentDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\DepartmentDoctrineRepository\DepartmentDoctrineRepository")
  */
 class Department
 {
@@ -17,7 +18,7 @@ class Department
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $parentDepartmentID;
 
@@ -27,9 +28,22 @@ class Department
     private $name;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
+
+    /**
+     * Department constructor.
+     * @param string $id
+     * @param string $parentDepartmentID
+     * @param string $name
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct(int $parentDepartmentID, string $name)
+    {
+        $this->parentDepartmentID = $parentDepartmentID;
+        $this->name = $name;
+    }
 
     public function getId()
     {
@@ -60,13 +74,25 @@ class Department
         return $this;
     }
 
-    public function getDeleteID(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteID(?int $deleteID): self
+    /**
+     * @param null|string $deleteID
+     * @return Department
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteID(?string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;

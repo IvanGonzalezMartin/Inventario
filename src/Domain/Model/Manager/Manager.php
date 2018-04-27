@@ -2,17 +2,18 @@
 
 namespace App\Domain\Model\Manager;
 
+
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ManagerDoctrineRepository\ManagerDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\ManagerDoctrineRepository\ManagerDoctrineRepository")
  */
 class Manager
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $id;
 
@@ -47,9 +48,21 @@ class Manager
     private $email;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
+
+    /**
+     * Manager constructor.
+     * @param string $id
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct(string $id)
+    {
+        Assertion::uuid($id);
+
+        $this->id = $id;
+    }
 
     public function getId()
     {
@@ -128,13 +141,25 @@ class Manager
         return $this;
     }
 
-    public function getDeleteID(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteID(?int $deleteID): self
+    /**
+     * @param string $deleteID
+     * @return Manager
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteID(string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;

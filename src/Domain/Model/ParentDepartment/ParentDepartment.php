@@ -2,10 +2,11 @@
 
 namespace App\Domain\Model\ParentDepartment;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ParentDepartmentDoctrineRepository\ParentDepartmentDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\ParentDepartmentDoctrineRepository\ParentDepartmentDoctrineRepository")
  */
 class ParentDepartment
 {
@@ -22,9 +23,20 @@ class ParentDepartment
     private $name;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
+
+    /**
+     * ParentDepartment constructor.
+     * @param string $id
+     * @param string $name
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
 
     public function getId()
     {
@@ -43,13 +55,25 @@ class ParentDepartment
         return $this;
     }
 
-    public function getDeleteID(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteID(?int $deleteID): self
+    /**
+     * @param string $deleteID
+     * @return ParentDepartment
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteID(string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;

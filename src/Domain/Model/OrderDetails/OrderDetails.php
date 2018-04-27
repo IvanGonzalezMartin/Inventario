@@ -2,10 +2,11 @@
 
 namespace App\Domain\Model\OrderDetails;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\OrderDetailsDoctrineRepository\OrderDetailsDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\OrderDoctrineRepository\OrderDoctrineRepository")
  */
 class OrderDetails
 {
@@ -22,14 +23,29 @@ class OrderDetails
     private $clotheSizeStockID;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
     private $orderID;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
+
+    /**
+     * OrderDetails constructor.
+     * @param string $clotheSizeStockID
+     * @param string $orderID
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct(string $clotheSizeStockID, string $orderID)
+    {
+        Assertion::uuid($clotheSizeStockID);
+        Assertion::uuid($orderID);
+
+        $this->clotheSizeStockID = $clotheSizeStockID;
+        $this->orderID = $orderID;
+    }
 
     public function getId()
     {
@@ -48,25 +64,30 @@ class OrderDetails
         return $this;
     }
 
-    public function getOrderID(): ?int
+    public function getOrderID(): ?string
     {
         return $this->orderID;
     }
 
-    public function setOrderID(int $orderID): self
+    public function isNotDeleted(): bool
     {
-        $this->orderID = $orderID;
+        $statment = false;
 
-        return $this;
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function getDeleteID(): ?int
+    /**
+     * @param string $deleteID
+     * @return OrderDetails
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteID(string $deleteID): self
     {
-        return $this->deleteID;
-    }
+        Assertion::uuid($deleteID);
 
-    public function setDeleteID(?int $deleteID): self
-    {
         $this->deleteID = $deleteID;
 
         return $this;

@@ -2,22 +2,22 @@
 
 namespace App\Domain\Model\Order;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\OrderDoctrineRepository\OrderDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\OrderDoctrineRepository\OrderDoctrineRepository")
  */
 class Order
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $id;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
     private $userID;
 
@@ -26,46 +26,47 @@ class Order
      */
     private $date;
 
-    public function __construct()
-    {
-        $this->date = date("Y-m-d H:i:s") ;
-    }
-
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $dresciption;
+    private $description;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deliveryID;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
 
+
     /**
      * Order constructor.
-     * @param $date
+     * @param string $id
+     * @param string $userId
+     * @throws \Assert\AssertionFailedException
      */
+    public function __construct(string $id, string $userId)
+    {
+
+        Assertion::uuid($id);
+        Assertion::uuid($userId);
+
+        $this->id = $id;
+        $this->userID = $userId;
+        $this->date = new \DateTime() ;
+    }
 
     public function getId()
     {
         return $this->id;
     }
 
-    public function getUserID(): ?int
+    public function getUserID(): ?string
     {
         return $this->userID;
-    }
-
-    public function setUserID(int $userID): self
-    {
-        $this->userID = $userID;
-
-        return $this;
     }
 
     public function getDate(): ?\DateTimeInterface
@@ -73,44 +74,56 @@ class Order
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function getDescription(): ?string
     {
-        $this->date = $date;
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
 
-    public function getDresciption(): ?string
-    {
-        return $this->dresciption;
-    }
-
-    public function setDresciption(?string $dresciption): self
-    {
-        $this->dresciption = $dresciption;
-
-        return $this;
-    }
-
-    public function getDeliveryId(): ?int
+    public function getDeliveryId(): ?string
     {
         return $this->deliveryID;
     }
 
-    public function setDeliveryId(?int $deliveryID): self
+    /**
+     * @param null|string $deliveryID
+     * @return Order
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeliveryId(?string $deliveryID): self
     {
+        Assertion::uuid($deliveryID);
+
         $this->deliveryID = $deliveryID;
 
         return $this;
     }
 
-    public function getDeleteId(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteId(?int $deleteID): self
+    /**
+     * @param string $deleteID
+     * @return Order
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteID(string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;

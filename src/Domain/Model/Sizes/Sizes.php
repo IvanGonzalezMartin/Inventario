@@ -2,10 +2,11 @@
 
 namespace App\Domain\Model\Sizes;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\SizesDoctrineRepository\SizesDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\SizesDoctrineRepository\SizesDoctrineRepository")
  */
 class Sizes
 {
@@ -27,9 +28,15 @@ class Sizes
     private $sizeTypeID;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
+
+    public function __construct(string $size, int $sizeTypeID)
+    {
+        $this->size = $size;
+        $this->sizeTypeID = $sizeTypeID;
+    }
 
     public function getId()
     {
@@ -53,20 +60,25 @@ class Sizes
         return $this->sizeTypeID;
     }
 
-    public function setSizeTypeId(int $sizeTypeID): self
+    public function isNotDeleted(): bool
     {
-        $this->SizeTypeID = $sizeTypeID;
+        $statment = false;
 
-        return $this;
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function getDeleteId(): ?int
+    /**
+     * @param string $deleteID
+     * @return Sizes
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteID(string $deleteID): self
     {
-        return $this->deleteID;
-    }
+        Assertion::uuid($deleteID);
 
-    public function setDeleteId(?int $deleteID): self
-    {
         $this->deleteID = $deleteID;
 
         return $this;

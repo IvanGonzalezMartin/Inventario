@@ -2,6 +2,7 @@
 
 namespace App\Domain\Model\Clothe;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,16 +12,14 @@ class Clothe
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $id;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
     private $clotheCategoryID;
-
 
 
     /**
@@ -44,22 +43,41 @@ class Clothe
     private $genderID;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
+
+    /**
+     * Clothe constructor.
+     * @param $id
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct($id)
+    {
+        Assertion::uuid($id);
+
+        $this->id = $id;
+    }
 
     public function getId()
     {
         return $this->id;
     }
 
-    public function getClotheCategoryId(): ?int
+    public function getClotheCategoryId(): ?string
     {
         return $this->clotheCategoryID;
     }
 
-    public function setClotheCategoryId(int $clotheCategoryID): self
+    /**
+     * @param string $clotheCategoryID
+     * @return Clothe
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setClotheCategoryId(string $clotheCategoryID): self
     {
+        Assertion::uuid($clotheCategoryID);
+
         $this->clotheCategoryID = $clotheCategoryID;
 
         return $this;
@@ -113,13 +131,25 @@ class Clothe
         return $this;
     }
 
-    public function getDeleteId(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteId(?int $deleteID): self
+    /**
+     * @param null|string $deleteID
+     * @return Clothe
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteId(?string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;

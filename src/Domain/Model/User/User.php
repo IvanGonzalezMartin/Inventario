@@ -2,17 +2,17 @@
 
 namespace App\Domain\Model\User;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\UserDoctrineRepository\UserDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\UserDoctrineRepository\UserDoctrineRepository")
  */
 class User
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $id;
 
@@ -30,6 +30,11 @@ class User
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $photo;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $telephone;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -59,15 +64,15 @@ class User
     /**
      * @ORM\Column(type="integer")
      */
-    private $profilerSizesID;
+    private $profilerDetailsID;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
     private $contractID;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
 
@@ -172,37 +177,56 @@ class User
         return $this;
     }
 
-    public function getProfilerSizesID(): ?int
+    public function getProfilerDetailsID(): ?int
     {
-        return $this->profilerSizesID;
+        return $this->profilerDetailsID;
     }
 
-    public function setProfilerSizesID(int $profilerSizesID): self
+    public function setProfilerDetailsID(int $profilerSizesID): self
     {
-        $this->profilerSizesID = $profilerSizesID;
+        $this->profilerDetailsID = $profilerSizesID;
 
         return $this;
     }
 
-    public function getContractID(): ?int
+    public function getContractID(): ?string
     {
         return $this->contractID;
     }
 
-    public function setContractID(int $contractID): self
+    /**
+     * @param string $contractID
+     * @return User
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setContractID(string $contractID): self
     {
+        Assertion::uuid($contractID);
+
         $this->contractID = $contractID;
 
         return $this;
     }
 
-    public function getDeleteID(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteID(?int $deleteID): self
+    /**
+     * @param string $deleteID
+     * @return User
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteID(string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;

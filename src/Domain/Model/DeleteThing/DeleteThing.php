@@ -2,22 +2,22 @@
 
 namespace App\Domain\Model\DeleteThing;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\DeleteThingDoctrineRepository\DeleteThingDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\DeleteThingDoctrineRepository\DeleteThingDoctrineRepository")
  */
 class DeleteThing
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $deleteThingID;
 
@@ -27,12 +27,12 @@ class DeleteThing
     private $nameOfThing;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $managerID;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $userID;
 
@@ -46,6 +46,25 @@ class DeleteThing
      */
     private $description;
 
+    /**
+     * DeleteThing constructor.
+     * @param string $id
+     * @param string $deleteThingID
+     * @param string $nameOfThing
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct(string $id, string $deleteThingID, string $nameOfThing)
+    {
+
+        Assertion::uuid($id);
+        Assertion::uuid($deleteThingID);
+
+        $this->id = $id;
+        $this->deleteThingID = $deleteThingID;
+        $this->nameOfThing = $nameOfThing;
+        $this->date = date("Y-m-d H:i:s");
+    }
+
     public function getId()
     {
         return $this->id;
@@ -56,23 +75,9 @@ class DeleteThing
         return $this->deleteThingID;
     }
 
-    public function setDeleteThingID(int $deleteThingID): self
-    {
-        $this->deleteThingID = $deleteThingID;
-
-        return $this;
-    }
-
     public function getNameOfThing(): ?string
     {
         return $this->nameOfThing;
-    }
-
-    public function setNameOfThing(string $nameOfThing): self
-    {
-        $this->nameOfThing = $nameOfThing;
-
-        return $this;
     }
 
     public function getManagerID(): ?int
@@ -80,20 +85,34 @@ class DeleteThing
         return $this->managerID;
     }
 
-    public function setManagerID(?int $managerID): self
+    /**
+     * @param null|string $managerID
+     * @return DeleteThing
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setManagerID(?string $managerID): self
     {
+        Assertion::uuid($managerID);
+
         $this->managerID = $managerID;
 
         return $this;
     }
 
-    public function getUserID(): ?int
+    public function getUserID(): ?string
     {
         return $this->userID;
     }
 
-    public function setUserID(?int $userID): self
+    /**
+     * @param null|string $userID
+     * @return DeleteThing
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setUserID(?string $userID): self
     {
+        Assertion::uuid($userID);
+
         $this->userID = $userID;
 
         return $this;
@@ -104,12 +123,6 @@ class DeleteThing
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {

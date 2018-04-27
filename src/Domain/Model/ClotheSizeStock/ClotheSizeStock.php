@@ -2,10 +2,11 @@
 
 namespace App\Domain\Model\ClotheSizeStock;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ClotheSizeStockDoctrineRepository\ClotheSizeStockDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\ClotheSizeStockDoctrineRepository\ClotheSizeStockDoctrineRepository")
  */
 class ClotheSizeStock
 {
@@ -17,7 +18,7 @@ class ClotheSizeStock
     private $id;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
     private $clotheID;
 
@@ -27,30 +28,39 @@ class ClotheSizeStock
     private $sizeID;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $stock;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
+
+    /**
+     * ClotheSizeStock constructor.
+     * @param string $clotheID
+     * @param int $sizeID
+     * @param string $id
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct(string $clotheID, int $sizeID)
+    {
+        Assertion::uuid($clotheID);
+
+        $this->ClotheID = $clotheID;
+        $this->sizeID = $sizeID;
+
+    }
 
     public function getId()
     {
         return $this->id;
     }
 
-    public function getClotheId(): ?int
+    public function getClotheId(): ?string
     {
         return $this->clotheID;
-    }
-
-    public function setClotheId(int $clotheID): self
-    {
-        $this->ClotheID = $clotheID;
-
-        return $this;
     }
 
     public function getSizeId(): ?int
@@ -58,32 +68,38 @@ class ClotheSizeStock
         return $this->sizeID;
     }
 
-    public function setSizeId(int $sizeID): self
-    {
-        $this->sizeID = $sizeID;
 
-        return $this;
-    }
-
-    public function getRealStock(): ?string
+    public function getStock(): ?int
     {
         return $this->stock;
     }
 
-    public function setRealStock(?string $stock): self
+    public function setStock(?int $stock): self
     {
-        $this->stock = $stock;
+        $this->stock = $this->stock + $stock;
 
         return $this;
     }
 
-    public function getDeleteId(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteId(?int $deleteID): self
+    /**
+     * @param null|string $deleteID
+     * @return ClotheSizeStock
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteId(?string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;

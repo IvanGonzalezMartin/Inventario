@@ -2,10 +2,11 @@
 
 namespace App\Domain\Model\ProfilerDetails;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ProfilerDetailsDoctrineRepository\ProfilerDetailsDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\ProfilerDetailsDoctrineRepository\ProfilerDetailsDoctrineRepository")
  */
 class ProfilerDetails
 {
@@ -17,7 +18,7 @@ class ProfilerDetails
     private $id;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="integer")
      */
     private $profilerID;
 
@@ -27,9 +28,25 @@ class ProfilerDetails
     private $sizeID;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $clotheCategoryID;
+
+    /**
+     * ProfilerDetails constructor.
+     * @param int $profilerID
+     * @param int $sizeID
+     * @param string $clotheCategoryID
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct(int $profilerID, int $sizeID, string $clotheCategoryID)
+    {
+        Assertion::uuid($clotheCategoryID);
+
+        $this->profilerID = $profilerID;
+        $this->sizeID = $sizeID;
+        $this->clotheCategoryID = $clotheCategoryID;
+    }
 
     public function getId()
     {
@@ -41,23 +58,9 @@ class ProfilerDetails
         return $this->profilerID;
     }
 
-    public function setProfilerID(int $profilerID): self
-    {
-        $this->profilerID = $profilerID;
-
-        return $this;
-    }
-
     public function getSizeID(): ?int
     {
         return $this->sizeID;
-    }
-
-    public function setSizeID(int $sizeID): self
-    {
-        $this->sizeID = $sizeID;
-
-        return $this;
     }
 
     public function getClotheCategoryID(): ?int
@@ -65,10 +68,4 @@ class ProfilerDetails
         return $this->clotheCategoryID;
     }
 
-    public function setClotheCategoryID(int $clotheCategoryID): self
-    {
-        $this->clotheCategoryID = $clotheCategoryID;
-
-        return $this;
-    }
 }

@@ -2,10 +2,12 @@
 
 namespace App\Domain\Model\Gender;
 
+use Assert\Assertion;
+use Assert\AssertionFailedException;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\GenderDoctrineRepository\GenderDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\GenderDoctrineRepository\GenderDoctrineRepository")
  */
 class Gender
 {
@@ -17,14 +19,25 @@ class Gender
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
+
+    /**
+     * Gender constructor.
+     * @param string $id
+     * @param string $name
+     * @throws AssertionFailedException
+     */
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
 
     public function getId()
     {
@@ -43,13 +56,25 @@ class Gender
         return $this;
     }
 
-    public function getDeleteID(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteID(?int $deleteID): self
+    /**
+     * @param string $deleteID
+     * @return Gender
+     * @throws AssertionFailedException
+     */
+    public function setDeleteID(string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;

@@ -5,24 +5,19 @@ namespace App\Domain\Model\LogManager;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\LogManagerDoctrineRepository\LogManagerDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\LogManagerDoctrineRepository\LogManagerDoctrineRepository")
  */
 class LogManager
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
+     * @ORM\Id()
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $token;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
     private $managerID;
 
@@ -33,36 +28,19 @@ class LogManager
 
     public function __construct()
     {
-        $this->date = date("Y-m-d H:i:s") ;
+        $this->date = new \DateTime();
+        $this->date->add(\DateInterval::createFromDateString('+20 minutes'));
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getToken(): ?string
+    public function token(): ?string
     {
         return $this->token;
     }
 
-    public function setToken(string $token): self
-    {
-        $this->token = $token;
-
-        return $this;
-    }
 
     public function getManagerID(): ?int
     {
         return $this->managerID;
-    }
-
-    public function setManagerID(int $managerID): self
-    {
-        $this->managerID = $managerID;
-
-        return $this;
     }
 
     public function getDate(): ?\DateTimeInterface

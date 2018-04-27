@@ -2,17 +2,17 @@
 
 namespace App\Domain\Model\Contract;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\ContractDoctrineRepository\ContractDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\ContractDoctrineRepository\ContractDoctrineRepository")
  */
 class Contract
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $id;
 
@@ -22,7 +22,7 @@ class Contract
     private $startDate;
 
     /**
-     * @ORM\Column(type="integer",nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
     private $userID;
 
@@ -37,9 +37,24 @@ class Contract
     private $renovation;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
+
+    /**
+     * Contract constructor.
+     * @param string $userID
+     * @param string $id
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct(string $userID, string $id)
+    {
+        Assertion::uuid($id);
+        Assertion::uuid($userID);
+
+        $this->id = $id;
+        $this->userID = $userID;
+    }
 
     public function getId()
     {
@@ -58,16 +73,9 @@ class Contract
         return $this;
     }
 
-    public function getUserID(): ?int
+    public function getUserID(): ?string
     {
         return $this->userID;
-    }
-
-    public function setUserID(int $userID): self
-    {
-        $this->userID = $userID;
-
-        return $this;
     }
 
     public function getEndDate(): ?\DateTimeInterface
@@ -94,13 +102,25 @@ class Contract
         return $this;
     }
 
-    public function getDeleteID(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteID(?int $deleteID): self
+    /**
+     * @param null|string $deleteID
+     * @return Contract
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteID(?string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;

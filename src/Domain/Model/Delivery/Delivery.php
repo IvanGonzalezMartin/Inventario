@@ -2,27 +2,27 @@
 
 namespace App\Domain\Model\Delivery;
 
+use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\DeliveryDoctrineRepository\DeliveryDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\DeliveryDoctrineRepository\DeliveryDoctrineRepository")
  */
 class Delivery
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $orderID;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $managerID;
 
@@ -30,11 +30,6 @@ class Delivery
      * @ORM\Column(type="datetime")
      */
     private $date;
-
-    public function __construct()
-    {
-        $this->date = date("Y-m-d H:i:s") ;
-    }
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -47,34 +42,53 @@ class Delivery
     private $docSign;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
 
-    public function getId()
+    /**
+     * Delivery constructor.
+     * @param string $id
+     * @param string $orderID
+     * @param string $managerID
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct(string $id, string $orderID, string $managerID)
+    {
+        Assertion::uuid($id);
+        Assertion::uuid($orderID);
+        Assertion::uuid($managerID);
+
+        $this->id = $id;
+        $this->orderID = $orderID;
+        $this->managerID = $managerID;
+        $this->date = date("Y-m-d H:i:s") ;
+    }
+
+    public function getId(): string
     {
         return $this->id;
     }
 
-    public function getOrderID(): ?int
+    public function getOrderID(): string
     {
         return $this->orderID;
     }
 
-    public function setOrderID(int $orderID): self
-    {
-        $this->orderID = $orderID;
-
-        return $this;
-    }
-
-    public function getManagerID(): ?int
+    public function getManagerID(): string
     {
         return $this->managerID;
     }
 
-    public function setManagerID(int $managerID): self
+    /**
+     * @param string $managerID
+     * @return Delivery
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setManagerID(string $managerID): self
     {
+        Assertion::uuid($managerID);
+
         $this->managerID = $managerID;
 
         return $this;
@@ -83,13 +97,6 @@ class Delivery
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
     }
 
     public function getSign(): ?string
@@ -116,13 +123,25 @@ class Delivery
         return $this;
     }
 
-    public function getDeleteID(): ?int
+    public function isNotDeleted(): bool
     {
-        return $this->deleteID;
+        $statment = false;
+
+        if (null === $this->deleteID)
+            $statment = true;
+
+        return $statment;
     }
 
-    public function setDeleteID(?int $deleteID): self
+    /**
+     * @param null|string $deleteID
+     * @return Delivery
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setDeleteID(?string $deleteID): self
     {
+        Assertion::uuid($deleteID);
+
         $this->deleteID = $deleteID;
 
         return $this;
