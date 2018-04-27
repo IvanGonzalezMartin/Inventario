@@ -11,5 +11,5 @@ namespace App\Domain\Model\Role;
 
 interface RoleRepository
 {
-
+    public function insert(Role $role): void;
 }

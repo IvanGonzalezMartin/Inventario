@@ -15,32 +15,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class RoleDoctrineRepository extends EntityRepository implements RoleRepository
 {
-//    /**
-//     * @return Role[] Returns an array of Role objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param Role $article
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function insert(Role $role): void
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($role);
+        $entityManager->flush();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Role
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

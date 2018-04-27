@@ -19,9 +19,18 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Controller\:
+    App\Infrastructure\Controller\:
         resource: '../src/Infrastructure/Controller'
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    app.role_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - App\Domain\Model\Role\Role
+
+    App\Domain\Model\Role\RoleRepository:
+        alias: app.role_repository

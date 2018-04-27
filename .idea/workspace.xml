@@ -2,35 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfd3b616-4bec-4619-a6a6-9a9b2b56bb01" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/inventario.iml" afterPath="$PROJECT_DIR$/.idea/inventario.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Application/Role/Create/RoleCreate.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Domain/Services/Role/RoleCreator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Infrastructure/Controller/RoleController.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3c88f45b-d0aa-4c5a-bc2e-df61d5ac89a3.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/3c88f45b-d0aa-4c5a-bc2e-df61d5ac89a3.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Clothe/Clothe.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Clothe/Clothe.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/ClotheCategory/ClotheCategory.php" afterPath="$PROJECT_DIR$/src/Domain/Model/ClotheCategory/ClotheCategory.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/ClotheSizeStock/ClotheSizeStock.php" afterPath="$PROJECT_DIR$/src/Domain/Model/ClotheSizeStock/ClotheSizeStock.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Contract/Contract.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Contract/Contract.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/DeleteThing/DeleteThing.php" afterPath="$PROJECT_DIR$/src/Domain/Model/DeleteThing/DeleteThing.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Delivery/Delivery.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Delivery/Delivery.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Department/Department.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Department/Department.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Gender/Gender.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Gender/Gender.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/LogManager/LogManager.php" afterPath="$PROJECT_DIR$/src/Domain/Model/LogManager/LogManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Manager/Manager.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Manager/Manager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Order/Order.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Order/Order.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/OrderDetails/OrderDetails.php" afterPath="$PROJECT_DIR$/src/Domain/Model/OrderDetails/OrderDetails.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/ParentDepartment/ParentDepartment.php" afterPath="$PROJECT_DIR$/src/Domain/Model/ParentDepartment/ParentDepartment.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Profiler/Profiler.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Profiler/ProfilerRepository.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/ProfilerDetails/ProfilerDetails.php" afterPath="$PROJECT_DIR$/src/Domain/Model/ProfilerDetails/ProfilerDetails.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Role/Role.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Role/Role.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/SizeType/SizeType.php" afterPath="$PROJECT_DIR$/src/Domain/Model/SizeType/SizeType.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Sizes/Sizes.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Sizes/Sizes.php" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/User.php" afterPath="$PROJECT_DIR$/src/Domain/Model/User/User.php" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Model/OrderDetailsDoctrineRepository/OrderDetailsDoctrineRepository.php" afterPath="$PROJECT_DIR$/src/Infrastructure/Model/OrderDetailsDoctrineRepository/OrderDetailsDoctrineRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Model/ProfilerDoctrineRepository/ProfilerDoctrineRepository.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" afterPath="$PROJECT_DIR$/symfony.lock" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" afterPath="$PROJECT_DIR$/config/routes.yaml" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" afterPath="$PROJECT_DIR$/config/services.yaml" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php" afterPath="$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,76 +21,42 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="app.db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="app.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="app.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Gender.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/Gender/Gender.php">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="services.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/services.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-              <folding>
-                <element signature="e#43#64#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Manager.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/Manager/Manager.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2574">
-              <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="165" selection-end-column="5" />
-              <folding>
-                <element signature="e#45#66#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/Order/Order.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1926">
-              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="129" selection-end-column="5" />
-              <folding>
-                <element signature="e#42#63#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderDetails.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/OrderDetails/OrderDetails.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-              <folding>
-                <element signature="e#49#70#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParentDepartment.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/ParentDepartment/ParentDepartment.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-              <folding>
-                <element signature="e#53#74#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfilerDetails.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/ProfilerDetails/ProfilerDetails.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-              <folding>
-                <element signature="e#52#73#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="444">
+              <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,47 +64,94 @@
       <file leaf-file-name="Role.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/Role.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1134">
-              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="85" selection-end-column="5" />
+            <state relative-caret-position="162">
+              <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Controller/RoleController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="27" column="55" lean-forward="true" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
               <folding>
-                <element signature="e#41#62#0#PHP" expanded="true" />
+                <element signature="e#136#179#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sizes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/Sizes/Sizes.php">
+      <file leaf-file-name="role" pinned="false" current-in-tab="false">
+        <entry file="das://table:/4c8c5f0f/3c88f45b-d0aa-4c5a-bc2e-df61d5ac89a3/main.role">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleCreator.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Services/Role/RoleCreator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1116">
-              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="84" selection-end-column="5" />
+            <state relative-caret-position="234">
+              <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
               <folding>
-                <element signature="e#42#63#0#PHP" expanded="true" />
+                <element signature="e#131#162#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SizeType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/SizeType/SizeType.php">
+      <file leaf-file-name="RoleRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="108">
+              <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClotheCreator.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Services/Clothe/ClotheCreator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleCreate.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Role/Create/RoleCreate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
               <folding>
-                <element signature="e#45#66#0#PHP" expanded="true" />
+                <element signature="e#134#165#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/User/User.php">
+      <file leaf-file-name="RoleDoctrineRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3960">
-              <caret line="220" column="7" lean-forward="true" selection-start-line="220" selection-start-column="7" selection-end-line="220" selection-end-column="7" />
-              <folding>
-                <element signature="e#41#62#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="206">
+              <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntityRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-127">
+              <caret line="40" column="6" lean-forward="false" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -169,7 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Domain/Model/ClotheCategory/ClotheCategoryRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/ClotheCategoryDoctrineRepository/ClotheCategoryDoctrineRepository.php" />
         <option value="$PROJECT_DIR$/src/Domain/Model/ClotheSizeStock/ClorheSizeStockRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/ClotheSizeStockDoctrineRepository/ClotheSizeStockDoctrineRepository.php" />
@@ -188,7 +182,6 @@
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/ParentDepartmentDoctrineRepository/ParentDepartmentDoctrineRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/ProfilerDoctrineRepository/ProfilerDoctrineRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/ProfilerDetailsDoctrineRepository/ProfilerDetailsDoctrineRepository.php" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/SizesDoctrineRepository/SizesDoctrineRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/SizeTypeDoctrineRepository/SizeTypeDoctrineRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/UserDoctrineRepository/UserDoctrineRepository.php" />
@@ -213,6 +206,15 @@
         <option value="$PROJECT_DIR$/src/Domain/Model/User/User.php" />
         <option value="$PROJECT_DIR$/src/Domain/Model/ClotheSizeStock/ClotheSizeStock.php" />
         <option value="$PROJECT_DIR$/src/Domain/Model/OrderDetails/OrderDetails.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/config/routes.yaml" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Services/Role/RoleCreator.php" />
+        <option value="$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php" />
+        <option value="$PROJECT_DIR$/src/Application/Role/Create/RoleCreate.php" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Controller/RoleController.php" />
       </list>
     </option>
   </component>
@@ -227,10 +229,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7.2" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="20" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="820" />
+    <option name="x" value="459" />
+    <option name="width" value="1390" />
+    <option name="height" value="999" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -249,6 +250,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -264,42 +266,34 @@
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="packages" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Role" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Clothe" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Role" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Create" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ClotheCategory" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
@@ -307,87 +301,6 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ClotheSizeStock" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Contract" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DeleteThing" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Delivery" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Department" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Gender" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Manager" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Order" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="OrderDetails" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ParentDepartment" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ProfilerDetails" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
@@ -402,24 +315,23 @@
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Sizes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="SizeType" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Clothe" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="User" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Role" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
@@ -432,6 +344,13 @@
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -440,19 +359,18 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="OrderDetailsDoctrineRepository" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="RoleDoctrineRepository" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Blog" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -480,33 +398,34 @@
       <option name="presentableId" value="Default" />
       <updated>1524761027095</updated>
       <workItem from="1524761030387" duration="1298000" />
+      <workItem from="1524831953413" duration="2668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14942000" />
+    <option name="totallyTimeSpent" value="20253000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="956" height="1046" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24944568" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25186765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15848452" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -521,118 +440,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/ClotheCategoryDoctrineRepository/ClotheCategoryDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="92" lean-forward="false" selection-start-line="15" selection-start-column="92" selection-end-line="15" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/ClotheCategory/ClotheCategoryRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/ClotheSizeStock/ClotheSizeStockRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/ClotheSizeStockDoctrineRepository/ClotheSizeStockDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="82" lean-forward="true" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/ContractDoctrineRepository/ContractDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="75" lean-forward="true" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Contract/ContractRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/DeleteThingDoctrineRepository/DeleteThingDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="93" lean-forward="false" selection-start-line="15" selection-start-column="93" selection-end-line="15" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/DeliveryDoctrineRepository/DeliveryDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="75" lean-forward="true" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Delivery/DeliveryRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/DepartmentDoctrineRepository/DepartmentDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="91" lean-forward="false" selection-start-line="15" selection-start-column="91" selection-end-line="15" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/GenderDoctrineRepository/GenderDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="83" lean-forward="false" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/LogManager/LogManagerRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/LogManagerDoctrineRepository/LogManagerDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="75" lean-forward="false" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/LogUserDoctrineRepository/LogUserDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="85" lean-forward="false" selection-start-line="14" selection-start-column="85" selection-end-line="14" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Manager/ManagerRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/ManagerDoctrineRepository/ManagerDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="85" lean-forward="false" selection-start-line="15" selection-start-column="85" selection-end-line="15" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/OrderDoctrineRepository/OrderDoctrineRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -654,31 +461,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Profiler/ProfilerRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/ProfilerDoctrineRepository/ProfilerDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="76" lean-forward="true" selection-start-line="15" selection-start-column="76" selection-end-line="15" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Profiler/ProfilerRepository.php" />
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/ProfilerDoctrineRepository/ProfilerDoctrineRepository.php" />
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/ProfilerDetailsDoctrineRepository/ProfilerDetailsDoctrineRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="15" column="101" lean-forward="false" selection-start-line="15" selection-start-column="101" selection-end-line="15" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="79" lean-forward="false" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -755,22 +543,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Profiler/Profiler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Profiler/Profiler.php" />
     <entry file="file://$PROJECT_DIR$/src/Domain/Model/Clothe/Clothe.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
@@ -800,7 +573,7 @@
         <state relative-caret-position="288">
           <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
           <folding>
-            <element signature="e#45#66#0#PHP" expanded="true" />
+            <element signature="e#45#66#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -818,7 +591,7 @@
         <state relative-caret-position="2448">
           <caret line="136" column="35" lean-forward="true" selection-start-line="136" selection-start-column="35" selection-end-line="136" selection-end-column="35" />
           <folding>
-            <element signature="e#45#66#0#PHP" expanded="true" />
+            <element signature="e#45#66#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -828,7 +601,7 @@
         <state relative-caret-position="1008">
           <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
-            <element signature="e#47#68#0#PHP" expanded="true" />
+            <element signature="e#47#68#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -836,9 +609,9 @@
     <entry file="file://$PROJECT_DIR$/src/Domain/Model/Gender/Gender.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
-          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
           <folding>
-            <element signature="e#43#64#0#PHP" expanded="true" />
+            <element signature="e#43#64#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -848,7 +621,7 @@
         <state relative-caret-position="2574">
           <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="165" selection-end-column="5" />
           <folding>
-            <element signature="e#45#66#0#PHP" expanded="true" />
+            <element signature="e#45#66#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -858,27 +631,7 @@
         <state relative-caret-position="1926">
           <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="129" selection-end-column="5" />
           <folding>
-            <element signature="e#42#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/OrderDetails/OrderDetails.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-          <folding>
-            <element signature="e#49#70#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/ParentDepartment/ParentDepartment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="e#53#74#0#PHP" expanded="true" />
+            <element signature="e#42#63#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -886,19 +639,9 @@
     <entry file="file://$PROJECT_DIR$/src/Domain/Model/ProfilerDetails/ProfilerDetails.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
-          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
-            <element signature="e#52#73#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/Role.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="85" selection-end-column="5" />
-          <folding>
-            <element signature="e#41#62#0#PHP" expanded="true" />
+            <element signature="e#52#73#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -908,17 +651,7 @@
         <state relative-caret-position="1116">
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="84" selection-end-column="5" />
           <folding>
-            <element signature="e#42#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/SizeType/SizeType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#66#0#PHP" expanded="true" />
+            <element signature="e#42#63#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -926,9 +659,193 @@
     <entry file="file://$PROJECT_DIR$/src/Domain/Model/User/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3960">
-          <caret line="220" column="7" lean-forward="true" selection-start-line="220" selection-start-column="7" selection-end-line="220" selection-end-column="7" />
+          <caret line="220" column="7" lean-forward="false" selection-start-line="220" selection-start-column="7" selection-end-line="220" selection-end-column="7" />
           <folding>
-            <element signature="e#41#62#0#PHP" expanded="true" />
+            <element signature="e#41#62#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4c8c5f0f/3c88f45b-d0aa-4c5a-bc2e-df61d5ac89a3/main.user_entity">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4c8c5f0f/3c88f45b-d0aa-4c5a-bc2e-df61d5ac89a3/main.clothes_entity">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Model/SizeType/SizeType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#45#66#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Model/ParentDepartment/ParentDepartment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="e#53#74#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Model/OrderDetails/OrderDetails.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+          <folding>
+            <element signature="e#49#70#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/routing.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Clothe/Creator/ClotheCreate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="25" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Clothe/Creator/ClotheCreateCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Services/Clothe/ClotheCreator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-127">
+          <caret line="40" column="6" lean-forward="false" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Services/Role/RoleCreator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding>
+            <element signature="e#131#162#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4c8c5f0f/3c88f45b-d0aa-4c5a-bc2e-df61d5ac89a3/main.role">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Role/Create/RoleCreate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding>
+            <element signature="e#134#165#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/Role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Controller/RoleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="27" column="55" lean-forward="true" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+          <folding>
+            <element signature="e#136#179#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
