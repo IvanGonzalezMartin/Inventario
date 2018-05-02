@@ -11,5 +11,5 @@ namespace App\Domain\Model\ParentDepartment;
 
 interface ParentDepartmentRepository
 {
-
+    public function insert(ParentDepartment $parentDepartment): void;
 }

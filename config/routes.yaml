@@ -3,3 +3,13 @@ CreateRol:
     controller: App\Infrastructure\Controller\RoleController::createRole
     methods: [GET]
 
+CreateDepartment:
+    path: /Department/create/
+    controller: App\Infrastructure\Controller\DepartmentController::createDepartment
+    methods: [GET]
+
+CreateParentDepartment:
+    path: /ParentDepartment/create/
+    controller: App\Infrastructure\Controller\ParentDepartamentController::CreateParentDepartment
+    methods: [GET]
+
