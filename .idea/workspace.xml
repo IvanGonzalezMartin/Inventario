@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfd3b616-4bec-4619-a6a6-9a9b2b56bb01" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Application/Role/Create/RoleCreate.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Domain/Services/Role/RoleCreator.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Infrastructure/Controller/RoleController.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3c88f45b-d0aa-4c5a-bc2e-df61d5ac89a3.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/3c88f45b-d0aa-4c5a-bc2e-df61d5ac89a3.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Domain/Shared/StringValueObject.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/EventListener/ExceptionListener.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Infrastructure/Exceptions/ExceptionMappingRegistry.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Infrastructure/Utils/MyOwnHttpCodes.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" afterPath="$PROJECT_DIR$/config/routes.yaml" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" afterPath="$PROJECT_DIR$/config/services.yaml" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php" afterPath="$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php" afterPath="$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php" afterPath="$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Controller/RoleController.php" afterPath="$PROJECT_DIR$/src/Infrastructure/Controller/RoleController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,28 +51,18 @@
       <file leaf-file-name="services.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/services.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="458">
+              <caret line="37" column="40" lean-forward="false" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Role.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/Role.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoleController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RoleController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Controller/RoleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="27" column="55" lean-forward="true" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+            <state relative-caret-position="422">
+              <caret line="31" column="55" lean-forward="false" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
               <folding>
                 <element signature="e#136#179#0#PHP" expanded="true" />
               </folding>
@@ -83,74 +70,83 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="role" pinned="false" current-in-tab="false">
-        <entry file="das://table:/4c8c5f0f/3c88f45b-d0aa-4c5a-bc2e-df61d5ac89a3/main.role">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="StringValueObject.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Shared/StringValueObject.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RoleCreator.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Services/Role/RoleCreator.php">
+      <file leaf-file-name="ExceptionListener.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/EventListener/ExceptionListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+            <state relative-caret-position="332">
+              <caret line="27" column="61" lean-forward="true" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
               <folding>
-                <element signature="e#131#162#0#PHP" expanded="true" />
+                <element signature="e#122#166#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RoleRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php">
+      <file leaf-file-name="ExceptionMappingRegistry.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Exceptions/ExceptionMappingRegistry.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyOwnHttpCodes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Utils/MyOwnHttpCodes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1260">
+              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Response.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Response.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="82" column="0" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="82" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleCreateCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Assertion.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/beberlei/assert/lib/Assert/Assertion.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="646" column="27" lean-forward="false" selection-start-line="646" selection-start-column="27" selection-end-line="646" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
-              <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClotheCreator.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Services/Clothe/ClotheCreator.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoleCreate.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Role/Create/RoleCreate.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-              <folding>
-                <element signature="e#134#165#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoleDoctrineRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntityRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-127">
-              <caret line="40" column="6" lean-forward="false" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+              <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -164,10 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Infrastructure/Model/ClotheCategoryDoctrineRepository/ClotheCategoryDoctrineRepository.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Model/ClotheSizeStock/ClorheSizeStockRepository.php" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Model/ClotheSizeStockDoctrineRepository/ClotheSizeStockDoctrineRepository.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Model/Contract/ContractRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/ContractDoctrineRepository/ContractDoctrineRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/DeleteThingDoctrineRepository/DeleteThingDoctrineRepository.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/DeliveryDoctrineRepository/DeliveryDoctrineRepository.php" />
@@ -211,10 +203,14 @@
         <option value="$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php" />
         <option value="$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php" />
         <option value="$PROJECT_DIR$/src/Domain/Services/Role/RoleCreator.php" />
-        <option value="$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php" />
         <option value="$PROJECT_DIR$/src/Application/Role/Create/RoleCreate.php" />
-        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Exceptions/ExceptionMappingRegistry.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Utils/MyOwnHttpCodes.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Controller/RoleController.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Shared/StringValueObject.php" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/src/EventListener/ExceptionListener.php" />
       </list>
     </option>
   </component>
@@ -249,7 +245,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -293,45 +288,7 @@
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Role" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Clothe" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Role" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="EventListener" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
@@ -344,32 +301,18 @@
               <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Inventario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Inventario" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="RoleDoctrineRepository" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Utils" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RunDashboard">
@@ -398,26 +341,27 @@
       <option name="presentableId" value="Default" />
       <updated>1524761027095</updated>
       <workItem from="1524761030387" duration="1298000" />
-      <workItem from="1524831953413" duration="2668000" />
+      <workItem from="1524831953413" duration="2808000" />
+      <workItem from="1525241812964" duration="9399000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20253000" />
+    <option name="totallyTimeSpent" value="29792000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1050" extended-state="6" />
+    <frame x="-4" y="0" width="1928" height="1054" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25186765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25453576" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15848452" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.50426894" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.49573106" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -440,43 +384,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/OrderDoctrineRepository/OrderDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="81" lean-forward="false" selection-start-line="15" selection-start-column="81" selection-end-line="15" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/ParentDepartmentDoctrineRepository/ParentDepartmentDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="86" lean-forward="true" selection-start-line="15" selection-start-column="86" selection-end-line="15" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/ParentDepartment/ParentDepartmentRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Profiler/ProfilerRepository.php" />
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/ProfilerDoctrineRepository/ProfilerDoctrineRepository.php" />
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/ProfilerDetailsDoctrineRepository/ProfilerDetailsDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="101" lean-forward="false" selection-start-line="15" selection-start-column="101" selection-end-line="15" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/SizesDoctrineRepository/SizesDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="81" lean-forward="false" selection-start-line="15" selection-start-column="81" selection-end-line="15" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/SizeTypeDoctrineRepository/SizeTypeDoctrineRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -495,9 +402,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#75#122#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -513,7 +417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -521,7 +424,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="27" column="41" lean-forward="false" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -721,7 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,7 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -737,7 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="25" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,15 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,27 +663,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
+        <state relative-caret-position="360">
           <caret line="40" column="6" lean-forward="false" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Role/Create/RoleCreate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding>
+            <element signature="e#134#165#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -802,7 +686,7 @@
         <state relative-caret-position="234">
           <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
           <folding>
-            <element signature="e#131#162#0#PHP" expanded="true" />
+            <element signature="e#131#162#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -814,38 +698,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/Role.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        <state relative-caret-position="450">
+          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Role/Create/RoleCreate.php">
+    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/RoleRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding>
-            <element signature="e#134#165#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="108">
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Model/Role/Role.php">
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Model/RoleDoctrineRepository/RoleDoctrineRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        <state relative-caret-position="368">
+          <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/beberlei/assert/lib/Assert/Assertion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="646" column="27" lean-forward="false" selection-start-line="646" selection-start-column="27" selection-end-line="646" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="37" column="40" lean-forward="false" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="82" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Controller/RoleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="27" column="55" lean-forward="true" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+        <state relative-caret-position="422">
+          <caret line="31" column="55" lean-forward="false" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
           <folding>
             <element signature="e#136#179#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Shared/StringValueObject.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Role/Create/RoleCreateCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Exceptions/ExceptionMappingRegistry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Utils/MyOwnHttpCodes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EventListener/ExceptionListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="27" column="61" lean-forward="true" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+          <folding>
+            <element signature="e#122#166#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

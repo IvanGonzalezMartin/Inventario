@@ -9,14 +9,25 @@
 namespace App\Application\Role\Create;
 
 
+use Assert\Assertion;
+
 class RoleCreateCommand
 {
 
     private $name;
     private $description;
 
-    public function __construct(string $name, string $description)
+    /**
+     * RoleCreateCommand constructor.
+     * @param $name
+     * @param null|string $description
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct($name, ?string $description)
     {
+        Assertion::string($name);
+        Assertion::notNull($name);
+
         $this->name = $name;
         $this->description = $description;
     }
@@ -32,7 +43,7 @@ class RoleCreateCommand
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
