@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 class RoleController
 {
     private $roleCreate;
+
     public function __construct(RoleCreate $roleCreate)
     {
         $this->roleCreate = $roleCreate;
@@ -28,8 +29,8 @@ class RoleController
         $name = $request->query->get('name');
         $description = $request->query->get('description');
         $roleCreateCommand = new RoleCreateCommand($name, $description);
-
         $this->roleCreate->handler($roleCreateCommand);
+
         return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
     }
 }

@@ -16,6 +16,8 @@ class RoleCreateCommand
 
     private $name;
     private $description;
+    const STRING_ARGUMENT_EXCEPTION = 'The name field must be string without numbers or characters';
+    const EMPTY_ARGUMENT_EXCEPTION = 'The name field should not be empty';
 
     /**
      * RoleCreateCommand constructor.
@@ -25,8 +27,9 @@ class RoleCreateCommand
      */
     public function __construct($name, ?string $description)
     {
-        Assertion::string($name);
-        Assertion::notNull($name);
+
+        Assertion::notNull($name, self::EMPTY_ARGUMENT_EXCEPTION);
+        Assertion::regex($name, "/^[a-zA-Z ]*$/",self::STRING_ARGUMENT_EXCEPTION);
 
         $this->name = $name;
         $this->description = $description;

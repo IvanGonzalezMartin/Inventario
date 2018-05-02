@@ -2,6 +2,7 @@
 
 namespace App\Domain\Model\Role;
 
+use App\Domain\Model\Role\Exceptions\RolNameException;
 use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Role
 {
-    const MAX_LENGTH_NAME = 4;
+    const MAX_LENGTH_NAME = 5;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

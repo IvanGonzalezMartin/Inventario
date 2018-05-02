@@ -6,7 +6,7 @@
  * Time: 11:46
  */
 
-namespace App\Domain\Model\Role;
+namespace App\Domain\Model\Role\Exceptions;
 
 
 use App\Domain\Shared\Exceptions\DomainError;
