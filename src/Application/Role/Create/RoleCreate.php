@@ -24,8 +24,7 @@ class RoleCreate
 
     public function handler(RoleCreateCommand $roleCreateCommand)
     {
-        $role = new Role();
-        $role->setName($roleCreateCommand->getName());
+        $role = new Role($roleCreateCommand->getName());
         $role->setDescription($roleCreateCommand->getDescription());
         $this->roleCreator->__invoke($role);
     }

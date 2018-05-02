@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Role
 {
+    const MAX_LENGTH_NAME = 4;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -32,6 +33,11 @@ class Role
      */
     private $deleteID;
 
+    public function __construct($name)
+    {
+        $this->setName($name);
+    }
+
     public function getId()
     {
         return $this->id;
@@ -44,6 +50,9 @@ class Role
 
     public function setName(string $name): self
     {
+        if (self::MAX_LENGTH_NAME > strlen($name))
+            throw new RolNameException(self::MAX_LENGTH_NAME);
+
         $this->name = $name;
 
         return $this;

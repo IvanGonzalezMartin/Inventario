@@ -9,6 +9,7 @@
 namespace App\EventListener;
 
 
+use App\Domain\Shared\Exceptions\DomainError;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use Assert\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -28,6 +29,9 @@ class ExceptionListener
         if ($exception instanceof InvalidArgumentException) {
             $response->setStatusCode(MyOwnHttpCodes::HTTP_BAD_REQUEST);
             $response->setData([self::INVALID_ARGUMENT_EXCEPTION]);
+        }else if ($exception instanceof DomainError) {
+        $response->setStatusCode($exception->statusCode());
+        $response->setData(['message' => $exception->statusMessage()]);
         }
 
         $event->setResponse($response);
