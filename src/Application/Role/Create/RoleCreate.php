@@ -14,7 +14,6 @@ use App\Domain\Services\Role\RoleCreator;
 
 class RoleCreate
 {
-
     private $roleCreator;
 
     public function __construct(RoleCreator $roleCreator)
@@ -24,8 +23,8 @@ class RoleCreate
 
     public function handler(RoleCreateCommand $roleCreateCommand)
     {
-        $role = new Role($roleCreateCommand->getName());
-        $role->setDescription($roleCreateCommand->getDescription());
+        $role = new Role($roleCreateCommand->name());
+        $role->setDescription($roleCreateCommand->description());
         $this->roleCreator->__invoke($role);
     }
 }

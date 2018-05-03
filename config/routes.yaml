@@ -3,3 +3,8 @@ CreateRol:
     controller: App\Infrastructure\Controller\RoleController::createRole
     methods: [GET]
 
+UpdateRol:
+    path: /Role/update/
+    controller: App\Infrastructure\Controller\RoleController::updateRole
+    methods: [GET]
+

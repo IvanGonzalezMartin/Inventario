@@ -9,7 +9,16 @@
 namespace App\Domain\Model\Role;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 interface RoleRepository
 {
     public function insert(Role $role): void;
+
+    /**
+     * @param $id
+     * @return Role
+     */
+    public function getRolById($id);
+    public function updateAll(): void;
 }

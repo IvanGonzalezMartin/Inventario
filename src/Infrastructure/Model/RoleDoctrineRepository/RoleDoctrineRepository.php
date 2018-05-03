@@ -26,4 +26,18 @@ class RoleDoctrineRepository extends EntityRepository implements RoleRepository
         $entityManager->persist($role);
         $entityManager->flush();
     }
+
+    public function getRolById($id)
+    {
+        return $this->findOneBy(['id' => $id]);
+    }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function updateAll(): void
+    {
+        $this->getEntityManager()->flush();
+    }
 }

@@ -11,6 +11,8 @@ namespace App\Infrastructure\Controller;
 
 use App\Application\Role\Create\RoleCreate;
 use App\Application\Role\Create\RoleCreateCommand;
+use App\Application\Role\Update\RoleUpdate;
+use App\Application\Role\Update\RoleUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,10 +20,11 @@ use Symfony\Component\HttpFoundation\Request;
 class RoleController
 {
     private $roleCreate;
-
-    public function __construct(RoleCreate $roleCreate)
+    private $roleUpdate;
+    public function __construct(RoleCreate $roleCreate, RoleUpdate $roleUpdate)
     {
         $this->roleCreate = $roleCreate;
+        $this->roleUpdate = $roleUpdate;
     }
 
     public function createRole(Request $request)
@@ -33,4 +36,18 @@ class RoleController
 
         return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
     }
+
+    public function updateRole(Request $request)
+    {
+        $rolID = $request->query->get('rolID');
+        $name = $request->query->get('name');
+        $description = $request->query->get('description');
+
+        $roleUpdateCommand = new RoleUpdateCommand($rolID, $name, $description);
+        $this->roleUpdate->handler($roleUpdateCommand);
+
+        return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
+    }
+
+
 }

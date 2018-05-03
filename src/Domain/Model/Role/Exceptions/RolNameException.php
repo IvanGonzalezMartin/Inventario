@@ -17,6 +17,7 @@ class RolNameException extends DomainError
     const START_MESSAGE = 'Role name must have more than ';
     const END_MESSAGE = ' letters';
     private $maxLength;
+
     public function __construct(int $maxLength)
     {
         $this->maxLength = $maxLength;
