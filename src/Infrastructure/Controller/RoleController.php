@@ -25,11 +25,11 @@ class RoleController
     private $roleUpdate;
     private $roleAll;
 
-    public function __construct(RoleCreate $roleCreate, RoleUpdate $roleUpdate, RoleAll $rolesAll)
+    public function __construct(RoleCreate $roleCreate, RoleUpdate $roleUpdate, RoleAll $roleAll)
     {
         $this->roleCreate = $roleCreate;
         $this->roleUpdate = $roleUpdate;
-        $this->roleAll = $rolesAll;
+        $this->roleAll = $roleAll;
     }
 
     public function createRole(Request $request)

@@ -11,7 +11,7 @@ namespace App\Domain\Services\Role;
 
 use App\Domain\Model\Role\RoleRepository;
 
-class RolesAll
+class RoleAllService
 {
     private $repository;
 

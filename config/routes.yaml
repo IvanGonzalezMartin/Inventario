@@ -13,3 +13,7 @@ AllRoles:
     controller: App\Infrastructure\Controller\RoleController::all
     methods: [GET]
 
+CheckNickName:
+    path: /Manager/checkNickName/
+    controller: App\Infrastructure\Controller\ManagerController::checkNickName
+    methods: [GET]

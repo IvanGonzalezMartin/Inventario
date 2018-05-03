@@ -10,13 +10,13 @@ namespace App\Application\Role\Create;
 
 
 use App\Domain\Model\Role\Role;
-use App\Domain\Services\Role\RoleCreator;
+use App\Domain\Services\Role\RoleCreatorService;
 
 class RoleCreate
 {
     private $roleCreator;
 
-    public function __construct(RoleCreator $roleCreator)
+    public function __construct(RoleCreatorService $roleCreator)
     {
         $this->roleCreator = $roleCreator;
     }

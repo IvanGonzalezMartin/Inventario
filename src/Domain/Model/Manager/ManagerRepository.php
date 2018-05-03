@@ -11,5 +11,9 @@ namespace App\Domain\Model\Manager;
 
 interface ManagerRepository
 {
-
+    /**
+     * @param string $nickName
+     * @return Manager
+     */
+    public function getManagerByName($nickName);
 }
