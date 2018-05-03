@@ -40,4 +40,9 @@ class RoleDoctrineRepository extends EntityRepository implements RoleRepository
     {
         $this->getEntityManager()->flush();
     }
+
+    public function getAll()
+    {
+        return $this->findAll();
+    }
 }

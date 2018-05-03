@@ -19,6 +19,11 @@ class DeleteThing
     /**
      * @ORM\Column(type="string", length=50)
      */
+    private $deleteID;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
     private $deleteThingID;
 
     /**
@@ -53,13 +58,14 @@ class DeleteThing
      * @param string $nameOfThing
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(string $id, string $deleteThingID, string $nameOfThing)
+    public function __construct(string $id, string $deleteID, string $deleteThingID, string $nameOfThing)
     {
 
         Assertion::uuid($id);
         Assertion::uuid($deleteThingID);
 
         $this->id = $id;
+        $this->deleteID = $deleteID;
         $this->deleteThingID = $deleteThingID;
         $this->nameOfThing = $nameOfThing;
         $this->date = date("Y-m-d H:i:s");
@@ -68,6 +74,14 @@ class DeleteThing
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeleteID()
+    {
+        return $this->deleteID;
     }
 
     public function getDeleteThingID(): ?int

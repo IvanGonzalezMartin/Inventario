@@ -21,4 +21,5 @@ interface RoleRepository
      */
     public function getRolById($id);
     public function updateAll(): void;
+    public function getAll();
 }

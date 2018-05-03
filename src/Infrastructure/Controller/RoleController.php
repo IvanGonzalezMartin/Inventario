@@ -9,6 +9,8 @@
 namespace App\Infrastructure\Controller;
 
 
+use App\Application\Role\AllRoles\RoleAll;
+use App\Application\Role\AllRoles\RoleAllCommand;
 use App\Application\Role\Create\RoleCreate;
 use App\Application\Role\Create\RoleCreateCommand;
 use App\Application\Role\Update\RoleUpdate;
@@ -21,10 +23,13 @@ class RoleController
 {
     private $roleCreate;
     private $roleUpdate;
-    public function __construct(RoleCreate $roleCreate, RoleUpdate $roleUpdate)
+    private $roleAll;
+
+    public function __construct(RoleCreate $roleCreate, RoleUpdate $roleUpdate, RoleAll $rolesAll)
     {
         $this->roleCreate = $roleCreate;
         $this->roleUpdate = $roleUpdate;
+        $this->roleAll = $rolesAll;
     }
 
     public function createRole(Request $request)
@@ -47,6 +52,13 @@ class RoleController
         $this->roleUpdate->handler($roleUpdateCommand);
 
         return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
+    }
+
+    public function all()
+    {
+       $roles = $this->roleAll->handler(new RoleAllCommand());
+
+        return new JsonResponse($roles,MyOwnHttpCodes::HTTP_OK);
     }
 
 

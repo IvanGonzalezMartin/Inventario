@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Role
 {
-    const MAX_LENGTH_NAME = 5;
+    const MIN_LENGTH_NAME = 5;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -51,8 +51,8 @@ class Role
 
     public function setName(string $name): self
     {
-        if (self::MAX_LENGTH_NAME > strlen($name))
-            throw new RolNameException(self::MAX_LENGTH_NAME);
+        if (self::MIN_LENGTH_NAME > strlen($name))
+            throw new RolNameException(self::MIN_LENGTH_NAME);
 
         $this->name = $name;
 

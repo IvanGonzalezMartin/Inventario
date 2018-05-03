@@ -8,3 +8,8 @@ UpdateRol:
     controller: App\Infrastructure\Controller\RoleController::updateRole
     methods: [GET]
 
+AllRoles:
+    path: /Role/
+    controller: App\Infrastructure\Controller\RoleController::all
+    methods: [GET]
+
