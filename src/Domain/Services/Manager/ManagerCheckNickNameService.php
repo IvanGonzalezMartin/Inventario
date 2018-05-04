@@ -9,10 +9,10 @@
 namespace App\Domain\Services\Manager;
 
 
-use App\Domain\Model\Manager\Exceptions\NickNameManagerAllReadyExistsException;
+use App\Domain\Model\Manager\Exceptions\ManagerNickNameAlreadyExistsException;
 use App\Domain\Model\Manager\ManagerRepository;
 
-class CheckNickNameManagerService
+class ManagerCheckNickNameService
 {
     private $repository;
 
@@ -26,6 +26,6 @@ class CheckNickNameManagerService
         $manager = $this->repository->getManagerByName($nickName);
 
         if (false == empty($manager))
-            throw new NickNameManagerAllReadyExistsException($nickName);
+            throw new ManagerNickNameAlreadyExistsException($nickName);
     }
 }

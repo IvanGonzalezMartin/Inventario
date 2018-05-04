@@ -9,12 +9,20 @@
 namespace App\Application\Manager\CheckNickName;
 
 
-class CheckManagerNickNameCommand
+use Assert\Assertion;
+
+class ManagerCheckNickNameCommand
 {
     private $nickName;
 
-    public function __construct(string $nickName)
+    /**
+     * ManagerCheckNickNameCommand constructor.
+     * @param $nickName
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct($nickName)
     {
+        Assertion::notNull($nickName, "The nickName doesnt can be blank");
         $this->nickName = $nickName;
     }
 

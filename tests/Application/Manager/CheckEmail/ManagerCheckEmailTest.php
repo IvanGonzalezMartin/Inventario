@@ -41,18 +41,18 @@ class ManagerCheckEmailTest extends TestCase
 
         $this->expectException(ManagerEmailAlreadyExistsException::class);
 
-        $this->handle->handler(new ManagerCheckEmailCommand('dsfd'));
+        $this->handle->handler(new ManagerCheckEmailCommand('Email'));
     }
 
     /**
      * @test
      */
-    public function given_an_email_when_not_exist_then_exception()
+    public function given_an_email_when_not_exist_then_okay()
     {
         $this->stubRepository->method('getManagerByEmail')
             ->willReturn(null);
 
-        $this->handle->handler(new ManagerCheckEmailCommand('dsfd'));
+        $this->handle->handler(new ManagerCheckEmailCommand('nickName'));
 
         self::assertTrue(true);
     }

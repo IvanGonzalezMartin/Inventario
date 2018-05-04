@@ -11,8 +11,8 @@ namespace App\Infrastructure\Controller;
 
 use App\Application\Manager\CheckEmail\ManagerCheckEmail;
 use App\Application\Manager\CheckEmail\ManagerCheckEmailCommand;
-use App\Application\Manager\CheckNickName\CheckManagerNickName;
-use App\Application\Manager\CheckNickName\CheckManagerNickNameCommand;
+use App\Application\Manager\CheckNickName\ManagerCheckNickName;
+use App\Application\Manager\CheckNickName\ManagerCheckNickNameCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +22,7 @@ class ManagerController
     private $checkManagerNickName;
     private $managerCheckEmail;
 
-    public function __construct(CheckManagerNickName $checkManagerNickName, ManagerCheckEmail $managerCheckEmail)
+    public function __construct(ManagerCheckNickName $checkManagerNickName, ManagerCheckEmail $managerCheckEmail)
     {
         $this->checkManagerNickName = $checkManagerNickName;
         $this->managerCheckEmail = $managerCheckEmail;
@@ -32,8 +32,9 @@ class ManagerController
     {
 
         $nickName = $request->query->get('nickName');
-        $CheckManagerNickNameCommand = new CheckManagerNickNameCommand($nickName);
-        $this->checkManagerNickName->handler($CheckManagerNickNameCommand);
+
+        $managerCheckNickNameCommand = new ManagerCheckNickNameCommand($nickName);
+        $this->checkManagerNickName->handler($managerCheckNickNameCommand);
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }

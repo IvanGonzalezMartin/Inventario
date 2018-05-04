@@ -9,6 +9,8 @@
 namespace App\Application\Manager\CheckEmail;
 
 
+use Assert\Assertion;
+
 class ManagerCheckEmailCommand
 {
     private $email;
@@ -16,9 +18,11 @@ class ManagerCheckEmailCommand
     /**
      * ManagerCheckEmailCommand constructor.
      * @param $email
+     * @throws \Assert\AssertionFailedException
      */
     public function __construct($email)
     {
+        Assertion::notNull($email, "The Email doesnt can be blank");
         $this->email = $email;
     }
 

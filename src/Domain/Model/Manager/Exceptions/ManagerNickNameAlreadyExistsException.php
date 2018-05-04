@@ -11,7 +11,7 @@ namespace App\Domain\Model\Manager\Exceptions;
 use App\Domain\Shared\Exceptions\DomainError;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 
-class NickNameManagerAllReadyExistsException extends DomainError
+class ManagerNickNameAlreadyExistsException extends DomainError
 {
     const START_MESSAGE = 'NickName: ';
     const END_MESSAGE = ' All Ready Exists';
