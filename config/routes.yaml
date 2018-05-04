@@ -11,5 +11,14 @@ UpdateRol:
 AllRoles:
     path: /Role/
     controller: App\Infrastructure\Controller\RoleController::all
+
+CreateDepartment:
+    path: /Department/create/
+    controller: App\Infrastructure\Controller\DepartmentController::createDepartment
+    methods: [GET]
+
+CreateParentDepartment:
+    path: /ParentDepartment/create/
+    controller: App\Infrastructure\Controller\ParentDepartmentController::createParentDepartment
     methods: [GET]
 

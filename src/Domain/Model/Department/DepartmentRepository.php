@@ -11,5 +11,6 @@ namespace App\Domain\Model\Department;
 
 interface DepartmentRepository
 {
-
+    public function insert(Department $department): void;
+    public function findByName($name);
 }

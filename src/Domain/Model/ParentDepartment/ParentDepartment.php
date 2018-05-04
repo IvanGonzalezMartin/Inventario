@@ -2,6 +2,7 @@
 
 namespace App\Domain\Model\ParentDepartment;
 
+use App\Domain\Model\ParentDepartment\Exceptions\ParentDepartmentNameException;
 use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ParentDepartment
 {
+    const MIN_LENGTH_NAME = 5;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -35,7 +37,7 @@ class ParentDepartment
      */
     public function __construct(string $name)
     {
-        $this->name = $name;
+        $this->setName($name);
     }
 
     public function getId()
@@ -50,6 +52,10 @@ class ParentDepartment
 
     public function setName(string $name): self
     {
+        if (self::MIN_LENGTH_NAME > strlen($name)){
+            throw new ParentDepartmentNameException(self::MIN_LENGTH_NAME);
+        }
+
         $this->name = $name;
 
         return $this;

@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Model\ParentDepartmentDoctrineRepository;
 
+use App\Domain\Model\Department\DepartmentRepository;
 use App\Domain\Model\ParentDepartment\ParentDepartment;
 use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
 use Doctrine\ORM\EntityRepository;
@@ -15,33 +16,25 @@ use Doctrine\ORM\EntityRepository;
  */
 class ParentDepartmentDoctrineRepository extends EntityRepository implements ParentDepartmentRepository
 {
-
-//    /**
-//     * @return ParentDepartment[] Returns an array of ParentDepartment objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param ParentDepartment
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function insert(ParentDepartment $parentDepartment): void
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($parentDepartment);
+        $entityManager->flush();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?ParentDepartment
+    public function getParentDepartmentByID($id)
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+       return $this->findOneBy(["id" => $id]);
     }
-    */
+
+    public function findByName($name)
+    {
+        return $this->findOneBy(['name' => $name]);
+    }
 }

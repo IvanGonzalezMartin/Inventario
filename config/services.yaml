@@ -35,6 +35,24 @@ services:
     App\Domain\Model\Role\RoleRepository:
         alias: app.role_repository
 
+    app.department_repository:
+            class: Doctrine\ORM\EntityRepository
+            factory: ['@doctrine.orm.default_entity_manager', getRepository]
+            arguments:
+                - App\Domain\Model\Department\Department
+
+    App\Domain\Model\Department\DepartmentRepository:
+        alias: app.department_repository
+
+    app.parentDepartament_repository:
+            class: Doctrine\ORM\EntityRepository
+            factory: ['@doctrine.orm.default_entity_manager', getRepository]
+            arguments:
+                - App\Domain\Model\ParentDepartment\ParentDepartment
+
+    App\Domain\Model\ParentDepartment\ParentDepartmentRepository:
+            alias: app.parentDepartament_repository
+
     App\EventListener\ExceptionListener:
                 tags:
                     - { name: kernel.event_listener, event: kernel.exception }
