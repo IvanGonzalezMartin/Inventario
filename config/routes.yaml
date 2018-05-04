@@ -22,6 +22,11 @@ CreateParentDepartment:
     controller: App\Infrastructure\Controller\ParentDepartmentController::createParentDepartment
     methods: [GET]
 
+UpdateParentDepartment:
+    path: /ParentDepartment/update/
+    controller: App\Infrastructure\Controller\ParentDepartmentController::updateParentDepartment
+    methods: [GET]
+
 CheckNickName:
     path: /Manager/checkNickName/
     controller: App\Infrastructure\Controller\ManagerController::checkNickName

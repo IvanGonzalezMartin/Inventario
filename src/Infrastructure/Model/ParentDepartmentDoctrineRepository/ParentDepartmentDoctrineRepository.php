@@ -28,13 +28,30 @@ class ParentDepartmentDoctrineRepository extends EntityRepository implements Par
         $entityManager->flush();
     }
 
+    /**
+     * @param $id
+     * @return ParentDepartment|null
+     */
     public function getParentDepartmentByID($id)
     {
        return $this->findOneBy(["id" => $id]);
     }
 
+    /**
+     * @param $name
+     * @return ParentDepartment|null
+     */
     public function findByName($name)
     {
         return $this->findOneBy(['name' => $name]);
+    }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function updateAll()
+    {
+        $this->getEntityManager()->flush();
     }
 }

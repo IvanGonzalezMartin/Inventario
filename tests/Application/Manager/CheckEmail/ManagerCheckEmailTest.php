@@ -10,6 +10,7 @@ namespace App\Tests\Application\Manager\CheckEmail;
 
 use App\Application\Manager\CheckEmail\ManagerCheckEmail;
 use App\Application\Manager\CheckEmail\ManagerCheckEmailCommand;
+use App\Application\ParentDepartment\Create\ParentDepartmentCreateCommand;
 use App\Domain\Model\Manager\Exceptions\ManagerEmailAlreadyExistsException;
 use App\Domain\Model\Manager\Manager;
 use App\Domain\Model\Manager\ManagerRepository;
@@ -41,7 +42,7 @@ class ManagerCheckEmailTest extends TestCase
 
         $this->expectException(ManagerEmailAlreadyExistsException::class);
 
-        $this->handle->handler(new ManagerCheckEmailCommand('dsfd'));
+        $this->handle->handler(new ParentDepartmentCreateCommand('dsfd'));
     }
 
     /**

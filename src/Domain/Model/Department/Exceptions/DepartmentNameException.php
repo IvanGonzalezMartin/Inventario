@@ -14,7 +14,7 @@ use App\Infrastructure\Utils\MyOwnHttpCodes;
 
 class DepartmentNameException extends DomainError
 {
-    const START_MESSAGE = 'Departament name must have more than ';
+    const START_MESSAGE = 'Department name must have more than ';
     const END_MESSAGE = ' letters';
     private $minLength;
 
