@@ -9,13 +9,13 @@
 namespace App\Application\Role\Update;
 
 
-use App\Domain\Services\Role\RoleUpdater;
+use App\Domain\Services\Role\RoleUpdaterService;
 
 class RoleUpdate
 {
     private $roleUpdater;
 
-    public function __construct(RoleUpdater $roleUpdater)
+    public function __construct(RoleUpdaterService $roleUpdater)
     {
         $this->roleUpdater = $roleUpdater;
     }

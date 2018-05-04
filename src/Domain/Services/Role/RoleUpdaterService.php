@@ -11,7 +11,7 @@ namespace App\Domain\Services\Role;
 use App\Domain\Model\Role\Exceptions\RolNotFoundException;
 use App\Domain\Model\Role\RoleRepository;
 
-class RoleUpdater
+class RoleUpdaterService
 {
     private $repository;
 

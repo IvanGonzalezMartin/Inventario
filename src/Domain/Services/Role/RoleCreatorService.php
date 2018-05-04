@@ -12,7 +12,7 @@ namespace App\Domain\Services\Role;
 use App\Domain\Model\Role\Role;
 use App\Domain\Model\Role\RoleRepository;
 
-class RoleCreator
+class RoleCreatorService
 {
     private $repository;
 
