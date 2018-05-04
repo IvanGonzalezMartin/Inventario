@@ -25,7 +25,7 @@ class ManagerCheckEmailService
     {
         $manager = $this->repository->getManagerByEmail($email);
 
-        if (false == empty($manager))
+        if (null !== $manager)
             throw new ManagerEmailAlreadyExistsException($email);
     }
 }

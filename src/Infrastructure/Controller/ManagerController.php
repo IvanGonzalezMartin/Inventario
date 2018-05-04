@@ -35,7 +35,7 @@ class ManagerController
         $CheckManagerNickNameCommand = new CheckManagerNickNameCommand($nickName);
         $this->checkManagerNickName->handler($CheckManagerNickNameCommand);
 
-        return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
     public function checkEmail(Request $request)
@@ -44,6 +44,6 @@ class ManagerController
         $managerCheckEmailCommand = new ManagerCheckEmailCommand($email);
         $this->managerCheckEmail->handler($managerCheckEmailCommand);
 
-        return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
     }
 }
