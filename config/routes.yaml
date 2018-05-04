@@ -17,3 +17,8 @@ CheckNickName:
     path: /Manager/checkNickName/
     controller: App\Infrastructure\Controller\ManagerController::checkNickName
     methods: [GET]
+
+CheckEmail:
+    path: /Manager/checkEmail/
+    controller: App\Infrastructure\Controller\ManagerController::checkEmail
+    methods: [GET]

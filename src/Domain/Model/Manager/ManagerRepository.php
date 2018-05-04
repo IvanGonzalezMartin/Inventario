@@ -16,4 +16,10 @@ interface ManagerRepository
      * @return Manager
      */
     public function getManagerByName($nickName);
+
+    /**
+     * @param string $email
+     * @return Manager
+     */
+    public function getManagerByEmail($email);
 }

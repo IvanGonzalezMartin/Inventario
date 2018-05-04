@@ -19,4 +19,9 @@ class ManagerDoctrineRepository extends EntityRepository implements ManagerRepos
     {
         return $this->findOneBy(['nickName' => $nickName]);
     }
+
+    public function getManagerByEmail($email)
+    {
+        return $this->findOneBy(['email' => $email]);
+    }
 }
