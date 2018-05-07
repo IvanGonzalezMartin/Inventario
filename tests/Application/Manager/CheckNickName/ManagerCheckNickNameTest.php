@@ -41,7 +41,7 @@ class ManagerCheckEmailTest extends TestCase
 
         $this->expectException(ManagerNickNameAlreadyExistsException::class);
 
-        $this->handle->handler(new ManagerCheckNickNameCommand('dsfd'));
+        $this->handle->handler(new ManagerCheckNickNameCommand('nickName'));
     }
 
     /**
@@ -52,7 +52,7 @@ class ManagerCheckEmailTest extends TestCase
         $this->stubRepository->method('getManagerByEmail')
             ->willReturn(null);
 
-        $this->handle->handler(new ManagerCheckNickNameCommand('dsfd'));
+        $this->handle->handler(new ManagerCheckNickNameCommand('nickName'));
 
         self::assertTrue(true);
     }
