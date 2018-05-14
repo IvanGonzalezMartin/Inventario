@@ -216,6 +216,23 @@ class User
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * @param mixed $telephone
+     */
+    public function setTelephone($telephone): void
+    {
+        $this->telephone = $telephone;
+    }
+
+
     public function getContractID(): ?int
     {
         return $this->contractID;

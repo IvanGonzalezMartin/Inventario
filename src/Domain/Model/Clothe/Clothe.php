@@ -130,6 +130,7 @@ class Clothe
         return $this;
     }
 
+
     public function isNotDeleted(): bool
     {
         $deleted = false;
