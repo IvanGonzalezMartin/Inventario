@@ -13,7 +13,7 @@ use App\Domain\Model\ParentDepartment\Exceptions\ParentDepartmentAlreadyExistsEx
 use App\Domain\Model\ParentDepartment\ParentDepartment;
 use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
 
-class ParentDepartmentCreator
+class ParentDepartmentCreatorService
 {
     private $repository;
 
@@ -26,6 +26,7 @@ class ParentDepartmentCreator
     {
         if(null == empty($this->repository->findByName($parentDepartment->getName())))
             throw new ParentDepartmentAlreadyExistsException($parentDepartment->getName());
+
         $this->repository->insert($parentDepartment);
     }
 }

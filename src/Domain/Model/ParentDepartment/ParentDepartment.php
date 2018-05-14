@@ -65,7 +65,7 @@ class ParentDepartment
     {
         $statment = false;
 
-        if (null === $this->deleteID)
+        if (null == $this->deleteID || '' == $this->deleteID)
             $statment = true;
 
         return $statment;
