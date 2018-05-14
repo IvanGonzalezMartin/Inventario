@@ -12,7 +12,8 @@ class DeleteThing
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(type="string", length=50)
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
@@ -58,13 +59,12 @@ class DeleteThing
      * @param string $nameOfThing
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(string $id, string $deleteID, string $deleteThingID, string $nameOfThing)
+    public function __construct($deleteID, $deleteThingID, $nameOfThing)
     {
 
-        Assertion::uuid($id);
+        Assertion::uuid($deleteID);
         Assertion::uuid($deleteThingID);
 
-        $this->id = $id;
         $this->deleteID = $deleteID;
         $this->deleteThingID = $deleteThingID;
         $this->nameOfThing = $nameOfThing;

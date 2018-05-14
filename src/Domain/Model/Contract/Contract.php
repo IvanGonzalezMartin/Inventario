@@ -12,14 +12,10 @@ class Contract
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(type="string", length=50)
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $startDate;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=false)
@@ -27,12 +23,17 @@ class Contract
     private $userID;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $startDate;
+
+    /**
      * @ORM\Column(type="datetime", nullable=false)
      */
     private $endDate;
 
     /**
-     * @ORM\Column(type="datetime", nullable=false)
+     * @ORM\Column(type="boolean", nullable=false)
      */
     private $renovation;
 
@@ -47,12 +48,9 @@ class Contract
      * @param string $id
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(string $userID, string $id)
+    public function __construct(string $userID)
     {
-        Assertion::uuid($id);
         Assertion::uuid($userID);
-
-        $this->id = $id;
         $this->userID = $userID;
     }
 

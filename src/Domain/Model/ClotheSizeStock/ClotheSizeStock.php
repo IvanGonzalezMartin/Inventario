@@ -48,7 +48,7 @@ class ClotheSizeStock
     {
         Assertion::uuid($clotheID);
 
-        $this->ClotheID = $clotheID;
+        $this->clotheID = $clotheID;
         $this->sizeID = $sizeID;
 
     }

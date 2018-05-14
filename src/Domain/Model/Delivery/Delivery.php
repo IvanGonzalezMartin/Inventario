@@ -12,17 +12,18 @@ class Delivery
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(type="string", length=50)
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $orderID;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $managerID;
 
@@ -48,20 +49,14 @@ class Delivery
 
     /**
      * Delivery constructor.
-     * @param string $id
-     * @param string $orderID
-     * @param string $managerID
-     * @throws \Assert\AssertionFailedException
+     * @param $orderID
+     * @param $managerID
      */
-    public function __construct(string $id, string $orderID, string $managerID)
+    public function __construct($orderID, $managerID, $docSign)
     {
-        Assertion::uuid($id);
-        Assertion::uuid($orderID);
-        Assertion::uuid($managerID);
-
-        $this->id = $id;
         $this->orderID = $orderID;
         $this->managerID = $managerID;
+        $this->docSign = $docSign;
         $this->date = date("Y-m-d H:i:s") ;
     }
 
@@ -81,14 +76,11 @@ class Delivery
     }
 
     /**
-     * @param string $managerID
+     * @param $managerID
      * @return Delivery
-     * @throws \Assert\AssertionFailedException
      */
-    public function setManagerID(string $managerID): self
+    public function setManagerID($managerID): self
     {
-        Assertion::uuid($managerID);
-
         $this->managerID = $managerID;
 
         return $this;

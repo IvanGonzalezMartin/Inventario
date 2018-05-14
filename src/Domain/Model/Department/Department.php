@@ -21,7 +21,7 @@ class Department
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $parentDepartmentID;
 

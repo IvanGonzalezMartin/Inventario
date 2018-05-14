@@ -2,95 +2,76 @@
 
 namespace App\Domain\Model\Sizes;
 
-use Assert\Assertion;
-use Doctrine\ORM\Mapping as ORM;
-
-/**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Model\SizesDoctrineRepository\SizesDoctrineRepository")
- */
 class Sizes
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    const XS = 'XS';
+    const S = 'S';
+    const M = 'M';
+    const L = 'L';
+    const XL = 'XL';
+    const XXL = 'XXL';
+    const XXXL = 'XXXL';
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=false)
-     */
-    private $size;
+    const THIRTY_FIVE = 35;
+    const THIRTY_SIX = 36;
+    const THIRTY_SEVEN = 37;
+    const THIRTY_EIGHT = 38;
+    const THIRTY_NINE = 39;
+    const FORTY = 40;
+    const FORTY_ONE = 41;
+    const FORTY_TWO = 42;
+    const FORTY_THREE = 43;
+    const FORTY_FOUR = 44;
+    const FORTY_FIVE = 45;
+    const FORTY_SIX = 46;
+    const FORTY_SEVEN = 47;
 
-    /**
-     * @ORM\Column(type="integer", nullable=false)
-     */
-    private $sizeTypeID;
+    const SIZES = [
+        'XS' => self::XS,
+        'S' => self::S,
+        'M' => self::M,
+        'L' => self::L,
+        'XL' => self::XL,
+        'XXL' => self::XXL,
+        'XXXL' => self::XXXL,
+        35 => self::THIRTY_FIVE,
+        36 => self::THIRTY_SIX,
+        37 => self::THIRTY_SEVEN,
+        38 => self::THIRTY_EIGHT,
+        39 => self::THIRTY_NINE,
+        40 => self::FORTY,
+        41 => self::FORTY_ONE,
+        42 => self::FORTY_TWO,
+        43 => self::FORTY_THREE,
+        44 => self::FORTY_FOUR,
+        45 => self::FORTY_FIVE,
+        46 => self::FORTY_SIX,
+        47 => self::FORTY_SEVEN
+    ];
 
-    /**
-     * @ORM\Column(type="string", length=50, nullable=true)
-     */
-    private $deleteID;
+    const SIZES_NUMERIC = [
+        35 => self::THIRTY_FIVE,
+        36 => self::THIRTY_SIX,
+        37 => self::THIRTY_SEVEN,
+        38 => self::THIRTY_EIGHT,
+        39 => self::THIRTY_NINE,
+        40 => self::FORTY,
+        41 => self::FORTY_ONE,
+        42 => self::FORTY_TWO,
+        43 => self::FORTY_THREE,
+        44 => self::FORTY_FOUR,
+        45 => self::FORTY_FIVE,
+        46 => self::FORTY_SIX,
+        47 => self::FORTY_SEVEN
+    ];
 
-    public function __construct(string $size, int $sizeTypeID)
-    {
-        $this->size = $size;
-        $this->sizeTypeID = $sizeTypeID;
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getSize(): ?string
-    {
-        return $this->size;
-    }
-
-    public function setSize(string $size): self
-    {
-        $this->Size = $size;
-
-        return $this;
-    }
-
-    public function getSizeTypeId(): ?int
-    {
-        return $this->sizeTypeID;
-    }
-
-    public function isNotDeleted(): bool
-    {
-        $deleted = false;
-
-        if (null == $this->deleteID || '' == $this->deleteID)
-            $deleted = true;
-
-        return $deleted;
-    }
-
-    public function isDeleted(): bool
-    {
-        $deleted = true;
-
-        if (null == $this->deleteID || '' == $this->deleteID)
-            $deleted = false;
-
-        return $deleted;
-    }
-
-    /**
-     * @param string $deleteID
-     * @return Sizes
-     * @throws \Assert\AssertionFailedException
-     */
-    public function setDeleteID(string $deleteID): self
-    {
-        Assertion::uuid($deleteID);
-
-        $this->deleteID = $deleteID;
-
-        return $this;
-    }
+    const SIZES_ALPHABETIC = [
+        'XS' => self::XS,
+        'S' => self::S,
+        'M' => self::M,
+        'L' => self::L,
+        'XL' => self::XL,
+        'XXL' => self::XXL,
+        'XXXL' => self::XXXL
+    ];
 }
