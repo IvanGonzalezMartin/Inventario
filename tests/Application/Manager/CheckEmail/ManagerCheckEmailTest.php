@@ -42,11 +42,10 @@ class ManagerCheckEmailTest extends TestCase
 
         $this->expectException(ManagerEmailAlreadyExistsException::class);
 
-<<<<<<< HEAD
         $this->handle->handler(new ManagerCheckEmailCommand('Email'));
-=======
+
         $this->handle->handler(new ParentDepartmentCreateCommand('dsfd'));
->>>>>>> TestDepartment
+
     }
 
     /**
