@@ -151,6 +151,16 @@ class Manager
         return $deleted;
     }
 
+    public function isDeleted(): bool
+    {
+        $deleted = true;
+
+        if (null == $this->deleteID || '' == $this->deleteID)
+            $deleted = false;
+
+        return $deleted;
+    }
+
     /**
      * @param string $deleteID
      * @return Manager

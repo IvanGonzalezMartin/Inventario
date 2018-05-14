@@ -17,10 +17,9 @@ class Clothe
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $clotheCategoryID;
-
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
@@ -50,34 +49,33 @@ class Clothe
     /**
      * Clothe constructor.
      * @param $id
+     * @param $clotheCategoryID
+     * @param $name
+     * @param $genderID
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($id)
+    public function __construct($id, $clotheCategoryID, $name, $genderID)
     {
         Assertion::uuid($id);
-
         $this->id = $id;
+        $this->clotheCategoryID = $clotheCategoryID;
+        $this->name = $name;
+        $this->genderID = $genderID;
     }
+
 
     public function getId()
     {
         return $this->id;
     }
 
-    public function getClotheCategoryId(): ?string
+    public function getClotheCategoryId(): ?int
     {
         return $this->clotheCategoryID;
     }
 
-    /**
-     * @param string $clotheCategoryID
-     * @return Clothe
-     * @throws \Assert\AssertionFailedException
-     */
-    public function setClotheCategoryId(string $clotheCategoryID): self
+    public function setClotheCategoryId(int $clotheCategoryID): self
     {
-        Assertion::uuid($clotheCategoryID);
-
         $this->clotheCategoryID = $clotheCategoryID;
 
         return $this;
@@ -133,12 +131,22 @@ class Clothe
 
     public function isNotDeleted(): bool
     {
-        $statment = false;
+        $deleted = false;
 
-        if (null === $this->deleteID)
-            $statment = true;
+        if (null == $this->deleteID || '' == $this->deleteID)
+            $deleted = true;
 
-        return $statment;
+        return $deleted;
+    }
+
+    public function isDeleted(): bool
+    {
+        $deleted = true;
+
+        if (null == $this->deleteID || '' == $this->deleteID)
+            $deleted = false;
+
+        return $deleted;
     }
 
     /**

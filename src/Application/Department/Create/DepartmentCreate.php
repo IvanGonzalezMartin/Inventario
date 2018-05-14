@@ -23,7 +23,7 @@ class DepartmentCreate
 
     public function handler(DepartmentCreateCommand $departmentCreateCommand)
     {
-        $parent = new Department($departmentCreateCommand->getParentID(),$departmentCreateCommand->getName());
-        $this->departmentCreator->__invoke($parent);
+        $department = new Department($departmentCreateCommand->getParentID(),$departmentCreateCommand->getName());
+        $this->departmentCreator->__invoke($department);
     }
 }

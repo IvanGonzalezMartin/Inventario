@@ -12,7 +12,8 @@ class ClotheCategory
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(type="string", length=255)
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
@@ -33,15 +34,16 @@ class ClotheCategory
 
     /**
      * ClotheCategory constructor.
-     * @param $id
+     * @param $name
+     * @param $sizeTypeID
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($id)
+    public function __construct($name, $sizeTypeID)
     {
-        Assertion::uuid($id);
-
-        $this->id = $id;
+        $this->name = $name;
+        $this->sizeTypeID = $sizeTypeID;
     }
+
 
     public function getId()
     {
@@ -75,12 +77,22 @@ class ClotheCategory
 
     public function isNotDeleted(): bool
     {
-        $statment = false;
+        $deleted = false;
 
-        if (null === $this->deleteID)
-            $statment = true;
+        if (null == $this->deleteID || '' == $this->deleteID)
+            $deleted = true;
 
-        return $statment;
+        return $deleted;
+    }
+
+    public function isDeleted(): bool
+    {
+        $deleted = true;
+
+        if (null == $this->deleteID || '' == $this->deleteID)
+            $deleted = false;
+
+        return $deleted;
     }
 
     /**

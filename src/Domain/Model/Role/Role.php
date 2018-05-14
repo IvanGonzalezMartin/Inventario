@@ -73,12 +73,22 @@ class Role
 
     public function isNotDeleted(): bool
     {
-        $statment = false;
+        $deleted = false;
 
-        if (null === $this->deleteID)
-            $statment = true;
+        if (null == $this->deleteID || '' == $this->deleteID)
+            $deleted = true;
 
-        return $statment;
+        return $deleted;
+    }
+
+    public function isDeleted(): bool
+    {
+        $deleted = true;
+
+        if (null == $this->deleteID || '' == $this->deleteID)
+            $deleted = false;
+
+        return $deleted;
     }
 
     /**
