@@ -37,7 +37,6 @@ class ParentDepartmentUpdaterService
         if(false === $this->parent->isNotDeleted())
             throw new ParentDepartmentDosentExistsException($id);
 
-
         $parentName = $this->repository->findByName($name);
 
         if (false === empty($parentName))
