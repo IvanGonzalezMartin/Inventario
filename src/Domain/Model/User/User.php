@@ -32,7 +32,7 @@ class User
     private $photo;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $telephone;
 
@@ -57,9 +57,9 @@ class User
     private $departmentID;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=10, nullable=false)
      */
-    private $genderID;
+    private $gender;
 
     /**
      * @ORM\Column(type="integer")
@@ -67,7 +67,7 @@ class User
     private $profilerDetailsID;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $contractID;
 
@@ -75,6 +75,33 @@ class User
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $deleteID;
+
+    /**
+     * User constructor.
+     * @param $id
+     * @param $nickName
+     * @param $nameSurname
+     * @param $email
+     * @param $password
+     * @param $employeeCode
+     * @param $departmentID
+     * @param $gender
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct($id, $nickName, $nameSurname, $email, $password, $employeeCode, $departmentID, $gender)
+    {
+        Assertion::uuid($id);
+
+        $this->id = $id;
+        $this->nickName = $nickName;
+        $this->nameSurname = $nameSurname;
+        $this->email = $email;
+        $this->password = $password;
+        $this->employeeCode = $employeeCode;
+        $this->departmentID = $departmentID;
+        $this->gender = $gender;
+    }
+
 
     public function getId()
     {
@@ -165,14 +192,14 @@ class User
         return $this;
     }
 
-    public function getGenderID(): ?int
+    public function getGender(): string
     {
-        return $this->genderID;
+        return $this->gender;
     }
 
-    public function setGenderID(int $genderID): self
+    public function setGender(string $gender): self
     {
-        $this->genderID = $genderID;
+        $this->gender = $gender;
 
         return $this;
     }
@@ -189,21 +216,14 @@ class User
         return $this;
     }
 
-    public function getContractID(): ?string
+    public function getContractID(): ?int
     {
         return $this->contractID;
     }
 
-    /**
-     * @param string $contractID
-     * @return User
-     * @throws \Assert\AssertionFailedException
-     */
-    public function setContractID(string $contractID): self
+    public function setContractID(int $contractID): self
     {
-        Assertion::uuid($contractID);
-
-        $this->contractID = $contractID;
+       $this->contractID = $contractID;
 
         return $this;
     }

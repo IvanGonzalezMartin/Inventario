@@ -13,7 +13,8 @@ class Manager
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(type="string", length=50)
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
@@ -54,15 +55,21 @@ class Manager
 
     /**
      * Manager constructor.
-     * @param string $id
-     * @throws \Assert\AssertionFailedException
+     * @param $nickName
+     * @param $name
+     * @param $rolID
+     * @param $password
+     * @param $email
      */
-    public function __construct(string $id)
+    public function __construct($nickName, $name, $rolID, $password, $email)
     {
-        Assertion::uuid($id);
-
-        $this->id = $id;
+        $this->nickName = $nickName;
+        $this->name = $name;
+        $this->rolID = $rolID;
+        $this->password = $password;
+        $this->email = $email;
     }
+
 
     public function getId()
     {

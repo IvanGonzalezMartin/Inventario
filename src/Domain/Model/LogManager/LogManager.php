@@ -17,7 +17,7 @@ class LogManager
     private $token;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $managerID;
 

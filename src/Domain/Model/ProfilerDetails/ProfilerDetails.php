@@ -23,9 +23,9 @@ class ProfilerDetails
     private $profilerID;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
-    private $sizeID;
+    private $sizeName;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -35,16 +35,14 @@ class ProfilerDetails
     /**
      * ProfilerDetails constructor.
      * @param int $profilerID
-     * @param int $sizeID
+     * @param string $sizeName
      * @param string $clotheCategoryID
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(int $profilerID, int $sizeID, string $clotheCategoryID)
+    public function __construct(int $profilerID, string $sizeName, string $clotheCategoryID)
     {
-        Assertion::uuid($clotheCategoryID);
-
         $this->profilerID = $profilerID;
-        $this->sizeID = $sizeID;
+        $this->sizeName = $sizeName;
         $this->clotheCategoryID = $clotheCategoryID;
     }
 
@@ -58,9 +56,9 @@ class ProfilerDetails
         return $this->profilerID;
     }
 
-    public function getSizeID(): ?int
+    public function getSizeName(): ?string
     {
-        return $this->sizeID;
+        return $this->sizeName;
     }
 
     public function getClotheCategoryID(): ?int
