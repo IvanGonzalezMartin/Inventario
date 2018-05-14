@@ -32,4 +32,18 @@ class DepartmentDoctrineRepository extends EntityRepository implements Departmen
     {
         return $this->findOneBy(['name' => $name]);
     }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function updateAll()
+    {
+        $this->getEntityManager()->flush();
+    }
+
+    public function findById($id)
+    {
+        return $this->findOneBy(["id" => $id]);
+    }
 }

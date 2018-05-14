@@ -13,4 +13,6 @@ interface DepartmentRepository
 {
     public function insert(Department $department): void;
     public function findByName($name);
+    public function findById($id);
+    public function updateAll();
 }

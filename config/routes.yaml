@@ -17,6 +17,11 @@ CreateDepartment:
     controller: App\Infrastructure\Controller\DepartmentController::createDepartment
     methods: [GET]
 
+UpdateDepartment:
+    path: /Department/update/
+    controller: App\Infrastructure\Controller\DepartmentController::updateDepartment
+    methods: [GET]
+
 CreateParentDepartment:
     path: /ParentDepartment/create/
     controller: App\Infrastructure\Controller\ParentDepartmentController::createParentDepartment
