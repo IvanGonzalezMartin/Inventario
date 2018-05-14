@@ -12,7 +12,8 @@ class Order
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(type="string", length=50)
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
@@ -32,7 +33,7 @@ class Order
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $deliveryID;
 
@@ -44,17 +45,13 @@ class Order
 
     /**
      * Order constructor.
-     * @param string $id
      * @param string $userId
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(string $id, string $userId)
+    public function __construct(string $userId)
     {
-
-        Assertion::uuid($id);
         Assertion::uuid($userId);
 
-        $this->id = $id;
         $this->userID = $userId;
         $this->date = new \DateTime() ;
     }
@@ -86,20 +83,13 @@ class Order
         return $this;
     }
 
-    public function getDeliveryId(): ?string
+    public function getDeliveryId(): ?int
     {
         return $this->deliveryID;
     }
 
-    /**
-     * @param null|string $deliveryID
-     * @return Order
-     * @throws \Assert\AssertionFailedException
-     */
-    public function setDeliveryId(?string $deliveryID): self
+    public function setDeliveryId(int $deliveryID): self
     {
-        Assertion::uuid($deliveryID);
-
         $this->deliveryID = $deliveryID;
 
         return $this;

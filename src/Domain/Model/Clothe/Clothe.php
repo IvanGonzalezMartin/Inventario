@@ -37,9 +37,9 @@ class Clothe
     private $photo;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
-    private $genderID;
+    private $gender;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
@@ -54,13 +54,14 @@ class Clothe
      * @param $genderID
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($id, $clotheCategoryID, $name, $genderID)
+    public function __construct($id, $clotheCategoryID, $name, $gender)
     {
         Assertion::uuid($id);
+
         $this->id = $id;
         $this->clotheCategoryID = $clotheCategoryID;
         $this->name = $name;
-        $this->genderID = $genderID;
+        $this->gender = $gender;
     }
 
 
@@ -117,14 +118,14 @@ class Clothe
         return $this;
     }
 
-    public function getGenderId(): ?int
+    public function getGender(): ?string
     {
-        return $this->genderID;
+        return $this->gender;
     }
 
-    public function setGenderId(int $genderID): self
+    public function setGenderId(string $gender): self
     {
-        $this->gender = $genderID;
+        $this->gender = $gender;
 
         return $this;
     }

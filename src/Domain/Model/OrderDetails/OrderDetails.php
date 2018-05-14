@@ -23,7 +23,7 @@ class OrderDetails
     private $clotheSizeStockID;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $orderID;
 
@@ -38,11 +38,8 @@ class OrderDetails
      * @param string $orderID
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(string $clotheSizeStockID, string $orderID)
+    public function __construct(int $clotheSizeStockID, int $orderID)
     {
-        Assertion::uuid($clotheSizeStockID);
-        Assertion::uuid($orderID);
-
         $this->clotheSizeStockID = $clotheSizeStockID;
         $this->orderID = $orderID;
     }
@@ -55,13 +52,6 @@ class OrderDetails
     public function getClotheSizeStockID(): ?int
     {
         return $this->clotheSizeStockID;
-    }
-
-    public function setClotheSizeStockID(int $clotheSizeStockID): self
-    {
-        $this->clotheSizeStockID = $clotheSizeStockID;
-
-        return $this;
     }
 
     public function getOrderID(): ?string

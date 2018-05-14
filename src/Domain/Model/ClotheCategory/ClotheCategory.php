@@ -23,9 +23,9 @@ class ClotheCategory
     private $name;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=10, nullable=false)
      */
-    private $sizeTypeID;
+    private $sizeTypeName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -35,13 +35,13 @@ class ClotheCategory
     /**
      * ClotheCategory constructor.
      * @param $name
-     * @param $sizeTypeID
+     * @param $sizeTypeName
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($name, $sizeTypeID)
+    public function __construct($name, $sizeTypeName)
     {
         $this->name = $name;
-        $this->sizeTypeID = $sizeTypeID;
+        $this->sizeTypeName = $sizeTypeName;
     }
 
 
@@ -62,15 +62,15 @@ class ClotheCategory
         return $this;
     }
 
-    public function getSizeTypeID(): ?int
+    public function getSizeTypeName(): ?string
     {
-        return $this->sizeTypeID;
+        return $this->sizeTypeName;
     }
 
 
-    public function setSizeTypeID(int $sizeTypeID): self
+    public function setSizeTypeName(int $sizeTypeName): self
     {
-        $this->sizeTypeID = $sizeTypeID;
+        $this->sizeTypeName = $sizeTypeName;
 
         return $this;
     }
