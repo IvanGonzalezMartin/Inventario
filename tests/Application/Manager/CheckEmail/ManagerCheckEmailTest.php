@@ -48,10 +48,7 @@ class ManagerCheckEmailTest extends TestCase
         $this->handle->handler(new ManagerCheckEmailCommand('Email'));
 
         $this->handle->handler(new ParentDepartmentCreateCommand('dsfd'));
-<<<<<<< HEAD
-=======
 
->>>>>>> TestDepartment
     }
 
     /**
