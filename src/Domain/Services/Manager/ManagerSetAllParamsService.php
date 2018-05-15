@@ -12,7 +12,7 @@ namespace App\Domain\Services\Manager;
 use App\Application\Manager\Update\ManagerUpdateCommand;
 use App\Domain\Model\Manager\Manager;
 
-class ManagerSetAllParams
+class ManagerSetAllParamsService
 {
     /**
      * @param Manager $manager

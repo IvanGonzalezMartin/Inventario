@@ -8,14 +8,12 @@
 
 namespace App\Domain\Services\Manager;
 
-
-use App\Application\Manager\Create\ManagerCreateCommand;
 use App\Application\Manager\Update\ManagerUpdateCommand;
 use App\Domain\Model\Manager\Exceptions\ManagerWithIdDoesntExistsException;
-use App\Domain\Model\Manager\Manager;
 use App\Domain\Model\Manager\ManagerRepository;
 use App\Domain\Model\Role\Exceptions\RolNotFoundException;
 use App\Domain\Model\Role\RoleRepository;
+
 
 class ManagerUpdatorService
 {
@@ -65,7 +63,7 @@ class ManagerUpdatorService
         if (empty($this->roleRepository->getRolById($manager->rolID())))
             throw new RolNotFoundException($manager->rolID());
 
-        ManagerSetAllParams::execute($oldManager, $manager);
+        ManagerSetAllParamsService::execute($oldManager, $manager);
 
         $this->repository->update();
     }
