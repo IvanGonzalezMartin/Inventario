@@ -15,33 +15,33 @@ use Doctrine\ORM\EntityRepository;
  */
 class ClotheCategoryDoctrineRepository extends EntityRepository implements ClotheCategoryRepository
 {
-
-//    /**
-//     * @return ClotheCategory[] Returns an array of ClotheCategory objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function insert(ClotheCategory $clotheCategory): void
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($clotheCategory);
+        $entityManager->flush();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?ClotheCategory
+    public function findByName($name)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $this->findOneBy(['name' => $name, 'deleteID' => null]);
     }
-    */
+
+    public function findById($id)
+    {
+        return $this->findOneBy(["id" => $id, 'deleteID' => null]);
+    }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function updateAll()
+    {
+        $this->getEntityManager()->flush();
+    }
 }

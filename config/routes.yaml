@@ -42,6 +42,7 @@ CheckEmail:
     controller: App\Infrastructure\Controller\ManagerController::checkEmail
     methods: [GET]
 
+<<<<<<< HEAD
 CreateManager:
     path: /Manager/create/
     controller: App\Infrastructure\Controller\ManagerController::createManager
@@ -52,3 +53,19 @@ UpdateManager:
     controller: App\Infrastructure\Controller\ManagerController::updateManager
     methods: [GET]
 
+=======
+CreateClotheCategory:
+    path: /ClotheCategory/create/
+    controller: App\Infrastructure\Controller\ClotheCategoryController::createClotheCategory
+    methods: [GET]
+
+UpdateClotheCategory:
+    path: /ClotheCategory/update/
+    controller: App\Infrastructure\Controller\ClotheCategoryController::updateClotheCategory
+    methods: [GET]
+
+CreateContract:
+    path: /Contract/create/
+    controller: App\Infrastructure\Controller\ContractController::createContract
+    methods: [GET]
+>>>>>>> TestDepartment

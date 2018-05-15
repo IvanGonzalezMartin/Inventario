@@ -42,16 +42,30 @@ class Contract
      */
     private $deleteID;
 
+    const EMPTY_ID_EXCEPTION = 'The id field should not be empty';
+    const INTEGER_ARGUMENT_EXCEPTION = 'The id field must be integer';
+
+    const EMPTY_END_DATE_EXCEPTION = 'The date field should not be empty';
+    const DATE_ARGUMENT_EXCEPTION = 'The date field must be type date';
+
+    const EMPTY_RENOVATION_EXCEPTION = 'The renovation field should not be empty';
+    const RENOVATION_ARGUMENT_EXCEPTION = 'The renovation field must be type boolean';
+
     /**
      * Contract constructor.
-     * @param string $userID
-     * @param string $id
+     * @param $userID
+     * @param $endDate
+     * @param $renovation
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(string $userID)
+    public function __construct($userID , $endDate, $renovation)
     {
-        Assertion::uuid($userID);
+        Assertion::notNull($userID, self::EMPTY_ID_EXCEPTION);
+        Assertion::uuid($userID, self::INTEGER_ARGUMENT_EXCEPTION);
+
         $this->userID = $userID;
+        $this->setEndDate($endDate);
+        $this->setRenovation($renovation);
     }
 
     public function getId()
@@ -64,8 +78,16 @@ class Contract
         return $this->startDate;
     }
 
-    public function setStartDate(?\DateTimeInterface $startDate): self
+    /**
+     * @param $startDate
+     * @return Contract
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setStartDate($startDate): self
     {
+        Assertion::notNull($startDate, self::EMPTY_END_DATE_EXCEPTION);
+        Assertion::date($startDate, self::DATE_ARGUMENT_EXCEPTION);
+
         $this->startDate = $startDate;
 
         return $this;
@@ -81,8 +103,17 @@ class Contract
         return $this->endDate;
     }
 
-    public function setEndDate(\DateTimeInterface $endDate): self
+    /**
+     * @param $endDate
+     * @return Contract
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setEndDate($endDate): self
     {
+
+        Assertion::notNull($endDate, self::EMPTY_END_DATE_EXCEPTION);
+        $endDate = \DateTime::createFromFormat('d-m-Y', $endDate);
+
         $this->endDate = $endDate;
 
         return $this;
@@ -93,8 +124,13 @@ class Contract
         return $this->renovation;
     }
 
-    public function setRenovation(\DateTimeInterface $renovation): self
+    /**
+     * @param $renovation
+     * @return Contract
+     */
+    public function setRenovation($renovation): self
     {
+        $renovation = boolval($renovation);
         $this->renovation = $renovation;
 
         return $this;

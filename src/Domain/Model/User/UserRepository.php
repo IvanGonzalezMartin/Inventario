@@ -11,5 +11,5 @@ namespace App\Domain\Model\User;
 
 interface UserRepository
 {
-
+    public function findByID($id);
 }
