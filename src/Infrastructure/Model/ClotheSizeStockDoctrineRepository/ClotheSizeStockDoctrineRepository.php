@@ -16,32 +16,5 @@ use Doctrine\ORM\EntityRepository;
 class ClotheSizeStockDoctrineRepository extends EntityRepository implements ClotheSizeStockRepository
 {
 
-//    /**
-//     * @return ClotheSizeStock[] Returns an array of ClotheSizeStock objects
-//     */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?ClotheSizeStock
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

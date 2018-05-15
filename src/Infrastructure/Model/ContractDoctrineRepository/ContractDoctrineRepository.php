@@ -16,32 +16,39 @@ use Doctrine\ORM\EntityRepository;
 class ContractDoctrineRepository extends EntityRepository implements ContractRepository
 {
 
-//    /**
-//     * @return Contract[] Returns an array of Contract objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param Contract $contract
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function insert(Contract $contract): void
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($contract);
+        $entityManager->flush();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Contract
+    public function findByEndDate($endDate)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $this->findOneBy(['endDate' => $endDate, 'deleteID' => null]);
     }
-    */
+
+    public function findByRenovation($renovation)
+    {
+        return $this->findOneBy(['renovation' => $renovation, 'deleteID' => null]);
+    }
+
+    public function findById($id)
+    {
+        return $this->findOneBy(['id' => $id, 'deleteID' => null]);
+    }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function updateAll()
+    {
+        $this->getEntityManager()->flush();
+    }
 }

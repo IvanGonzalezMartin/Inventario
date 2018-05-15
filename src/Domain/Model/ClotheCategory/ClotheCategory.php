@@ -68,7 +68,7 @@ class ClotheCategory
     }
 
 
-    public function setSizeTypeName(int $sizeTypeName): self
+    public function setSizeTypeName($sizeTypeName): self
     {
         $this->sizeTypeName = $sizeTypeName;
 

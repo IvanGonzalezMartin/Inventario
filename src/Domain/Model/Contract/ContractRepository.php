@@ -11,5 +11,9 @@ namespace App\Domain\Model\Contract;
 
 interface ContractRepository
 {
-
+    public function insert(Contract $contract): void;
+    public function findByEndDate($endDate);
+    public function findByRenovation($renovation);
+    public function findById($id);
+    public function updateAll();
 }
