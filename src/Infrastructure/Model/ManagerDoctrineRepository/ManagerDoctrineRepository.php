@@ -17,11 +17,41 @@ class ManagerDoctrineRepository extends EntityRepository implements ManagerRepos
 {
     public function getManagerByName($nickName)
     {
-        return $this->findOneBy(['nickName' => $nickName]);
+        return $this->findOneBy(['nickName' => $nickName, 'deleteID' => null]);
     }
 
     public function getManagerByEmail($email)
     {
-        return $this->findOneBy(['email' => $email]);
+        return $this->findOneBy(['email' => $email, 'deleteID' => null]);
+    }
+
+    /**
+     * @param Manager $manager
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function insert(Manager $manager)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($manager);
+        $entityManager->flush();
+    }
+
+    /**
+     * @param string $id
+     * @return Manager
+     */
+    public function getManagerByID($id)
+    {
+        return $this->findOneBy(['id' => $id, 'deleteID' => null]);
+    }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function update(): void
+    {
+        $this->getEntityManager()->flush();
     }
 }

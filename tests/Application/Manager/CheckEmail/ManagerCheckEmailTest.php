@@ -25,7 +25,9 @@ class ManagerCheckEmailTest extends TestCase
     private $handle;
     private $stubRepository;
 
-
+    /**
+     * @throws \ReflectionException
+     */
     public function setUp()
     {
         $this->stubRepository = $this->createMock(ManagerRepository::class);
@@ -34,6 +36,7 @@ class ManagerCheckEmailTest extends TestCase
 
     /**
      * @test
+     * @throws \ReflectionException
      */
     public function given_an_email_when_exist_then_exception()
     {
@@ -42,11 +45,9 @@ class ManagerCheckEmailTest extends TestCase
 
         $this->expectException(ManagerEmailAlreadyExistsException::class);
 
-<<<<<<< HEAD
         $this->handle->handler(new ManagerCheckEmailCommand('Email'));
-=======
+
         $this->handle->handler(new ParentDepartmentCreateCommand('dsfd'));
->>>>>>> TestDepartment
     }
 
     /**

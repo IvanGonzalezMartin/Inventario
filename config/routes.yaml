@@ -41,3 +41,14 @@ CheckEmail:
     path: /Manager/checkEmail/
     controller: App\Infrastructure\Controller\ManagerController::checkEmail
     methods: [GET]
+
+CreateManager:
+    path: /Manager/create/
+    controller: App\Infrastructure\Controller\ManagerController::createManager
+    methods: [GET]
+
+UpdateManager:
+    path: /Manager/update/
+    controller: App\Infrastructure\Controller\ManagerController::updateManager
+    methods: [GET]
+

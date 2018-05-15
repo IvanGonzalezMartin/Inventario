@@ -22,4 +22,17 @@ interface ManagerRepository
      * @return Manager
      */
     public function getManagerByEmail($email);
+
+    /**
+     * @param Manager $manager
+     */
+    public function insert(Manager $manager);
+
+    /**
+     * @param string $id
+     * @return Manager
+     */
+    public function getManagerByID($id);
+
+    public function update(): void;
 }

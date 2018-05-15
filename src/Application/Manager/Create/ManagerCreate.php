@@ -23,12 +23,12 @@ class ManagerCreate
 
     public function handler(ManagerCreateCommand $managerCreateCommand)
     {
-        $manager = new Manager($managerCreateCommand->id());
-        $manager->setName($managerCreateCommand->name());
-        $manager->setEmail($managerCreateCommand->email());
-        $manager->setNickName($managerCreateCommand->nickName());
-        $manager->setRolID($managerCreateCommand->rolID());
-        $manager->setPassword($managerCreateCommand->password());
+        $manager = new Manager( $managerCreateCommand->nickName(),
+                                $managerCreateCommand->name(),
+                                $managerCreateCommand->rolID(),
+                                $managerCreateCommand->password(),
+                                $managerCreateCommand->email()
+        );
         $manager->setPhoto($managerCreateCommand->photo());
 
         $this->managerCreatorService->__invoke($manager);

@@ -16,15 +16,21 @@ use App\Domain\Model\Manager\ManagerRepository;
 use App\Domain\Services\Manager\ManagerCheckNickNameService;
 use PHPUnit\Framework\TestCase;
 
+
 class ManagerCheckEmailTest extends TestCase
 {
     /**
      * @var ManagerCheckNickName
      */
     private $handle;
+    /**
+     * @var ManagerRepository
+     */
     private $stubRepository;
 
-
+    /**
+     * @throws \ReflectionException
+     */
     public function setUp()
     {
         $this->stubRepository = $this->createMock(ManagerRepository::class);
@@ -33,6 +39,7 @@ class ManagerCheckEmailTest extends TestCase
 
     /**
      * @test
+     * @throws \ReflectionException
      */
     public function given_an_nickname_when_exist_then_exception()
     {

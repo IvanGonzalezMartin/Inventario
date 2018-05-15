@@ -11,6 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Manager
 {
+    const EMAIL_FAIL = 'fiel email must be type of email';
+    const ROL_ID_FAIL = 'rol id must be numeric';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -60,14 +63,15 @@ class Manager
      * @param $rolID
      * @param $password
      * @param $email
+     * @throws \Assert\AssertionFailedException
      */
     public function __construct($nickName, $name, $rolID, $password, $email)
     {
         $this->nickName = $nickName;
         $this->name = $name;
-        $this->rolID = $rolID;
-        $this->password = $password;
-        $this->email = $email;
+        $this->setRolID($rolID);
+        $this->setPassword($password);
+        $this->setEmail($email);
     }
 
 
@@ -117,23 +121,29 @@ class Manager
         return $this->rolID;
     }
 
-    public function setRolID(?int $rolID): self
+    /**
+     * @param int|null $rolID
+     * @return Manager
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setRolID($rolID): self
     {
+        Assertion::numeric($rolID, self::ROL_ID_FAIL);
         $this->rolID = $rolID;
 
         return $this;
     }
 
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
     public function setPassword(string $password): self
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
 
         return $this;
+    }
+
+    public function checkPassword(string $password): bool
+    {
+        return password_verify ($password, $this->password);
     }
 
     public function getEmail(): ?string
@@ -141,8 +151,14 @@ class Manager
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    /**
+     * @param string $email
+     * @return Manager
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setEmail($email): self
     {
+        Assertion::email($email, self::EMAIL_FAIL);
         $this->email = $email;
 
         return $this;

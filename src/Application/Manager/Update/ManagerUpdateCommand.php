@@ -6,10 +6,11 @@
  * Time: 12:53
  */
 
-namespace App\Application\Manager\Create;
+namespace App\Application\Manager\Update;
 
-class ManagerCreateCommand
+class ManagerUpdateCommand
 {
+    private $id;
     private $nickName;
     private $name;
     private $photo;
@@ -19,6 +20,7 @@ class ManagerCreateCommand
 
     /**
      * ManagerCreateCommand constructor.
+     * @param $id
      * @param $nickName
      * @param $name
      * @param $photo
@@ -27,14 +29,23 @@ class ManagerCreateCommand
      * @param $email
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($nickName, $name, $photo, $rolID, $password, $email)
+    public function __construct($id, $nickName, $name, $photo, $rolID, $password, $email)
     {
+        $this->id = $id;
         $this->nickName = $nickName;
         $this->name = $name;
         $this->photo = $photo;
         $this->rolID = $rolID;
         $this->password = $password;
         $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function id()
+    {
+        return $this->id;
     }
 
     /**

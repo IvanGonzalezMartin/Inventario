@@ -15,7 +15,7 @@ use App\Infrastructure\Utils\MyOwnHttpCodes;
 class RolNotFoundException extends DomainError
 {
     const START_MESSAGE = 'Rol With ID: ';
-    const END_MESSAGE = ' Not Found To Update';
+    const END_MESSAGE = ' Not Found';
     private $roleID;
 
     public function __construct($roleID)

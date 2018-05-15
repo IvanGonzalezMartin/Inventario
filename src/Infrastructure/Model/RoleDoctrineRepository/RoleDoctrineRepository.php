@@ -29,7 +29,7 @@ class RoleDoctrineRepository extends EntityRepository implements RoleRepository
 
     public function getRolById($id)
     {
-        return $this->findOneBy(['id' => $id]);
+        return $this->findOneBy(['id' => $id, 'deleteID' => null]);
     }
 
     /**
