@@ -17,32 +17,31 @@ use Doctrine\ORM\EntityRepository;
 class ClotheDoctrineRepository extends EntityRepository implements ClotheRepository
 {
 
-//    /**
-//     * @return Clothe[] Returns an array of Clothe objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param Clothe $clothe
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function insert(Clothe $clothe): void
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $this->getEntityManager()->persist($clothe);
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Clothe
+    public function findByName($name)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $this->findOneBy(['name' => $name, 'deleteID' => null]);
     }
-    */
+
+    public function findById($id)
+    {
+        return $this->findOneBy(['id' => $id, 'deleteID' => null]);
+    }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function updateAll()
+    {
+        $this->getEntityManager()->flush();
+    }
 }

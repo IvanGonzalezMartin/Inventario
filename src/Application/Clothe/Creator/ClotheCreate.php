@@ -9,19 +9,21 @@
 namespace App\Application\Clothe\Creator;
 
 
-use App\Domain\Services\Clothe\ClotheCreator;
+use App\Domain\Model\Clothe\Clothe;
+use App\Domain\Services\Clothe\ClotheCreatorService;
 
 class ClotheCreate
 {
     private $clotheCreator;
 
-    public function __construct(ClotheCreator $clotheCreator )
+    public function __construct(ClotheCreatorService $clotheCreator )
     {
         $this->clotheCreator = $clotheCreator;
     }
 
     public function handler(ClotheCreateCommand $clotheCreateCommand)
     {
-
+        $clothe = new Clothe($clotheCreateCommand->getId(),$clotheCreateCommand->getClotheCategoryID(),$clotheCreateCommand->getName(),$clotheCreateCommand->getGender());
+        $this->clotheCreator->__invoke($clothe);
     }
 }

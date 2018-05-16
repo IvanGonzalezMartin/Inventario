@@ -61,3 +61,8 @@ UpdateContract:
     path: /Contract/update/
     controller: App\Infrastructure\Controller\ContractController::updateContract
     methods: [GET]
+
+CreateClothe:
+    path: /Clothe/create/
+    controller: App\Infrastructure\Controller\ClotheController::createClothe
+    methods: [GET]
