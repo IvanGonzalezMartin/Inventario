@@ -11,5 +11,8 @@ namespace App\Domain\Model\Clothe;
 
 interface ClotheRepository
 {
-
+    public function insert(Clothe $clothe): void;
+    public function findByName($name);
+    public function findById($id);
+    public function updateAll();
 }

@@ -74,4 +74,9 @@ class Sizes
         'XXL' => self::XXL,
         'XXXL' => self::XXXL
     ];
+
+    const GET_ARRAY_SIZE = [
+        'ALPHABETIC' => self::SIZES_ALPHABETIC,
+        'NUMERIC' => self::SIZES_NUMERIC
+    ];
 }

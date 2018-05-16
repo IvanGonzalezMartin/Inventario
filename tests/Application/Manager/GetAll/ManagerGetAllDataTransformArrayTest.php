@@ -8,19 +8,9 @@
 
 namespace App\Tests\Application\Manager\GetAll;
 
-
-
-use App\Application\Manager\Delete\ManagerDelete;
-use App\Application\Manager\Delete\ManagerDeleteCommand;
 use App\Application\Manager\GetAll\DataTransforms\ManagerGetAllDataTransformArray;
 use App\Application\Manager\GetAll\ManagerGetAll;
-use App\Application\Manager\GetAll\ManagerGetAllDataTransform;
-use App\Domain\Model\DeleteThing\DeleteThingRepository;
-use App\Domain\Model\Manager\Exceptions\ManagerWithIdDoesntExistsException;
-use App\Domain\Model\Manager\Manager;
 use App\Domain\Model\Manager\ManagerRepository;
-
-use App\Domain\Services\Manager\ManagerDeletorService;
 use App\Domain\Services\Manager\ManagerGetAllService;
 use PHPUnit\Framework\TestCase;
 
@@ -51,7 +41,7 @@ class ManagerGetAllDataTransformArrayTest extends TestCase
      * @test
      * @throws \Assert\AssertionFailedException
      */
-    public function falla_al_encontrar_manager_cuando_intenta_delete_manager()
+    public function devuelve_todos_los_managers_bien()
     {
         $this->stubRepository->method('getAll')
             ->willReturn(null);
