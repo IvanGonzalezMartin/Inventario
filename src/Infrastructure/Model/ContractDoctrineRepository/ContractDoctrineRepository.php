@@ -25,7 +25,6 @@ class ContractDoctrineRepository extends EntityRepository implements ContractRep
     {
         $entityManager = $this->getEntityManager();
         $entityManager->persist($contract);
-        $entityManager->flush();
     }
 
     public function findByEndDate($endDate)
@@ -50,5 +49,10 @@ class ContractDoctrineRepository extends EntityRepository implements ContractRep
     public function updateAll()
     {
         $this->getEntityManager()->flush();
+    }
+
+    public function findByUserId($id)
+    {
+        return $this->findOneBy(['userID' => $id, 'deleteID' => null]);
     }
 }

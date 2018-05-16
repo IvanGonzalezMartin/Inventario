@@ -7,10 +7,10 @@ namespace App\Domain\Model\Contract\Exceptions;
 use App\Domain\Shared\Exceptions\DomainError;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 
-class ContractEndDateDosentExistsException extends DomainError
+class DateIsOldException extends DomainError
 {
-    const START_MESSAGE = 'Contract whit endDate: ';
-    const END_MESSAGE = ' dosent exist';
+    const START_MESSAGE = 'The date : ';
+    const END_MESSAGE = ' is old than current date';
     private $endDate;
 
     public function __construct($endDate)

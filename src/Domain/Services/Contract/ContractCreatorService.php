@@ -12,6 +12,9 @@ namespace App\Domain\Services\Contract;
 use App\Domain\Model\Contract\Contract;
 use App\Domain\Model\Contract\ContractRepository;
 use App\Domain\Model\Contract\Exceptions\ContractDoesntExistException;
+use App\Domain\Model\Contract\Exceptions\ContractUserAlreadyExistsException;
+use App\Domain\Model\Contract\Exceptions\DateIsOldException;
+use App\Domain\Model\User\Exceptions\UserNotFoundException;
 use App\Domain\Model\User\UserRepository;
 
 class ContractCreatorService
@@ -34,17 +37,22 @@ class ContractCreatorService
 
     public function __invoke(Contract $contract)
     {
-        if($contract->getEndDate() < \DateTime::createFromFormat('d-m-Y', date('d-m-Y')))
 
+        if(CheckDateService::execute($contract->getEndDate()))
+            throw new DateIsOldException(date_format($contract->getEndDate(), 'd-m-Y'));
+
+        $userContract = $this->contractRepository->findByUserId($contract->getUserID());
+
+        if(false === empty($userContract))
+            throw new ContractUserAlreadyExistsException();
 
         $user = $this->userRepository->findById($contract->getUserID());
 
         if(empty($user))
-            throw new ContractDoesntExistException($contract->getUserID());
-
-
+            throw new UserNotFoundException($contract->getUserID());
 
         $this->contractRepository->insert($contract);
+        $this->contractRepository->updateAll();
 
     }
 }

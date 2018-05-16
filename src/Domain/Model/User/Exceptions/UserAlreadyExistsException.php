@@ -1,24 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: programador
- * Date: 14/05/18
- * Time: 10:22
- */
 
-namespace App\Domain\Model\Contract\Exceptions;
+
+namespace App\Domain\Model\User\Exceptions;
 
 
 use App\Domain\Shared\Exceptions\DomainError;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 
-class ContractDoesntExistException extends DomainError
+class UserAlreadyExistsException extends DomainError
 {
-    const START_MESSAGE = 'Contract with ID: ';
-    const END_MESSAGE = '  doesnt exist';
+    const START_MESSAGE = 'User with ID: ';
+    const END_MESSAGE = '  already exist';
     private $id;
 
-    public function __construct($id)
+    public function __construct(int $id)
     {
         $this->id = $id;
         parent::__construct();

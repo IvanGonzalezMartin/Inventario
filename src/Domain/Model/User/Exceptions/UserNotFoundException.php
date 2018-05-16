@@ -18,7 +18,7 @@ class UserNotFoundException extends DomainError
     const END_MESSAGE = '  doesnt exist';
     private $id;
 
-    public function __construct(int $id)
+    public function __construct($id)
     {
         $this->id = $id;
         parent::__construct();

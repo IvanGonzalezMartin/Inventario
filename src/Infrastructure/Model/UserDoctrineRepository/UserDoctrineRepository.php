@@ -19,6 +19,7 @@ class UserDoctrineRepository extends EntityRepository implements UserRepository
 
     public function findByID($id)
     {
-        // TODO: Implement findByID() method.
+
+        return $this->findOneBy(['id' => $id , 'deleteID' =>null]);
     }
 }

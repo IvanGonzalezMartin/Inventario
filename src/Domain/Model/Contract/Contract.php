@@ -98,7 +98,7 @@ class Contract
         return $this->userID;
     }
 
-    public function getEndDate(): ?\DateTimeInterface
+    public function getEndDate()
     {
         return $this->endDate;
     }
@@ -119,7 +119,7 @@ class Contract
         return $this;
     }
 
-    public function getRenovation(): ?\DateTimeInterface
+    public function getRenovation()
     {
         return $this->renovation;
     }
