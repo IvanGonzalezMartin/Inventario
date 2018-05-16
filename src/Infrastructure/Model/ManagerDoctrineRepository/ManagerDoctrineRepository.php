@@ -54,4 +54,9 @@ class ManagerDoctrineRepository extends EntityRepository implements ManagerRepos
     {
         $this->getEntityManager()->flush();
     }
+
+    public function getAll()
+    {
+        return $this->findBy([]);
+    }
 }

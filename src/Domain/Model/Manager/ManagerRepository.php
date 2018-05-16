@@ -35,4 +35,5 @@ interface ManagerRepository
     public function getManagerByID($id);
 
     public function update(): void;
+    public function getAll();
 }
