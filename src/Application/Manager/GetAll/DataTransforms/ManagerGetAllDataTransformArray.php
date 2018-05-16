@@ -13,5 +13,18 @@ use App\Application\Manager\GetAll\ManagerGetAllDataTransform;
 
 class ManagerGetAllDataTransformArray implements ManagerGetAllDataTransform
 {
-
+    public function transform($managers)
+    {
+        $arrayManagers = [];
+        foreach ($managers as $manager){
+            $arrayManagers[$manager->getId()] = [
+                "ID" => $manager->getId(),
+                "NickName" => $manager->getNickName(),
+                "Email" => $manager->getEmail(),
+                "Name" => $manager->getName(),
+                "Photo" => $manager->getPhoto()
+            ];
+        }
+        return $arrayManagers;
+    }
 }

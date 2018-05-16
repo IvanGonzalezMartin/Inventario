@@ -57,6 +57,6 @@ class ManagerDoctrineRepository extends EntityRepository implements ManagerRepos
 
     public function getAll()
     {
-        return $this->findBy([]);
+        return $this->findBy(['deleteID' => null, 'rolID' => '2']);
     }
 }

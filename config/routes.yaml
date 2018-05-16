@@ -57,6 +57,11 @@ DeleteManager:
     controller: App\Infrastructure\Controller\ManagerController::deleteManager
     methods: [GET]
 
+GetAllManager:
+    path: /Manager/
+    controller: App\Infrastructure\Controller\ManagerController::getAllManager
+    methods: [GET]
+
 CreateClotheCategory:
     path: /ClotheCategory/create/
     controller: App\Infrastructure\Controller\ClotheCategoryController::createClotheCategory

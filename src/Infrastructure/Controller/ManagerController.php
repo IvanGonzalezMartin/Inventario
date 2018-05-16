@@ -17,6 +17,7 @@ use App\Application\Manager\Create\ManagerCreate;
 use App\Application\Manager\Create\ManagerCreateCommand;
 use App\Application\Manager\Delete\ManagerDelete;
 use App\Application\Manager\Delete\ManagerDeleteCommand;
+use App\Application\Manager\GetAll\ManagerGetAll;
 use App\Application\Manager\Update\ManagerUpdate;
 use App\Application\Manager\Update\ManagerUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
@@ -30,18 +31,21 @@ class ManagerController
     private $managerCreate;
     private $managerUpdate;
     private $managerDelete;
+    private $managerGetAll;
 
     public function __construct(ManagerCheckNickName $checkManagerNickName,
                                 ManagerCheckEmail $managerCheckEmail,
                                 ManagerCreate $managerCreate,
                                 ManagerUpdate $managerUpdate,
-                                ManagerDelete $managerDelete)
+                                ManagerDelete $managerDelete,
+                                ManagerGetAll $managerGetAll)
     {
         $this->checkManagerNickName = $checkManagerNickName;
         $this->managerCheckEmail = $managerCheckEmail;
         $this->managerCreate = $managerCreate;
         $this->managerUpdate = $managerUpdate;
         $this->managerDelete = $managerDelete;
+        $this->managerGetAll = $managerGetAll;
     }
 
     public function checkNickName(Request $request)
@@ -115,5 +119,13 @@ class ManagerController
         $this->managerDelete->handler($managerDeleteCommand);
 
         return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function getAllManager()
+    {
+        return new JsonResponse($this->managerGetAll->handler(),MyOwnHttpCodes::HTTP_OK);
     }
 }

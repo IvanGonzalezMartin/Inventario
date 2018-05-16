@@ -6,31 +6,36 @@
  * Time: 9:26
  */
 
-namespace App\Tests\Application\Manager\Delete;
+namespace App\Tests\Application\Manager\GetAll;
+
 
 
 use App\Application\Manager\Delete\ManagerDelete;
 use App\Application\Manager\Delete\ManagerDeleteCommand;
+use App\Application\Manager\GetAll\DataTransforms\ManagerGetAllDataTransformArray;
+use App\Application\Manager\GetAll\ManagerGetAll;
+use App\Application\Manager\GetAll\ManagerGetAllDataTransform;
 use App\Domain\Model\DeleteThing\DeleteThingRepository;
 use App\Domain\Model\Manager\Exceptions\ManagerWithIdDoesntExistsException;
 use App\Domain\Model\Manager\Manager;
 use App\Domain\Model\Manager\ManagerRepository;
+
 use App\Domain\Services\Manager\ManagerDeletorService;
+use App\Domain\Services\Manager\ManagerGetAllService;
 use PHPUnit\Framework\TestCase;
 
 
-class ManagerDeleteTest extends TestCase
+class ManagerGetAllDataTransformArrayTest extends TestCase
 {
     /**
-     * @var ManagerDelete
+     * @var ManagerGetAll
      */
     private $handle;
+
     /**
      * @var ManagerRepository
      */
     private $stubRepository;
-
-
 
     /**
      * @throws \ReflectionException
@@ -39,7 +44,7 @@ class ManagerDeleteTest extends TestCase
     {
         $this->stubRepository = $this->createMock(ManagerRepository::class);
 
-        $this->handle = new ManagerDelete(  new ManagerDeletorService($this->stubRepository, $this->createMock(DeleteThingRepository::class)));
+        $this->handle = new ManagerGetAll(new ManagerGetAllService($this->stubRepository), $this->createMock(ManagerGetAllDataTransformArray::class));
     }
 
     /**
@@ -48,28 +53,11 @@ class ManagerDeleteTest extends TestCase
      */
     public function falla_al_encontrar_manager_cuando_intenta_delete_manager()
     {
-        $this->stubRepository->method('getManagerByID')
+        $this->stubRepository->method('getAll')
             ->willReturn(null);
-
-        $this->expectException(ManagerWithIdDoesntExistsException::class);
-
-        $this->handle->handler(new ManagerDeleteCommand(2));
-    }
-
-    /**
-     * @test
-     * @throws \Assert\AssertionFailedException
-     */
-    public function borrado_Manager_bien()
-    {
-        $this->stubRepository->method('getManagerByID')
-            ->willReturn(new Manager('nickName', 'name', 1, 'password','email@email.em'));
-
-        $this->handle->handler(new ManagerDeleteCommand(2));
-
+        $this->handle->handler();
         $this->assertTrue(true);
     }
-
 
 
 }

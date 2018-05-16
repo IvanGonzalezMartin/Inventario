@@ -11,5 +11,5 @@ namespace App\Application\Manager\GetAll;
 
 interface ManagerGetAllDataTransform
 {
-
+    public function transform($managers);
 }
