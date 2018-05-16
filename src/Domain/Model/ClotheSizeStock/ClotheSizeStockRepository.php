@@ -11,5 +11,14 @@ namespace App\Domain\Model\ClotheSizeStock;
 
 interface ClotheSizeStockRepository
 {
+    /**
+     * @param ClotheSizeStock $clotheSizeStock
+     * @return mixed
+     */
+    public function insert(ClotheSizeStock $clotheSizeStock);
 
+    /**
+     * @return mixed
+     */
+    public function updateAll();
 }

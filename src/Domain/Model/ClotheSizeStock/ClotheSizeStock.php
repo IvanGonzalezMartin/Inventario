@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ClotheSizeStock
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -23,7 +24,7 @@ class ClotheSizeStock
     private $clotheID;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=10, nullable=false)
      */
     private $sizeID;
 
@@ -44,14 +45,15 @@ class ClotheSizeStock
      * @param string $id
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(string $clotheID, int $sizeID)
+    public function __construct(string $clotheID, $sizeID)
     {
         Assertion::uuid($clotheID);
 
         $this->clotheID = $clotheID;
         $this->sizeID = $sizeID;
-
+        $this->stock = 0;
     }
+
 
     public function getId()
     {

@@ -20,13 +20,24 @@ use App\Domain\Model\Gender\Gender;
 
 class ClotheCreatorService
 {
+    /**
+     * @var ClotheRepository
+     */
     private $repository;
+    /**
+     * @var ClotheCategoryRepository
+     */
     private $clotheCategoryRepository;
+    /**
+     * @var ClotheSizeStockCreateService
+     */
+    private $clotheSizeStockCreateService;
 
-    public function __construct(ClotheRepository $clotheRepository, ClotheCategoryRepository $clotheCategoryRepository)
+    public function __construct(ClotheRepository $clotheRepository, ClotheCategoryRepository $clotheCategoryRepository, ClotheSizeStockCreateService $clotheSizeStockCreateService)
     {
         $this->repository = $clotheRepository;
         $this->clotheCategoryRepository = $clotheCategoryRepository;
+        $this->clotheSizeStockCreateService = $clotheSizeStockCreateService;
     }
 
     public function __invoke(Clothe $clothe)
@@ -52,6 +63,7 @@ class ClotheCreatorService
 
 
         $this->repository->insert($clothe);
+        $this->clotheSizeStockCreateService->execute($clothe);
         $this->repository->updateAll();
     }
 }
