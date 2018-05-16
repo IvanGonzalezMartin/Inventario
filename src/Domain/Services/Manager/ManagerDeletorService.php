@@ -10,7 +10,10 @@ namespace App\Domain\Services\Manager;
 
 
 use App\Application\Manager\Delete\ManagerDeleteCommand;
+use App\Domain\Model\DeleteThing\DeleteThing;
+use App\Domain\Model\DeleteThing\DeleteThingRepository;
 use App\Domain\Model\Manager\Exceptions\ManagerWithIdDoesntExistsException;
+use App\Domain\Model\Manager\Manager;
 use App\Domain\Model\Manager\ManagerRepository;
 use Ramsey\Uuid\Uuid;
 
@@ -21,14 +24,19 @@ class ManagerDeletorService
      */
     private $repository;
 
+    /**
+     * @var DeleteThingRepository
+     */
+    private $deleteThingRepository;
 
-    public function __construct(ManagerRepository $managerRepository)
+
+    public function __construct(ManagerRepository $managerRepository, DeleteThingRepository $deleteThingRepository)
     {
         $this->repository = $managerRepository;
+        $this->deleteThingRepository = $deleteThingRepository;
     }
 
     /**
-     * @param ManagerDeleteCommand $manager
      * @param $id
      * @throws \Assert\AssertionFailedException
      */
@@ -43,6 +51,7 @@ class ManagerDeletorService
 
         $oldManager->setDeleteID($uuid);
 
+        $this->deleteThingRepository->insert(new DeleteThing($id, $uuid->toString(), 'Manager'));
         $this->repository->update();
     }
 }

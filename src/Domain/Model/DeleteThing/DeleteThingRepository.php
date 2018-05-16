@@ -11,5 +11,8 @@ namespace App\Domain\Model\DeleteThing;
 
 interface DeleteThingRepository
 {
-
+    /**
+     * @param DeleteThing $deleteThing
+     */
+    public function insert(DeleteThing $deleteThing): void ;
 }

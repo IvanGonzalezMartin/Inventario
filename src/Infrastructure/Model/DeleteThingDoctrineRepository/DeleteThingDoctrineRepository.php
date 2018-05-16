@@ -5,6 +5,7 @@ namespace App\Infrastructure\Model\DeleteThingDoctrineRepository;
 use App\Domain\Model\DeleteThing\DeleteThing;
 use App\Domain\Model\DeleteThing\DeleteThingRepository;
 use Doctrine\ORM\EntityRepository;
+use Ramsey\Uuid\Uuid;
 
 
 /**
@@ -15,32 +16,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class DeleteThingDoctrineRepository extends EntityRepository implements DeleteThingRepository
 {
-//    /**
-//     * @return DeleteThing[] Returns an array of DeleteThing objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param DeleteThing $deleteThing
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function insert(DeleteThing $deleteThing): void
     {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('d.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($deleteThing);
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?DeleteThing
-    {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

@@ -89,6 +89,15 @@ services:
     App\Domain\Model\User\UserRepository:
         alias: app.user_repository
 
+    app.delete_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - App\Domain\Model\DeleteThing\DeleteThing
+
+    App\Domain\Model\DeleteThing\DeleteThingRepository:
+        alias: app.delete_repository
+
     App\EventListener\ExceptionListener:
                 tags:
                     - { name: kernel.event_listener, event: kernel.exception }

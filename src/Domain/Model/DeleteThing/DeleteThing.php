@@ -54,21 +54,19 @@ class DeleteThing
 
     /**
      * DeleteThing constructor.
-     * @param string $id
+     * @param string $deleteID
      * @param string $deleteThingID
      * @param string $nameOfThing
      * @throws \Assert\AssertionFailedException
      */
     public function __construct($deleteID, $deleteThingID, $nameOfThing)
     {
-
-        Assertion::uuid($deleteID);
         Assertion::uuid($deleteThingID);
 
         $this->deleteID = $deleteID;
         $this->deleteThingID = $deleteThingID;
         $this->nameOfThing = $nameOfThing;
-        $this->date = date("Y-m-d H:i:s");
+        $this->date = \DateTime::createFromFormat('d-m-Y', date('d-m-Y'));
     }
 
     public function getId()
