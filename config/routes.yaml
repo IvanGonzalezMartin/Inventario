@@ -56,3 +56,8 @@ CreateContract:
     path: /Contract/create/
     controller: App\Infrastructure\Controller\ContractController::createContract
     methods: [GET]
+
+UpdateContract:
+    path: /Contract/update/
+    controller: App\Infrastructure\Controller\ContractController::updateContract
+    methods: [GET]

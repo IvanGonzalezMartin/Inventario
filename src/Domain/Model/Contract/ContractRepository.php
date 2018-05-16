@@ -16,4 +16,5 @@ interface ContractRepository
     public function findByRenovation($renovation);
     public function findById($id);
     public function updateAll();
+    public function findByUserId($id);
 }

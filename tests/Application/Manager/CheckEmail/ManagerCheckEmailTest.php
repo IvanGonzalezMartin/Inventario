@@ -26,6 +26,9 @@ class ManagerCheckEmailTest extends TestCase
     private $stubRepository;
 
 
+    /**
+     * @throws \ReflectionException
+     */
     public function setUp()
     {
         $this->stubRepository = $this->createMock(ManagerRepository::class);
@@ -33,6 +36,7 @@ class ManagerCheckEmailTest extends TestCase
     }
 
     /**
+     * @throws \ReflectionException
      * @test
      */
     public function given_an_email_when_exist_then_exception()
