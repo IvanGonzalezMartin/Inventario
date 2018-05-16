@@ -89,7 +89,6 @@ services:
     App\Domain\Model\User\UserRepository:
         alias: app.user_repository
 
-<<<<<<< HEAD
     app.delete_repository:
         class: Doctrine\ORM\EntityRepository
         factory: ['@doctrine.orm.default_entity_manager', getRepository]
@@ -98,7 +97,7 @@ services:
 
     App\Domain\Model\DeleteThing\DeleteThingRepository:
         alias: app.delete_repository
-=======
+
     app.clothe_repository:
         class: Doctrine\ORM\EntityRepository
         factory: ['@doctrine.orm.default_entity_manager', getRepository]
@@ -107,7 +106,6 @@ services:
 
     App\Domain\Model\Clothe\ClotheRepository:
         alias: app.clothe_repository
->>>>>>> e7bf962e92c73b3827591e7f099bcb628f7681f7
 
     App\EventListener\ExceptionListener:
                 tags:
