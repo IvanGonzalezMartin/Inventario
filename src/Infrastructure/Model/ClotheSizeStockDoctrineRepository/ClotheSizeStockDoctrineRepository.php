@@ -17,4 +17,23 @@ class ClotheSizeStockDoctrineRepository extends EntityRepository implements Clot
 {
 
 
+    /**
+     * @param ClotheSizeStock $clotheSizeStock
+     * @return mixed|void
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function insert(ClotheSizeStock $clotheSizeStock)
+    {
+        $this->getEntityManager()->persist($clotheSizeStock);
+    }
+
+    /**
+     * @return mixed|void
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function updateAll()
+    {
+        $this->getEntityManager()->flush();
+    }
 }

@@ -107,6 +107,15 @@ services:
     App\Domain\Model\Clothe\ClotheRepository:
         alias: app.clothe_repository
 
+    app.clotheSizeStock_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - App\Domain\Model\ClotheSizeStock\ClotheSizeStock
+
+    App\Domain\Model\ClotheSizeStock\ClotheSizeStockRepository:
+        alias: app.clotheSizeStock_repository
+
     App\EventListener\ExceptionListener:
                 tags:
                     - { name: kernel.event_listener, event: kernel.exception }
