@@ -25,10 +25,6 @@ class ManagerCheckEmailTest extends TestCase
     private $handle;
     private $stubRepository;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> TestDepartment
     /**
      * @throws \ReflectionException
      */
