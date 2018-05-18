@@ -24,7 +24,7 @@ use App\Infrastructure\Utils\MyOwnHttpCodes;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class ManagerController
+class ManagerController extends OwnController
 {
     private $checkManagerNickName;
     private $managerCheckEmail;
@@ -71,14 +71,16 @@ class ManagerController
     public function createManager(Request $request)
     {
 
+        $newReq = json_decode($request->getContent());
+
         $managerCreateManagerCommand = new ManagerCreateCommand(
-                                                $request->request->get('nickName'),
-                                                $request->request->get('name'),
-                                                $request->request->get('photo'),
-                                                $request->request->get('rolID'),
-                                                $request->request->get('password'),
-                                                $request->request->get('email')
-                                    );
+                                                                $newReq->nickName,
+                                                                $newReq->name,
+                                                                $newReq->photo,
+                                                                $newReq->rolID,
+                                                                $newReq->password,
+                                                                $newReq->email
+        );
 
         $this->managerCreate->handler($managerCreateManagerCommand);
 
@@ -92,15 +94,18 @@ class ManagerController
      */
     public function updateManager(Request $request)
     {
+        $newReq = json_decode($request->getContent());
+
         $managerUpdateCommand = new ManagerUpdateCommand(
-            $request->query->get('id'),
-            $request->query->get('nickName'),
-            $request->query->get('name'),
-            $request->query->get('photo'),
-            $request->query->get('rolID'),
-            $request->query->get('password'),
-            $request->query->get('email')
+                                                        $newReq->id,
+                                                        $newReq->nickName,
+                                                        $newReq->name,
+                                                        $newReq->photo,
+                                                        $newReq->rolID,
+                                                        $newReq->password,
+                                                        $newReq->email
         );
+
         $this->managerUpdate->handler($managerUpdateCommand);
 
         return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
@@ -113,9 +118,10 @@ class ManagerController
      */
     public function deleteManager(Request $request)
     {
-        $managerDeleteCommand = new ManagerDeleteCommand(
-            $request->query->get('id')
-        );
+        $newReq = json_decode($request->getContent());
+
+        $managerDeleteCommand = new ManagerDeleteCommand($newReq->id);
+
         $this->managerDelete->handler($managerDeleteCommand);
 
         return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
