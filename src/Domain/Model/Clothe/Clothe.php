@@ -54,7 +54,7 @@ class Clothe
      * @param $genderID
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($id, $clotheCategoryID, $name, $gender)
+    public function __construct($id, $clotheCategoryID, $name, $gender, $photo, $description)
     {
         Assertion::uuid($id);
 
@@ -62,6 +62,8 @@ class Clothe
         $this->clotheCategoryID = $clotheCategoryID;
         $this->name = $name;
         $this->gender = $gender;
+        $this->photo = $photo;
+        $this->description = $description;
     }
 
 

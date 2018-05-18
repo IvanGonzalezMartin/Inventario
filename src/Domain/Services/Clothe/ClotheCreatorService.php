@@ -60,8 +60,6 @@ class ClotheCreatorService
         if (false === empty($clotheName))
             throw new ClotheNameAlreadyExistsException($clothe->getName());
 
-
-
         $this->repository->insert($clothe);
         $this->clotheSizeStockCreateService->execute($clothe);
         $this->repository->updateAll();

@@ -9,6 +9,8 @@
 namespace App\Domain\Model\ClotheSizeStock;
 
 
+use App\Domain\Model\Clothe\Clothe;
+
 interface ClotheSizeStockRepository
 {
     /**
@@ -21,4 +23,16 @@ interface ClotheSizeStockRepository
      * @return mixed
      */
     public function updateAll();
+
+    /**
+     * @param $clotheId
+     * @return mixed
+     */
+    public function givMeAllSizeClotheStock($clotheId);
+
+    /**
+     * @param $clotheId
+     * @return mixed
+     */
+    public function givMeAllStock($clotheId);
 }

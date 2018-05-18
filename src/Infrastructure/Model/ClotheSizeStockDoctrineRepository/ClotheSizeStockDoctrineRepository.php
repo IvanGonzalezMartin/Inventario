@@ -36,4 +36,27 @@ class ClotheSizeStockDoctrineRepository extends EntityRepository implements Clot
     {
         $this->getEntityManager()->flush();
     }
+
+    /**
+     * @param $clotheId
+     */
+    public function givMeAllSizeClotheStock($clotheId)
+    {
+        return $this->findBy(['clotheID' => $clotheId, 'deleteID' => null]);
+    }
+
+    /**
+     * @param $clotheId
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function givMeAllStock($clotheId)
+    {
+        return $this->createQueryBuilder('fc')
+            ->andWhere('fc.clotheID = :clotheId')
+            ->setParameter('clotheId', $clotheId)
+            ->select('SUM(fc.stock) as stock')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

@@ -23,7 +23,7 @@ class ClotheCreate
 
     public function handler(ClotheCreateCommand $clotheCreateCommand)
     {
-        $clothe = new Clothe($clotheCreateCommand->getId(),$clotheCreateCommand->getClotheCategoryID(),$clotheCreateCommand->getName(),$clotheCreateCommand->getGender());
+        $clothe = new Clothe($clotheCreateCommand->getId(),$clotheCreateCommand->getClotheCategoryID(),$clotheCreateCommand->getName(),$clotheCreateCommand->getGender(),$clotheCreateCommand->getPhoto(),$clotheCreateCommand->getDescription());
         $this->clotheCreator->__invoke($clothe);
     }
 }

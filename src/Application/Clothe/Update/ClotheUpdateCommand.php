@@ -2,14 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: programador
- * Date: 26/04/18
- * Time: 15:48
+ * Date: 17/05/18
+ * Time: 9:50
  */
 
-namespace App\Application\Clothe\Creator;
+namespace App\Application\Clothe\Update;
 
 
-class ClotheCreateCommand
+class ClotheUpdateCommand
 {
     private $id;
     private $clotheCategoryID;
@@ -19,10 +19,13 @@ class ClotheCreateCommand
     private $description;
 
     /**
-     * ClotheCreateCommand constructor.
+     * ClotheUpdateCommand constructor.
+     * @param $id
      * @param $clotheCategoryID
      * @param $name
      * @param $gender
+     * @param $photo
+     * @param $description
      */
     public function __construct($id,$clotheCategoryID, $name, $gender, $photo, $description)
     {
@@ -82,5 +85,44 @@ class ClotheCreateCommand
         return $this->description;
     }
 
+    /**
+     * @param mixed $clotheCategoryID
+     */
+    public function setClotheCategoryID($clotheCategoryID): void
+    {
+        $this->clotheCategoryID = $clotheCategoryID;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param mixed $gender
+     */
+    public function setGender($gender): void
+    {
+        $this->gender = $gender;
+    }
+
+    /**
+     * @param mixed $photo
+     */
+    public function setPhoto($photo): void
+    {
+        $this->photo = $photo;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
 
 }

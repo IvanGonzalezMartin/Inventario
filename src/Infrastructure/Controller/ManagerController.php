@@ -72,12 +72,12 @@ class ManagerController
     {
 
         $managerCreateManagerCommand = new ManagerCreateCommand(
-                                                $request->query->get('nickName'),
-                                                $request->query->get('name'),
-                                                $request->query->get('photo'),
-                                                $request->query->get('rolID'),
-                                                $request->query->get('password'),
-                                                $request->query->get('email')
+                                                $request->request->get('nickName'),
+                                                $request->request->get('name'),
+                                                $request->request->get('photo'),
+                                                $request->request->get('rolID'),
+                                                $request->request->get('password'),
+                                                $request->request->get('email')
                                     );
 
         $this->managerCreate->handler($managerCreateManagerCommand);

@@ -45,7 +45,7 @@ CheckEmail:
 CreateManager:
     path: /Manager/create/
     controller: App\Infrastructure\Controller\ManagerController::createManager
-    methods: [GET]
+    methods: [POST]
 
 UpdateManager:
     path: /Manager/update/
@@ -86,3 +86,9 @@ CreateClothe:
     path: /Clothe/create/
     controller: App\Infrastructure\Controller\ClotheController::createClothe
     methods: [GET]
+
+UpdateClothe:
+    path: /Clothe/update/
+    controller: App\Infrastructure\Controller\ClotheController::updateClothe
+    methods: [GET]
+
