@@ -25,7 +25,7 @@ class ManagerGetAll
     /**
      * @return mixed
      */
-    public function handler()
+    public function handle()
     {
         return $this->dataTransform->transform($this->managerGetAllService->__invoke());
     }

@@ -20,7 +20,7 @@ class ManagerCheckEmail
         $this->checkEmail = $checkEmail;
     }
 
-    public function handler(ManagerCheckEmailCommand $managerCheckEmailCommand)
+    public function handle(ManagerCheckEmailCommand $managerCheckEmailCommand)
     {
         $this->checkEmail->__invoke($managerCheckEmailCommand->email());
     }

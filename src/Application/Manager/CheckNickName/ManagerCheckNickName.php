@@ -20,7 +20,7 @@ class ManagerCheckNickName
         $this->checkNickName = $checkNickName;
     }
 
-    public function handler(ManagerCheckNickNameCommand $checkManagerNickNameCommand)
+    public function handle(ManagerCheckNickNameCommand $checkManagerNickNameCommand)
     {
         $this->checkNickName->__invoke($checkManagerNickNameCommand->getNickName());
     }

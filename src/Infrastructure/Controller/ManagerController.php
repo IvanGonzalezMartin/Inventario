@@ -8,81 +8,50 @@
 
 namespace App\Infrastructure\Controller;
 
-
-use App\Application\Manager\CheckEmail\ManagerCheckEmail;
 use App\Application\Manager\CheckEmail\ManagerCheckEmailCommand;
-use App\Application\Manager\CheckNickName\ManagerCheckNickName;
 use App\Application\Manager\CheckNickName\ManagerCheckNickNameCommand;
-use App\Application\Manager\Create\ManagerCreate;
 use App\Application\Manager\Create\ManagerCreateCommand;
-use App\Application\Manager\Delete\ManagerDelete;
 use App\Application\Manager\Delete\ManagerDeleteCommand;
-use App\Application\Manager\GetAll\ManagerGetAll;
-use App\Application\Manager\Update\ManagerUpdate;
+use App\Application\Manager\GetAll\ManagerGetAllCommand;
 use App\Application\Manager\Update\ManagerUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
+use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class ManagerController extends OwnController
+class ManagerController
 {
-    private $checkManagerNickName;
-    private $managerCheckEmail;
-    private $managerCreate;
-    private $managerUpdate;
-    private $managerDelete;
-    private $managerGetAll;
-
-    public function __construct(ManagerCheckNickName $checkManagerNickName,
-                                ManagerCheckEmail $managerCheckEmail,
-                                ManagerCreate $managerCreate,
-                                ManagerUpdate $managerUpdate,
-                                ManagerDelete $managerDelete,
-                                ManagerGetAll $managerGetAll)
+    public function checkNickName(Request $request, CommandBus $commandBus)
     {
-        $this->checkManagerNickName = $checkManagerNickName;
-        $this->managerCheckEmail = $managerCheckEmail;
-        $this->managerCreate = $managerCreate;
-        $this->managerUpdate = $managerUpdate;
-        $this->managerDelete = $managerDelete;
-        $this->managerGetAll = $managerGetAll;
-    }
-
-    public function checkNickName(Request $request)
-    {
-
         $nickName = $request->query->get('nickName');
 
-        $managerCheckNickNameCommand = new ManagerCheckNickNameCommand($nickName);
-        $this->checkManagerNickName->handler($managerCheckNickNameCommand);
+        $commandBus->handle(new ManagerCheckNickNameCommand($nickName));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function checkEmail(Request $request)
+    public function checkEmail(Request $request, CommandBus $commandBus)
     {
         $email= $request->query->get('email');
-        $managerCheckEmailCommand = new ManagerCheckEmailCommand($email);
-        $this->managerCheckEmail->handler($managerCheckEmailCommand);
+
+        $commandBus->handle(new ManagerCheckEmailCommand($email));
 
         return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function createManager(Request $request)
+    public function createManager(Request $request, CommandBus $commandBus)
     {
-
         $newReq = json_decode($request->getContent());
 
-        $managerCreateManagerCommand = new ManagerCreateCommand(
-                                                                $newReq->nickName,
-                                                                $newReq->name,
-                                                                $newReq->photo,
-                                                                $newReq->rolID,
-                                                                $newReq->password,
-                                                                $newReq->email
+        $commandBus->handle(new ManagerCreateCommand(
+                                                $newReq->nickName,
+                                                $newReq->name,
+                                                $newReq->photo,
+                                                $newReq->rolID,
+                                                $newReq->password,
+                                                $newReq->email
+                                            )
         );
-
-        $this->managerCreate->handler($managerCreateManagerCommand);
 
         return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
     }
@@ -92,21 +61,20 @@ class ManagerController extends OwnController
      * @return JsonResponse
      * @throws \Assert\AssertionFailedException
      */
-    public function updateManager(Request $request)
+    public function updateManager(Request $request, CommandBus $commandBus)
     {
         $newReq = json_decode($request->getContent());
 
-        $managerUpdateCommand = new ManagerUpdateCommand(
-                                                        $newReq->id,
-                                                        $newReq->nickName,
-                                                        $newReq->name,
-                                                        $newReq->photo,
-                                                        $newReq->rolID,
-                                                        $newReq->password,
-                                                        $newReq->email
+        $commandBus->handle(new ManagerUpdateCommand(
+                                                    $newReq->id,
+                                                    $newReq->nickName,
+                                                    $newReq->name,
+                                                    $newReq->photo,
+                                                    $newReq->rolID,
+                                                    $newReq->password,
+                                                    $newReq->email
+                            )
         );
-
-        $this->managerUpdate->handler($managerUpdateCommand);
 
         return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
     }
@@ -116,13 +84,11 @@ class ManagerController extends OwnController
      * @return JsonResponse
      * @throws \Assert\AssertionFailedException
      */
-    public function deleteManager(Request $request)
+    public function deleteManager(Request $request, CommandBus $commandBus)
     {
         $newReq = json_decode($request->getContent());
 
-        $managerDeleteCommand = new ManagerDeleteCommand($newReq->id);
-
-        $this->managerDelete->handler($managerDeleteCommand);
+        $commandBus->handle(new ManagerDeleteCommand($newReq->id));
 
         return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
     }
@@ -130,8 +96,8 @@ class ManagerController extends OwnController
     /**
      * @return JsonResponse
      */
-    public function getAllManager()
+    public function getAllManager(CommandBus $commandBus)
     {
-        return new JsonResponse($this->managerGetAll->handler(),MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse($commandBus->handle(new ManagerGetAllCommand()),MyOwnHttpCodes::HTTP_OK);
     }
 }

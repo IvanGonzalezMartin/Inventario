@@ -119,3 +119,33 @@ services:
     App\EventListener\ExceptionListener:
                 tags:
                     - { name: kernel.event_listener, event: kernel.exception }
+
+    Manager.all_handler:
+                class: App\Application\Manager\GetAll\ManagerGetAll
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\GetAll\ManagerGetAllCommand }
+
+    Manager.checkNickName_handler:
+                class: App\Application\Manager\CheckNickName\ManagerCheckNickName
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\CheckNickName\ManagerCheckNickNameCommand }
+
+    Manager.checkEmail_handler:
+                class: App\Application\Manager\CheckEmail\ManagerCheckEmail
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\CheckEmail\ManagerCheckEmailCommand }
+
+    Manager.update_handler:
+                class: App\Application\Manager\Update\ManagerUpdate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\Update\ManagerUpdateCommand }
+
+    Manager.create_handler:
+                class: App\Application\Manager\Create\ManagerCreate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\Create\ManagerCreateCommand }
+
+    Manager.delete_handler:
+                class: App\Application\Manager\Delete\ManagerDelete
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\Delete\ManagerDeleteCommand }

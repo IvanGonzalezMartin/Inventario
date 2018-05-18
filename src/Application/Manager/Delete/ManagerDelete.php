@@ -24,7 +24,7 @@ class ManagerDelete
      * @param ManagerDeleteCommand $managerCreateCommand
      * @throws \Assert\AssertionFailedException
      */
-    public function handler(ManagerDeleteCommand $managerCreateCommand)
+    public function handle(ManagerDeleteCommand $managerCreateCommand)
     {
         $this->managerDeletorService->__invoke($managerCreateCommand->id());
     }

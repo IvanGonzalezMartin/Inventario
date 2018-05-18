@@ -23,7 +23,7 @@ class ManagerUpdate
      * @param ManagerUpdateCommand $managerUpdateCommand
      * @throws \Assert\AssertionFailedException
      */
-    public function handler(ManagerUpdateCommand $managerUpdateCommand)
+    public function handle(ManagerUpdateCommand $managerUpdateCommand)
     {
         $this->managerUpdatorService->__invoke($managerUpdateCommand);
     }
