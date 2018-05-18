@@ -121,14 +121,9 @@ class Manager
         return $this->rolID;
     }
 
-    /**
-     * @param int|null $rolID
-     * @return Manager
-     * @throws \Assert\AssertionFailedException
-     */
+
     public function setRolID($rolID): self
     {
-        Assertion::numeric($rolID, self::ROL_ID_FAIL);
         $this->rolID = $rolID;
 
         return $this;

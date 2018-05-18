@@ -25,7 +25,6 @@ class ManagerCreateCommand
      * @param $rolID
      * @param $password
      * @param $email
-     * @throws \Assert\AssertionFailedException
      */
     public function __construct($nickName, $name, $photo, $rolID, $password, $email)
     {

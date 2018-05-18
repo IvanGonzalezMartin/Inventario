@@ -45,17 +45,17 @@ CheckEmail:
 CreateManager:
     path: /Manager/create/
     controller: App\Infrastructure\Controller\ManagerController::createManager
-    methods: [GET]
+    methods: [POST]
 
 UpdateManager:
     path: /Manager/update/
     controller: App\Infrastructure\Controller\ManagerController::updateManager
-    methods: [GET]
+    methods: [POST]
 
 DeleteManager:
     path: /Manager/delete/
     controller: App\Infrastructure\Controller\ManagerController::deleteManager
-    methods: [GET]
+    methods: [POST]
 
 GetAllManager:
     path: /Manager/
@@ -75,7 +75,7 @@ UpdateClotheCategory:
 CreateContract:
     path: /Contract/create/
     controller: App\Infrastructure\Controller\ContractController::createContract
-    methods: [GET]
+    methods: [POST]
 
 UpdateContract:
     path: /Contract/update/

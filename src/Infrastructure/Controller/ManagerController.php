@@ -7,7 +7,7 @@
  */
 
 namespace App\Infrastructure\Controller;
-
+header("Access-Control-Allow-Origin: *");
 
 use App\Application\Manager\CheckEmail\ManagerCheckEmail;
 use App\Application\Manager\CheckEmail\ManagerCheckEmailCommand;
@@ -70,19 +70,20 @@ class ManagerController
 
     public function createManager(Request $request)
     {
+        $newReq = json_decode($request->getContent());
 
         $managerCreateManagerCommand = new ManagerCreateCommand(
-                                                $request->query->get('nickName'),
-                                                $request->query->get('name'),
-                                                $request->query->get('photo'),
-                                                $request->query->get('rolID'),
-                                                $request->query->get('password'),
-                                                $request->query->get('email')
-                                    );
+                                                            $newReq->nickName,
+                                                            $newReq->name,
+                                                            $newReq->photo,
+                                                            $newReq->rolID,
+                                                            $newReq->password,
+                                                            $newReq->email
+        );
 
         $this->managerCreate->handler($managerCreateManagerCommand);
 
-        return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
     }
 
     /**
