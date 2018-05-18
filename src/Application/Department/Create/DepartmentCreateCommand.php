@@ -8,26 +8,18 @@
 
 namespace App\Application\Department\Create;
 
-
-use Assert\Assertion;
-
 class DepartmentCreateCommand
 {
     private $name;
     private $parentID;
-    const STRING_ARGUMENT_EXCEPTION = 'The name field must be string without numbers or characters';
-    const EMPTY_ARGUMENT_EXCEPTION = 'The name field should not be empty';
 
     /**
      * DepartmentCreateCommand constructor.
-     * @param $name
-     * @param null|string $description
-     * @throws \Assert\AssertionFailedException
+     * @param $parentID
+     * @param string $name
      */
-    public function __construct($parentID,string $name)
+    public function __construct($parentID, $name)
     {
-        Assertion::notNull($name, self::EMPTY_ARGUMENT_EXCEPTION);
-        Assertion::regex($name, "/^[a-zA-Z ]*$/",self::STRING_ARGUMENT_EXCEPTION);
         $this->name = $name;
         $this->parentID = $parentID;
     }
@@ -35,7 +27,7 @@ class DepartmentCreateCommand
     /**
      * @return mixed
      */
-    public function getParentID()
+    public function parentID()
     {
         return $this->parentID;
     }
@@ -43,7 +35,7 @@ class DepartmentCreateCommand
     /**
      * @return string
      */
-    public function getName(): string
+    public function name(): string
     {
         return $this->name;
     }

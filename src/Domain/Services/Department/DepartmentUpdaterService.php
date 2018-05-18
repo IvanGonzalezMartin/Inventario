@@ -12,33 +12,49 @@ use App\Domain\Model\Department\Department;
 use App\Domain\Model\Department\DepartmentRepository;
 use App\Domain\Model\Department\Exceptions\DepartmentAlreadyExistsException;
 use App\Domain\Model\Department\Exceptions\DepartmentDoesntExistException;
+use App\Domain\Model\Department\Exceptions\ParentDepartmentDoesntExistException;
+use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
 
 class DepartmentUpdaterService
 {
+    /**
+     * @var DepartmentRepository
+     */
     private $repository;
 
-    public function __construct(DepartmentRepository $departmentRepository)
+    /**
+     * @var ParentDepartmentRepository
+     */
+    private $parentDepartmentRepository;
+
+    public function __construct(DepartmentRepository $departmentRepository, ParentDepartmentRepository $parentDepartmentRepository)
     {
         $this->repository = $departmentRepository;
+        $this->parentDepartmentRepository = $parentDepartmentRepository;
     }
 
 
-    public function __invoke($id, $name)
+    public function __invoke($id, Department $newDepartment)
     {
-        $department = $this->repository->findById($id);
+        $oldDepartment = $this->repository->findById($id);
 
-        if (empty($department))
+        if (empty($oldDepartment))
             throw new DepartmentDoesntExistException($id);
 
-        if (false === $department->isNotDeleted())
-            throw new DepartmentDoesntExistException($id);
+        if ($newDepartment->getName() !== $oldDepartment->getName()) {
+            $departmentName = $this->repository->findByName($newDepartment->getName());
 
-        $departmentName=$this->repository->findByName($name);
+            if (false === empty($departmentName))
+                throw new DepartmentAlreadyExistsException($newDepartment->getName());
+        }
 
-        if (false === empty($departmentName))
-            throw new DepartmentAlreadyExistsException($name);
+        $parentDepartment = $this->parentDepartmentRepository->getParentDepartmentByID($newDepartment->getParentDepartmentID());
 
-        $department->setName($name);
+        if (empty($parentDepartment))
+            throw new ParentDepartmentDoesntExistException($oldDepartment->getParentDepartmentID());
+
+        $oldDepartment->setName($newDepartment->getName());
+        $oldDepartment->setParentDepartmentID($newDepartment->getParentDepartmentID());
 
         $this->repository->updateAll();
     }

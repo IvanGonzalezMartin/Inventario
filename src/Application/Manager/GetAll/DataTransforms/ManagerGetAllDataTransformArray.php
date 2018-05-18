@@ -17,7 +17,7 @@ class ManagerGetAllDataTransformArray implements ManagerGetAllDataTransform
     {
         $arrayManagers = [];
         foreach ($managers as $manager){
-            $arrayManagers[$manager->getId()] = [
+            $arrayManagers[] = [
                 "ID" => $manager->getId(),
                 "NickName" => $manager->getNickName(),
                 "Email" => $manager->getEmail(),

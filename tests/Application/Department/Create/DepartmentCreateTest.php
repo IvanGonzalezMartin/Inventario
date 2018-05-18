@@ -49,7 +49,7 @@ class DepartmentCreateTest extends TestCase
 
         $this->expectException(ParentDepartmentDoesntExistException::class);
 
-        $this->creator->handler(new DepartmentCreateCommand(5, 'asdasdads'));
+        $this->creator->handle(new DepartmentCreateCommand(5, 'asdasdads'));
     }
 
     /**
@@ -65,7 +65,7 @@ class DepartmentCreateTest extends TestCase
 
         $this->expectException(DepartmentAlreadyExistsException::class);
 
-        $this->creator->handler(new DepartmentCreateCommand(1, 'asdasdasd'));
+        $this->creator->handle(new DepartmentCreateCommand(1, 'asdasdasd'));
     }
 
     /**
@@ -79,7 +79,7 @@ class DepartmentCreateTest extends TestCase
         $this->stubRepository->method('findByName')
             ->willReturn(null);
 
-        $this->creator->handler(new DepartmentCreateCommand(1, 'asdasdasd'));
+        $this->creator->handle(new DepartmentCreateCommand(1, 'asdasdasd'));
 
         Assert::assertTrue(true);
 

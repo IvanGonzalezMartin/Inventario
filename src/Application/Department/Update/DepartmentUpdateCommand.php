@@ -8,27 +8,23 @@
 
 namespace App\Application\Department\Update;
 
-
-use Assert\Assertion;
-
 class DepartmentUpdateCommand
 {
-
-    private $name;
     private $id;
-    const STRING_ARGUMENT_EXCEPTION = 'The name field must be string without numbers or characters';
-    const EMPTY_ARGUMENT_EXCEPTION = 'The name field should not be empty';
+    private $parentId;
+    private $name;
 
     /**
      * DepartmentUpdateCommand constructor.
-     * @throws \Assert\AssertionFailedException
+     * @param $id
+     * @param $parentId
+     * @param $name
      */
-    public function __construct($id,string $name)
+    public function __construct($id, $parentId, $name)
     {
-        Assertion::notNull($name, self::EMPTY_ARGUMENT_EXCEPTION);
-        Assertion::regex($name, "/^[a-zA-Z ]*$/",self::STRING_ARGUMENT_EXCEPTION);
-        $this->name = $name;
         $this->id = $id;
+        $this->id = $parentId;
+        $this->name = $name;
     }
 
     /**
@@ -45,5 +41,13 @@ class DepartmentUpdateCommand
     public function id()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function parentId()
+    {
+        return $this->parentId;
     }
 }

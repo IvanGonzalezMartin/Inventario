@@ -25,12 +25,11 @@ class DepartmentDoctrineRepository extends EntityRepository implements Departmen
     {
         $entityManager = $this->getEntityManager();
         $entityManager->persist($department);
-        $entityManager->flush();
     }
 
     public function findByName($name)
     {
-        return $this->findOneBy(['name' => $name]);
+        return $this->findOneBy(['name' => $name, 'deleteID' => null]);
     }
 
     /**
@@ -44,6 +43,6 @@ class DepartmentDoctrineRepository extends EntityRepository implements Departmen
 
     public function findById($id)
     {
-        return $this->findOneBy(["id" => $id]);
+        return $this->findOneBy(['id' => $id, 'deleteID' => null]);
     }
 }

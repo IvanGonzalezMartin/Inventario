@@ -8,42 +8,30 @@
 
 namespace App\Infrastructure\Controller;
 
-use App\Application\Department\Create\DepartmentCreate;
 use App\Application\Department\Create\DepartmentCreateCommand;
-use App\Application\Department\Update\DepartmentUpdate;
 use App\Application\Department\Update\DepartmentUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
+use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class DepartmentController
 {
-    private $departmentCreate;
-    private $departmentUpdate;
-
-    public function __construct(DepartmentCreate $departmentCreate, DepartmentUpdate $departmentUpdate)
+    public function createDepartment(Request $request, CommandBus $commandBus)
     {
-        $this->departmentCreate = $departmentCreate;
-        $this->departmentUpdate = $departmentUpdate;
+        $newReq = json_decode($request->getContent());
+
+        $commandBus->handle(new DepartmentCreateCommand($newReq->parentID, $newReq->name));
+
+        return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function createDepartment(Request $request)
+    public function updateDepartment(Request $request, CommandBus $commandBus)
     {
-        $parentID = $request->query->get('parentID');
-        $name = $request->query->get('name');
-        $departmentCreateCommand = new DepartmentCreateCommand($parentID , $name);
-        $this->departmentCreate->handler($departmentCreateCommand);
+        $newReq = json_decode($request->getContent());
 
-        return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
-    }
+        $commandBus->handle(new DepartmentUpdateCommand($newReq->id, $newReq->parentID, $newReq->name));
 
-    public function updateDepartment(Request $request)
-    {
-        $id = $request->query->get('id');
-        $name = $request->query->get('name');
-        $departmentUpdateCommand = new DepartmentUpdateCommand($id , $name);
-        $this->departmentUpdate->handler($departmentUpdateCommand);
-
-        return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 }

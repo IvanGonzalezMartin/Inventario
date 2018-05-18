@@ -9,6 +9,7 @@
 namespace App\Application\Department\Update;
 
 
+use App\Domain\Model\Department\Department;
 use App\Domain\Services\Department\DepartmentUpdaterService;
 
 class DepartmentUpdate
@@ -20,11 +21,8 @@ class DepartmentUpdate
         $this->repository = $departmentUpdaterService;
     }
 
-    public function handler(DepartmentUpdateCommand $DepartmentUpdateCommand)
+    public function handle(DepartmentUpdateCommand $updateCommand)
     {
-        $id = $DepartmentUpdateCommand->id();
-        $name = $DepartmentUpdateCommand->name();
-
-        $this->repository->__invoke($id , $name);
+        $this->repository->__invoke($updateCommand->id(), new Department($updateCommand->parentId(), $updateCommand->name()));
     }
 }
