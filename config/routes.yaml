@@ -1,36 +1,37 @@
 CreateRol:
     path: /Role/create/
     controller: App\Infrastructure\Controller\RoleController::createRole
-    methods: [GET]
+    methods: [POST]
 
 UpdateRol:
     path: /Role/update/
     controller: App\Infrastructure\Controller\RoleController::updateRole
-    methods: [GET]
+    methods: [POST]
 
 AllRoles:
     path: /Role/
     controller: App\Infrastructure\Controller\RoleController::all
+    methods: [GET]
 
 CreateDepartment:
     path: /Department/create/
     controller: App\Infrastructure\Controller\DepartmentController::createDepartment
-    methods: [GET]
+    methods: [POST]
 
 UpdateDepartment:
     path: /Department/update/
     controller: App\Infrastructure\Controller\DepartmentController::updateDepartment
-    methods: [GET]
+    methods: [POST]
 
 CreateParentDepartment:
     path: /ParentDepartment/create/
     controller: App\Infrastructure\Controller\ParentDepartmentController::createParentDepartment
-    methods: [GET]
+    methods: [POST]
 
 UpdateParentDepartment:
     path: /ParentDepartment/update/
     controller: App\Infrastructure\Controller\ParentDepartmentController::updateParentDepartment
-    methods: [GET]
+    methods: [POST]
 
 CheckNickName:
     path: /Manager/checkNickName/
@@ -50,12 +51,12 @@ CreateManager:
 UpdateManager:
     path: /Manager/update/
     controller: App\Infrastructure\Controller\ManagerController::updateManager
-    methods: [GET]
+    methods: [POST]
 
 DeleteManager:
     path: /Manager/delete/
     controller: App\Infrastructure\Controller\ManagerController::deleteManager
-    methods: [GET]
+    methods: [POST]
 
 GetAllManager:
     path: /Manager/
@@ -65,30 +66,30 @@ GetAllManager:
 CreateClotheCategory:
     path: /ClotheCategory/create/
     controller: App\Infrastructure\Controller\ClotheCategoryController::createClotheCategory
-    methods: [GET]
+    methods: [POST]
 
 UpdateClotheCategory:
     path: /ClotheCategory/update/
     controller: App\Infrastructure\Controller\ClotheCategoryController::updateClotheCategory
-    methods: [GET]
+    methods: [POST]
 
 CreateContract:
     path: /Contract/create/
     controller: App\Infrastructure\Controller\ContractController::createContract
-    methods: [GET]
+    methods: [POST]
 
 UpdateContract:
     path: /Contract/update/
     controller: App\Infrastructure\Controller\ContractController::updateContract
-    methods: [GET]
+    methods: [POST]
 
 CreateClothe:
     path: /Clothe/create/
     controller: App\Infrastructure\Controller\ClotheController::createClothe
-    methods: [GET]
+    methods: [POST]
 
 UpdateClothe:
     path: /Clothe/update/
     controller: App\Infrastructure\Controller\ClotheController::updateClothe
-    methods: [GET]
+    methods: [POST]
 
