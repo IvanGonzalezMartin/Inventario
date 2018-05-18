@@ -45,7 +45,7 @@ class ManagerGetAllDataTransformArrayTest extends TestCase
     {
         $this->stubRepository->method('getAll')
             ->willReturn(null);
-        $this->handle->handler();
+        $this->handle->handle();
         $this->assertTrue(true);
     }
 

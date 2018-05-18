@@ -20,10 +20,14 @@ class ContractUpdate
         $this->contractUpdateService = $contractUpdateService;
     }
 
-    public function handler(ContractUpdateCommand $contractUpdateCommand)
+    /**
+     * @param ContractUpdateCommand $contractUpdateCommand
+     */
+    public function handle(ContractUpdateCommand $contractUpdateCommand)
     {
-        $contract = new Contract($contractUpdateCommand->id(),$contractUpdateCommand->endDate(),$contractUpdateCommand->renovation());
-
-        $this->contractUpdateService->__invoke($contract);
+        $this->contractUpdateService->__invoke(new Contract($contractUpdateCommand->id(),
+                                                            $contractUpdateCommand->endDate(),
+                                                            $contractUpdateCommand->renovation())
+                                                        );
     }
 }

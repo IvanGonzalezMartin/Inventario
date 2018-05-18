@@ -63,7 +63,7 @@ class ManagerCreateTest extends TestCase
 
         $this->expectException(RolNotFoundException::class);
 
-        $this->handle->handler(new ManagerCreateCommand('nickName','name','photo',3,'password','email@email.email'));
+        $this->handle->handle(new ManagerCreateCommand('nickName','name','photo',3,'password','email@email.email'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ManagerCreateTest extends TestCase
         $this->stubRepositoryRole->method('getRolById')
             ->willReturn(new Role('namesd'));
 
-        $this->handle->handler(new ManagerCreateCommand('nickName','name','photo',3,'password','email@email.email'));
+        $this->handle->handle(new ManagerCreateCommand('nickName','name','photo',3,'password','email@email.email'));
 
         $this->assertTrue(true);
     }

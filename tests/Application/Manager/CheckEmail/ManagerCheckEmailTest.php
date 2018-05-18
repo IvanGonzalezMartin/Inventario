@@ -46,9 +46,9 @@ class ManagerCheckEmailTest extends TestCase
 
         $this->expectException(ManagerEmailAlreadyExistsException::class);
 
-        $this->handle->handler(new ManagerCheckEmailCommand('Email'));
+        $this->handle->handle(new ManagerCheckEmailCommand('Email'));
 
-        $this->handle->handler(new ParentDepartmentCreateCommand('dsfd'));
+        $this->handle->handle(new ParentDepartmentCreateCommand('dsfd'));
 
     }
 
@@ -60,7 +60,7 @@ class ManagerCheckEmailTest extends TestCase
         $this->stubRepository->method('getManagerByEmail')
             ->willReturn(null);
 
-        $this->handle->handler(new ManagerCheckEmailCommand('nickName'));
+        $this->handle->handle(new ManagerCheckEmailCommand('nickName'));
 
         self::assertTrue(true);
     }

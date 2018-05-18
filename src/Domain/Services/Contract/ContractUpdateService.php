@@ -24,7 +24,6 @@ class ContractUpdateService
 
     /**
      * @param Contract $contract
-     * @throws \Assert\AssertionFailedException
      */
     public function __invoke(Contract $contract)
     {

@@ -42,7 +42,7 @@ class ContractCreateTest extends TestCase
     {
         $this->expectException(DateIsOldException::class);
 
-        $this->handle->handler(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89',"10-12-1999","true"));
+        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89',"10-12-1999","true"));
     }
 
     /**
@@ -55,7 +55,7 @@ class ContractCreateTest extends TestCase
 
         $this->expectException(UserNotFoundException::class);
 
-        $this->handle->handler(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89', '2-02-2099',""));
+        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89', '2-02-2099',""));
     }
 
     /**
@@ -68,7 +68,7 @@ class ContractCreateTest extends TestCase
 
         $this->expectException(ContractUserAlreadyExistsException::class);
 
-        $this->handle->handler(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89', '2-02-2099',""));
+        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89', '2-02-2099',""));
     }
 
     /**
@@ -82,7 +82,7 @@ class ContractCreateTest extends TestCase
         $this->stubRepository->method('findById')
             ->willReturn(new Contract("213586ce-77b1-4481-b8b7-108e88281a89","2-02-2099",""));
 
-        $this->handle->handler(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89', '2-02-2099',""));
+        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89', '2-02-2099',""));
 
         Assert::assertTrue(true);
     }

@@ -1,0 +1,51 @@
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: true       # Allows optimizing the container by removing unused services; this also means
+                            # fetching services directly from the container via $container->get() won't work.
+                            # The best practice is to be explicit about your dependencies anyway.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../../src/*'
+        exclude: '../../src/{Entity,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Infrastructure\Controller\:
+        resource: '../../src/Infrastructure/Controller'
+        tags: ['controller.service_arguments']
+
+
+    Manager.all_handler:
+                class: App\Application\Manager\GetAll\ManagerGetAll
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\GetAll\ManagerGetAllCommand }
+
+    Manager.checkNickName_handler:
+                class: App\Application\Manager\CheckNickName\ManagerCheckNickName
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\CheckNickName\ManagerCheckNickNameCommand }
+
+    Manager.checkEmail_handler:
+                class: App\Application\Manager\CheckEmail\ManagerCheckEmail
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\CheckEmail\ManagerCheckEmailCommand }
+
+    Manager.update_handler:
+                class: App\Application\Manager\Update\ManagerUpdate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\Update\ManagerUpdateCommand }
+
+    Manager.create_handler:
+                class: App\Application\Manager\Create\ManagerCreate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\Create\ManagerCreateCommand }
+
+    Manager.delete_handler:
+                class: App\Application\Manager\Delete\ManagerDelete
+                tags:
+                    - { name: tactician.handler, command: App\Application\Manager\Delete\ManagerDeleteCommand }

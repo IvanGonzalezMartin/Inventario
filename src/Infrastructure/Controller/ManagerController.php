@@ -19,6 +19,7 @@ use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class ManagerController
 {
     public function checkNickName(Request $request, CommandBus $commandBus)

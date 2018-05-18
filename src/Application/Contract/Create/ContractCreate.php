@@ -21,10 +21,11 @@ class ContractCreate
         $this->contractCreatorService = $contractCreatorService;
     }
 
-    public function handler(ContractCreateCommand $contractCreateCommand)
+    public function handle(ContractCreateCommand $contractCreateCommand)
     {
-        $contract = new Contract($contractCreateCommand->id(),$contractCreateCommand->endDate(),$contractCreateCommand->renovation());
-
-        $this->contractCreatorService->__invoke($contract);
+        $this->contractCreatorService->__invoke(new Contract(   $contractCreateCommand->id(),
+                                                                $contractCreateCommand->endDate(),
+                                                                $contractCreateCommand->renovation())
+                                                            );
     }
 }

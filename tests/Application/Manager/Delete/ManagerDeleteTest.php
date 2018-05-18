@@ -53,7 +53,7 @@ class ManagerDeleteTest extends TestCase
 
         $this->expectException(ManagerWithIdDoesntExistsException::class);
 
-        $this->handle->handler(new ManagerDeleteCommand(2));
+        $this->handle->handle(new ManagerDeleteCommand(2));
     }
 
     /**
@@ -65,7 +65,7 @@ class ManagerDeleteTest extends TestCase
         $this->stubRepository->method('getManagerByID')
             ->willReturn(new Manager('nickName', 'name', 1, 'password','email@email.em'));
 
-        $this->handle->handler(new ManagerDeleteCommand(2));
+        $this->handle->handle(new ManagerDeleteCommand(2));
 
         $this->assertTrue(true);
     }

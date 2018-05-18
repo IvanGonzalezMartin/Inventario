@@ -40,7 +40,7 @@ class ContractUpdateTest extends TestCase
 
         $this->expectException(ContractUserDonsentExistsException::class);
 
-        $this->handle->handler(new ContractUpdateCommand('8324b6b0-df81-4a20-8cc3-25e84b82f2d4', '2-02-2099', ""));
+        $this->handle->handle(new ContractUpdateCommand('8324b6b0-df81-4a20-8cc3-25e84b82f2d4', '2-02-2099', ""));
     }
 
     /**
@@ -53,7 +53,7 @@ class ContractUpdateTest extends TestCase
 
         $this->expectException(DateIsOldException::class);
 
-        $this->handle->handler(new ContractUpdateCommand("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","2-02-1099", ""));
+        $this->handle->handle(new ContractUpdateCommand("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","2-02-1099", ""));
     }
 
     /**
@@ -64,7 +64,7 @@ class ContractUpdateTest extends TestCase
         $this->stubRepository->method('findByUserId')
             ->willReturn(new Contract("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","2-02-2099",""));
 
-        $this->handle->handler(new ContractUpdateCommand("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","2-02-2099", ""));
+        $this->handle->handle(new ContractUpdateCommand("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","2-02-2099", ""));
 
         Assert::assertTrue(true);
     }

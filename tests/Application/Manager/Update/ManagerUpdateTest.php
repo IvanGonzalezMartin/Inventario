@@ -65,7 +65,7 @@ class ManagerUpdateTest extends TestCase
 
         $this->expectException(ManagerWithIdDoesntExistsException::class);
 
-        $this->handle->handler(new ManagerUpdateCommand('id', 'nickName','name','photo',1,'password','email@email.email'));
+        $this->handle->handle(new ManagerUpdateCommand('id', 'nickName','name','photo',1,'password','email@email.email'));
     }
 
     /**
@@ -83,7 +83,7 @@ class ManagerUpdateTest extends TestCase
 
         $this->expectException(RolNotFoundException::class);
 
-        $this->handle->handler(new ManagerUpdateCommand('id', 'nickName','name','photo',1,'password','email@email.email'));
+        $this->handle->handle(new ManagerUpdateCommand('id', 'nickName','name','photo',1,'password','email@email.email'));
     }
 
     /**
@@ -99,7 +99,7 @@ class ManagerUpdateTest extends TestCase
         $this->stubRepositoryRole->method('getRolById')
             ->willReturn(new Role('names'));
 
-        $this->handle->handler(new ManagerUpdateCommand('id', 'nickName','name','photo',1,'password','email@email.email'));
+        $this->handle->handle(new ManagerUpdateCommand('id', 'nickName','name','photo',1,'password','email@email.email'));
 
         $this->assertTrue(true);
     }

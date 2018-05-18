@@ -14,41 +14,27 @@ use App\Application\Contract\Create\ContractCreateCommand;
 use App\Application\Contract\Update\ContractUpdate;
 use App\Application\Contract\Update\ContractUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
+use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class ContractController
 {
-    private $contractCreator;
-    private $contractUpdate;
-
-    public function __construct(ContractCreate $contractCreator ,ContractUpdate $contractUpdate)
+    public function createContract(Request $request, CommandBus $commandBus)
     {
-        $this->contractCreator = $contractCreator;
-        $this->contractUpdate = $contractUpdate;
+        $newReq = json_decode($request->getContent());
+        
+        $commandBus->handle(new ContractCreateCommand($newReq->id, $newReq->endDate, $newReq->renovation));
+
+        return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function createContract(Request $request)
+    public function updateContract(Request $request, CommandBus $commandBus)
     {
-        $id = $request->query->get('id');
-        $endDate = $request->query->get('endDate');
-        $renovation = $request->query->get('renovation');
+        $newReq = json_decode($request->getContent());
 
-        $contractCreateCommand = new ContractCreateCommand($id, $endDate, $renovation);
-        $this->contractCreator->handler($contractCreateCommand);
+        $commandBus->handle(new ContractUpdateCommand($newReq->id, $newReq->endDate, $newReq->renovation));
 
-        return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
-    }
-
-    public function updateContract(Request $request)
-    {
-        $id = $request->query->get('id');
-        $endDate = $request->query->get('endDate');
-        $renovation = $request->query->get('renovation');
-
-        $contractUpdateCommand = new ContractUpdateCommand($id, $endDate, $renovation);
-        $this->contractUpdate->handler($contractUpdateCommand);
-
-        return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 }
