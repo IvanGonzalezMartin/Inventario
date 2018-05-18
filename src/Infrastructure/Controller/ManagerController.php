@@ -18,9 +18,11 @@ use App\Application\Manager\Create\ManagerCreateCommand;
 use App\Application\Manager\Delete\ManagerDelete;
 use App\Application\Manager\Delete\ManagerDeleteCommand;
 use App\Application\Manager\GetAll\ManagerGetAll;
+use App\Application\Manager\GetAll\ManagerGetAllCommand;
 use App\Application\Manager\Update\ManagerUpdate;
 use App\Application\Manager\Update\ManagerUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
+use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -124,8 +126,16 @@ class ManagerController
     /**
      * @return JsonResponse
      */
-    public function getAllManager()
+    public function getAllManager(CommandBus $commandBus)
     {
-        return new JsonResponse($this->managerGetAll->handler(),MyOwnHttpCodes::HTTP_OK);
+        $command = new ManagerGetAllCommand();
+
+        try{
+            $r = $commandBus->handle($command);
+        }catch (\Exception $e) {
+            dump($e);die;
+        }
+
+        return new JsonResponse($r,MyOwnHttpCodes::HTTP_OK);
     }
 }

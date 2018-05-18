@@ -21,7 +21,7 @@ class ManagerCreate
         $this->managerCreatorService = $managerCreatorService;
     }
 
-    public function handler(ManagerCreateCommand $managerCreateCommand)
+    public function handle(ManagerCreateCommand $managerCreateCommand)
     {
         $manager = new Manager( $managerCreateCommand->nickName(),
                                 $managerCreateCommand->name(),

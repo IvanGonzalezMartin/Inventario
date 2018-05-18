@@ -6,6 +6,7 @@
         "ext-iconv": "*",
         "beberlei/assert": "^2.9",
         "doctrine/orm": "^2.6",
+        "league/tactician-bundle": "^1.1",
         "ramsey/uuid": "^3.7",
         "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
@@ -63,7 +64,7 @@
     "extra": {
         "symfony": {
             "id": "01CBVAS07T7QWJY9D85DYDNYTT",
-            "allow-contrib": false
+            "allow-contrib": true
         }
     }
 }

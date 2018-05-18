@@ -119,3 +119,13 @@ services:
     App\EventListener\ExceptionListener:
                 tags:
                     - { name: kernel.event_listener, event: kernel.exception }
+
+    role.all_handler:
+                class: App\Application\Role\AllRoles\RoleAll
+                tags:
+                    - { name: tactician.handler, command: App\Application\Role\AllRoles\RoleAllCommand }
+
+    role.create_handler:
+                    class: App\Application\Role\Create\RoleCreate
+                    tags:
+                        - { name: tactician.handler, command: App\Application\Role\Create\RoleCreateCommand }

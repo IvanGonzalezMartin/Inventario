@@ -22,7 +22,7 @@ class RoleAll
         $this->dataTransform = $dataTransform;
     }
 
-    public function handler(RoleAllCommand $roleCreateCommand)
+    public function handle(RoleAllCommand $allCommand)
     {
        $roles = $this->roleAll->__invoke();
 
