@@ -17,20 +17,34 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DepartmentController
 {
-    public function createDepartment(Request $request, CommandBus $commandBus)
+    /**
+     * @var CommandBus
+     */
+    private $commandBus;
+
+    /**
+     * DepartmentController constructor.
+     * @param CommandBus $commandBus
+     */
+    public function __construct(CommandBus $commandBus)
+    {
+        $this->commandBus = $commandBus;
+    }
+
+    public function createDepartment(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new DepartmentCreateCommand($newReq->parentID, $newReq->name));
+        $this->commandBus->handle(new DepartmentCreateCommand($newReq->parentID, $newReq->name));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function updateDepartment(Request $request, CommandBus $commandBus)
+    public function updateDepartment(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new DepartmentUpdateCommand($newReq->id, $newReq->parentID, $newReq->name));
+        $this->commandBus->handle(new DepartmentUpdateCommand($newReq->id, $newReq->parentID, $newReq->name));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
