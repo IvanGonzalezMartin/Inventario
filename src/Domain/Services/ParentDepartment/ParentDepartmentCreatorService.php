@@ -8,7 +8,6 @@
 
 namespace App\Domain\Services\ParentDepartment;
 
-use App\Domain\Model\Department\Exceptions\ParentDepartmentDoesntExistException;
 use App\Domain\Model\ParentDepartment\Exceptions\ParentDepartmentAlreadyExistsException;
 use App\Domain\Model\ParentDepartment\ParentDepartment;
 use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
@@ -24,9 +23,10 @@ class ParentDepartmentCreatorService
 
     public function __invoke(ParentDepartment $parentDepartment)
     {
-        if(null == empty($this->repository->findByName($parentDepartment->getName())))
+        if(false === empty($this->repository->findByName($parentDepartment->getName())))
             throw new ParentDepartmentAlreadyExistsException($parentDepartment->getName());
 
         $this->repository->insert($parentDepartment);
+        $this->repository->update();
     }
 }

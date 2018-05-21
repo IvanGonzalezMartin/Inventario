@@ -51,7 +51,7 @@ class ContractCreatorService
             throw new UserNotFoundException($contract->getUserID());
 
         $this->contractRepository->insert($contract);
-        $this->contractRepository->updateAll();
+        $this->contractRepository->update();
 
     }
 }

@@ -46,7 +46,7 @@ class ContractDoctrineRepository extends EntityRepository implements ContractRep
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function updateAll()
+    public function update()
     {
         $this->getEntityManager()->flush();
     }
