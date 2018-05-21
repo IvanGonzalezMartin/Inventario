@@ -66,7 +66,7 @@ class Contract
         $this->userID = $userID;
         $this->setEndDate($endDate);
         $this->setRenovation($renovation);
-        $this->startDate = $startDate;
+        $this->setStartDate ($startDate);
     }
 
     public function getId()
@@ -74,7 +74,12 @@ class Contract
         return $this->id;
     }
 
-    public function getStartDate(): ?\DateTimeInterface
+    public function getUserID(): ?string
+    {
+        return $this->userID;
+    }
+
+    public function getStartDate()
     {
         return $this->startDate;
     }
@@ -87,16 +92,11 @@ class Contract
     public function setStartDate($startDate): self
     {
         Assertion::notNull($startDate, self::EMPTY_END_DATE_EXCEPTION);
-        Assertion::date($startDate, self::DATE_ARGUMENT_EXCEPTION);
+        Assertion::date($startDate, 'd-m-Y',self::DATE_ARGUMENT_EXCEPTION);
 
-        $this->startDate = $startDate;
+        $this->startDate = \DateTime::createFromFormat('d-m-Y', $startDate);
 
         return $this;
-    }
-
-    public function getUserID(): ?string
-    {
-        return $this->userID;
     }
 
     public function getEndDate()
@@ -111,11 +111,10 @@ class Contract
      */
     public function setEndDate($endDate): self
     {
-
         Assertion::notNull($endDate, self::EMPTY_END_DATE_EXCEPTION);
-        $endDate = \DateTime::createFromFormat('d-m-Y', $endDate);
+        Assertion::date($endDate, 'd-m-Y',self::DATE_ARGUMENT_EXCEPTION);
 
-        $this->endDate = $endDate;
+        $this->endDate = \DateTime::createFromFormat('d-m-Y', $endDate);
 
         return $this;
     }

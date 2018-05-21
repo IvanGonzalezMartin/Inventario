@@ -42,7 +42,7 @@ class ContractCreateTest extends TestCase
     {
         $this->expectException(DateIsOldException::class);
 
-        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89',"10-12-1999","true"));
+        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89',"10-12-1999","true","10-12-2999"));
     }
 
     /**
@@ -55,7 +55,7 @@ class ContractCreateTest extends TestCase
 
         $this->expectException(UserNotFoundException::class);
 
-        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89', '2-02-2099',""));
+        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89',"10-12-2999","true","10-12-2999"));
     }
 
     /**
@@ -64,11 +64,11 @@ class ContractCreateTest extends TestCase
     public function dado_un_usuario_id_comprobar_si_existe_en_la_tabla_user()
     {
         $this->stubRepository->method('findByUserId')
-            ->willReturn(new Contract("213586ce-77b1-4481-b8b7-108e88281a89", "2-02-2099",""));
+            ->willReturn(new Contract("213586ce-77b1-4481-b8b7-108e88281a89", "10-12-2099","","10-12-1999"));
 
         $this->expectException(ContractUserAlreadyExistsException::class);
 
-        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89', '2-02-2099',""));
+        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89',"10-12-2999","true","10-12-2999"));
     }
 
     /**
@@ -80,9 +80,9 @@ class ContractCreateTest extends TestCase
             ->willReturn(new User("213586ce-77b1-4481-b8b7-108e88281a89","","","","","","",""));
 
         $this->stubRepository->method('findById')
-            ->willReturn(new Contract("213586ce-77b1-4481-b8b7-108e88281a89","2-02-2099",""));
+            ->willReturn(new Contract("213586ce-77b1-4481-b8b7-108e88281a89","10-12-2099","","10-12-1999"));
 
-        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89', '2-02-2099',""));
+        $this->handle->handle(new ContractCreateCommand('213586ce-77b1-4481-b8b7-108e88281a89', '10-12-2099',"","10-12-1999"));
 
         Assert::assertTrue(true);
     }

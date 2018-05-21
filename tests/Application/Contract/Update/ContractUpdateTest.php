@@ -40,7 +40,7 @@ class ContractUpdateTest extends TestCase
 
         $this->expectException(ContractUserDonsentExistsException::class);
 
-        $this->handle->handle(new ContractUpdateCommand('8324b6b0-df81-4a20-8cc3-25e84b82f2d4', '2-02-2099', ""));
+        $this->handle->handle(new ContractUpdateCommand('8324b6b0-df81-4a20-8cc3-25e84b82f2d4', '12-09-2099', "","10-12-2009"));
     }
 
     /**
@@ -49,11 +49,11 @@ class ContractUpdateTest extends TestCase
     public function dada_una_fecha_comprobar_si_es_posterior_a_la_actual()
     {
         $this->stubRepository->method('findByUserId')
-            ->willReturn(new Contract("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","2-02-1099",""));
+            ->willReturn(new Contract("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","10-12-1099","","10-12-2009"));
 
         $this->expectException(DateIsOldException::class);
 
-        $this->handle->handle(new ContractUpdateCommand("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","2-02-1099", ""));
+        $this->handle->handle(new ContractUpdateCommand("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","10-09-1099", "","10-12-2009"));
     }
 
     /**
@@ -62,9 +62,9 @@ class ContractUpdateTest extends TestCase
     public function dado_unos_valores_comprobar_que_hace_el_update()
     {
         $this->stubRepository->method('findByUserId')
-            ->willReturn(new Contract("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","2-02-2099",""));
+            ->willReturn(new Contract("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","10-12-2099","","10-12-2009"));
 
-        $this->handle->handle(new ContractUpdateCommand("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","2-02-2099", ""));
+        $this->handle->handle(new ContractUpdateCommand("8324b6b0-df81-4a20-8cc3-25e84b82f2d4","10-12-2099", "","10-12-2009"));
 
         Assert::assertTrue(true);
     }
