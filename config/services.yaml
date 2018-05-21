@@ -125,3 +125,4 @@ imports:
     - { resource: ./services/context/manager.yaml }
     - { resource: ./services/context/contract.yaml }
     - { resource: ./services/context/role.yaml }
+    - { resource: ./services/context/department.yaml }

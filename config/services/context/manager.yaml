@@ -2,6 +2,8 @@ services:
 
     _defaults:
         autowire: true
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
 
     Manager.all_handler:
                 class: App\Application\Manager\GetAll\ManagerGetAll

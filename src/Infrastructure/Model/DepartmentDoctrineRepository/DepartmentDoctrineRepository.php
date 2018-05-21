@@ -36,7 +36,7 @@ class DepartmentDoctrineRepository extends EntityRepository implements Departmen
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function updateAll()
+    public function update()
     {
         $this->getEntityManager()->flush();
     }

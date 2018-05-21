@@ -1,0 +1,14 @@
+services:
+
+    _defaults:
+        autowire: true
+
+    Department.create_handler:
+                class: App\Application\Department\Create\DepartmentCreate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Department\Create\DepartmentCreateCommand }
+
+    Department.update_handler:
+                class: App\Application\Department\Update\DepartmentUpdate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Department\Update\DepartmentUpdateCommand }
