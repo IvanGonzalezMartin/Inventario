@@ -17,20 +17,34 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ClotheCategoryController
 {
-    public function createClotheCategory(Request $request, CommandBus $commandBus)
+    /**
+     * @var CommandBus
+     */
+    private $commandBus;
+
+    /**
+     * ClotheController constructor.
+     * @param CommandBus $commandBus
+     */
+    public function __construct(CommandBus $commandBus)
+    {
+        $this->commandBus = $commandBus;
+    }
+
+    public function createClotheCategory(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new ClotheCategoryCreateCommand($newReq->name, $newReq->typeSizeName));
+        $this->commandBus->handle(new ClotheCategoryCreateCommand($newReq->name, $newReq->typeSizeName));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function updateClotheCategory(Request $request, CommandBus $commandBus)
+    public function updateClotheCategory(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new ClotheCategoryUpdateCommand($newReq->id, $newReq->name));
+        $this->commandBus->handle(new ClotheCategoryUpdateCommand($newReq->id, $newReq->name));
 
         return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
     }

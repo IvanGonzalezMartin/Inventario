@@ -22,29 +22,37 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ManagerController
 {
-    public function checkNickName(Request $request, CommandBus $commandBus)
+    /**
+     * @var CommandBus
+     */
+    private $commandBus;
+
+    public function __construct(CommandBus $commandBus)
+    {
+        $this->commandBus = $commandBus;
+    }
+
+    public function checkNickName(Request $request)
     {
         $nickName = $request->query->get('nickName');
 
-        $commandBus->handle(new ManagerCheckNickNameCommand($nickName));
+        $this->commandBus->handle(new ManagerCheckNickNameCommand($nickName));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function checkEmail(Request $request, CommandBus $commandBus)
+    public function checkEmail(Request $request)
     {
-        $email= $request->query->get('email');
-
-        $commandBus->handle(new ManagerCheckEmailCommand($email));
+        $this->commandBus->handle(new ManagerCheckEmailCommand($request->query->get('email')));
 
         return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function createManager(Request $request, CommandBus $commandBus)
+    public function createManager(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new ManagerCreateCommand(
+        $this->commandBus->handle(new ManagerCreateCommand(
                                                     $newReq->nickName,
                                                     $newReq->name,
                                                     $newReq->photo,
@@ -61,11 +69,11 @@ class ManagerController
      * @return JsonResponse
      * @throws \Assert\AssertionFailedException
      */
-    public function updateManager(Request $request, CommandBus $commandBus)
+    public function updateManager(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new ManagerUpdateCommand(
+        $this->commandBus->handle(new ManagerUpdateCommand(
                                                     $newReq->id,
                                                     $newReq->nickName,
                                                     $newReq->name,
@@ -84,11 +92,11 @@ class ManagerController
      * @return JsonResponse
      * @throws \Assert\AssertionFailedException
      */
-    public function deleteManager(Request $request, CommandBus $commandBus)
+    public function deleteManager(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new ManagerDeleteCommand($newReq->id));
+        $this->commandBus->handle(new ManagerDeleteCommand($newReq->id));
 
         return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);
     }
@@ -96,8 +104,8 @@ class ManagerController
     /**
      * @return JsonResponse
      */
-    public function getAllManager(CommandBus $commandBus)
+    public function getAllManager()
     {
-        return new JsonResponse($commandBus->handle(new ManagerGetAllCommand()),MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse($this->commandBus->handle(new ManagerGetAllCommand()),MyOwnHttpCodes::HTTP_OK);
     }
 }

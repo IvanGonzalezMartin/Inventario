@@ -11,11 +11,25 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ClotheController
 {
-    public function createClothe(Request $request, CommandBus $commandBus)
+    /**
+     * @var CommandBus
+     */
+    private $commandBus;
+
+    /**
+     * ClotheController constructor.
+     * @param CommandBus $commandBus
+     */
+    public function __construct(CommandBus $commandBus)
+    {
+        $this->commandBus = $commandBus;
+    }
+
+    public function createClothe(Request $request)
     {
         $newReq = json_encode($request->getContent());
 
-        $commandBus->handle(new ClotheCreateCommand($newReq->id,
+        $this->commandBus->handle(new ClotheCreateCommand($newReq->id,
                                                     $newReq->clotheCategoryID,
                                                     $newReq->name,
                                                     $newReq->gender,
@@ -25,11 +39,11 @@ class ClotheController
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function updateClothe(Request $request, CommandBus $commandBus)
+    public function updateClothe(Request $request)
     {
         $newReq = json_encode($request->getContent());
 
-        $commandBus->handle(new ClotheUpdateCommand( $newReq->id,
+        $this->commandBus->handle(new ClotheUpdateCommand( $newReq->id,
                                                         $newReq->clotheCategoryID,
                                                         $newReq->name,
                                                         $newReq->gender,

@@ -15,8 +15,25 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class RoleController
 {
-    public function all(CommandBus $commandBus)
+    /**
+     * @var CommandBus
+     */
+    private $commandBus;
+
+    /**
+     * RoleController constructor.
+     * @param CommandBus $commandBus
+     */
+    public function __construct(CommandBus $commandBus)
     {
-        return new JsonResponse($commandBus->handle(new RoleAllCommand()),MyOwnHttpCodes::HTTP_OK);
+        $this->commandBus = $commandBus;
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function all()
+    {
+        return new JsonResponse($this->commandBus->handle(new RoleAllCommand()),MyOwnHttpCodes::HTTP_OK);
     }
 }

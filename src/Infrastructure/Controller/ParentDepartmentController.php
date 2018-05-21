@@ -11,20 +11,34 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ParentDepartmentController
 {
-    public function createParentDepartment(Request $request, CommandBus $commandBus)
+    /**
+     * @var CommandBus
+     */
+    private $commandBus;
+
+    /**
+     * ParentDepartmentController constructor.
+     * @param CommandBus $commandBus
+     */
+    public function __construct(CommandBus $commandBus)
+    {
+       $this->commandBus = $commandBus;
+    }
+
+    public function createParentDepartment(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new ParentDepartmentCreateCommand($newReq->name));
+        $this->commandBus->handle(new ParentDepartmentCreateCommand($newReq->name));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function updateParentDepartment(Request $request, CommandBus $commandBus)
+    public function updateParentDepartment(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new ParentDepartmentUpdateCommand($newReq->id, $newReq->name));
+        $this->commandBus->handle(new ParentDepartmentUpdateCommand($newReq->id, $newReq->name));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }

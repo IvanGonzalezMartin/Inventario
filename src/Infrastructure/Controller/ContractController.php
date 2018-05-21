@@ -9,9 +9,7 @@
 namespace App\Infrastructure\Controller;
 
 
-use App\Application\Contract\Create\ContractCreate;
 use App\Application\Contract\Create\ContractCreateCommand;
-use App\Application\Contract\Update\ContractUpdate;
 use App\Application\Contract\Update\ContractUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use League\Tactician\CommandBus;
@@ -20,11 +18,25 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ContractController
 {
-    public function createContract(Request $request, CommandBus $commandBus)
+    /**
+     * @var CommandBus
+     */
+    private $commandBus;
+
+    /**
+     * ContractController constructor.
+     * @param CommandBus $commandBus
+     */
+    public function __construct(CommandBus $commandBus)
+    {
+        $this->commandBus = $commandBus;
+    }
+
+    public function createContract(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new ContractCreateCommand(  $newReq->id,
+        $this->commandBus->handle(new ContractCreateCommand(  $newReq->id,
                                                         $newReq->endDate,
                                                         $newReq->renovation,
                                                         $newReq->startDate));
@@ -32,11 +44,11 @@ class ContractController
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function updateContract(Request $request, CommandBus $commandBus)
+    public function updateContract(Request $request)
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new ContractUpdateCommand(  $newReq->id,
+        $this->commandBus->handle(new ContractUpdateCommand(  $newReq->id,
                                                         $newReq->endDate,
                                                         $newReq->renovation,
                                                         $newReq->startDate));
