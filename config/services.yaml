@@ -126,3 +126,5 @@ imports:
     - { resource: ./services/context/contract.yaml }
     - { resource: ./services/context/role.yaml }
     - { resource: ./services/context/department.yaml }
+    - { resource: ./services/context/parentDepartment.yaml }
+    - { resource: ./services/context/clotheCategory.yaml }

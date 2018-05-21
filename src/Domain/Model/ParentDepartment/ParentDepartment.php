@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
 class ParentDepartment
 {
     const MIN_LENGTH_NAME = 5;
+    const STRING_ARGUMENT_EXCEPTION = 'The name field must be string without numbers or characters';
+    const EMPTY_ARGUMENT_EXCEPTION = 'The name field should not be empty';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -50,8 +53,16 @@ class ParentDepartment
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return ParentDepartment
+     * @throws \Assert\AssertionFailedException
+     */
     public function setName(string $name): self
     {
+        Assertion::notNull($name, self::EMPTY_ARGUMENT_EXCEPTION);
+        Assertion::regex($name, "/^[a-zA-Z ]*$/",self::STRING_ARGUMENT_EXCEPTION);
+
         if (self::MIN_LENGTH_NAME > strlen($name)){
             throw new ParentDepartmentNameException(self::MIN_LENGTH_NAME);
         }

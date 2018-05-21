@@ -14,7 +14,7 @@ class ParentDepartmentUpdate
         $this->repository = $departmentUpdaterService;
     }
 
-    public function handler(ParentDepartmentUpdateCommand $parentDepartmentUpdateCommand)
+    public function handle(ParentDepartmentUpdateCommand $parentDepartmentUpdateCommand)
     {
         $id = $parentDepartmentUpdateCommand->id();
         $name = $parentDepartmentUpdateCommand->name();

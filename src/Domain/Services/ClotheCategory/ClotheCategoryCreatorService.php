@@ -12,8 +12,6 @@ namespace App\Domain\Services\ClotheCategory;
 use App\Domain\Model\ClotheCategory\ClotheCategory;
 use App\Domain\Model\ClotheCategory\ClotheCategoryRepository;
 use App\Domain\Model\ClotheCategory\Exceptions\ClotheCategoryAlreadyExistsException;
-use App\Domain\Model\ClotheCategory\Exceptions\ClotheCategoryDosentExistException;
-
 use App\Domain\Model\SizeType\Exceptions\SizeTypeDosentExistException;
 use App\Domain\Model\SizeType\SizeType;
 
@@ -39,5 +37,6 @@ class ClotheCategoryCreatorService
             throw new ClotheCategoryAlreadyExistsException($clotheCategory->getName());
 
         $this->clotheCategoryRepository->insert($clotheCategory);
+        $this->clotheCategoryRepository->update();
     }
 }
