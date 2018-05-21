@@ -1,0 +1,14 @@
+services:
+
+    _defaults:
+        autowire: true
+
+    parentDepartment.create_handler:
+                class: App\Application\ParentDepartment\Create\ParentDepartmentCreate
+                tags:
+                    - { name: tactician.handler, command: App\Application\ParentDepartment\Create\ParentDepartmentCreateCommand }
+
+    parentDepartment.update_handler:
+                class: App\Application\ParentDepartment\Update\ParentDepartmentUpdate
+                tags:
+                    - { name: tactician.handler, command: App\Application\ParentDepartment\Update\ParentDepartmentUpdateCommand }

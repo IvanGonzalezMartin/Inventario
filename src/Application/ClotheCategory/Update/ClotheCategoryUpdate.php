@@ -8,7 +8,6 @@
 
 namespace App\Application\ClotheCategory\Update;
 
-
 use App\Domain\Services\ClotheCategory\ClotheCategoryUpdaterService;
 
 class ClotheCategoryUpdate
@@ -20,11 +19,8 @@ class ClotheCategoryUpdate
         $this->repository = $clotheCategoryUpdaterService;
     }
 
-    public function handler(ClotheCategoryUpdateCommand $DepartmentUpdateCommand)
+    public function handle(ClotheCategoryUpdateCommand $DepartmentUpdateCommand)
     {
-        $id = $DepartmentUpdateCommand->id();
-        $name = $DepartmentUpdateCommand->name();
-
-        $this->repository->__invoke($id , $name);
+        $this->repository->__invoke($DepartmentUpdateCommand->id(), $DepartmentUpdateCommand->name());
     }
 }

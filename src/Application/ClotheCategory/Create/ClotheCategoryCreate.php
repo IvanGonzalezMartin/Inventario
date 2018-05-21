@@ -21,9 +21,8 @@ class ClotheCategoryCreate
         $this->clotheCategoryCreatorService = $clotheCategoryCreatorService;
     }
 
-    public function handler(ClotheCategoryCreateCommand $clotheCategoryCreateCommand)
+    public function handle(ClotheCategoryCreateCommand $clotheCategoryCreateCommand)
     {
-        $clothe = new ClotheCategory($clotheCategoryCreateCommand->name(),$clotheCategoryCreateCommand->typeSizeName());
-        $this->clotheCategoryCreatorService->__invoke($clothe);
+        $this->clotheCategoryCreatorService->__invoke(new ClotheCategory($clotheCategoryCreateCommand->name(), $clotheCategoryCreateCommand->typeSizeName()));
     }
 }

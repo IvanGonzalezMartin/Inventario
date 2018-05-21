@@ -21,10 +21,11 @@ class ClotheCategoryUpdateCommand
      * ClotheCategoryUpdateCommand constructor.
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($id,string $name)
+    public function __construct($id, $name)
     {
         Assertion::notNull($name, self::EMPTY_ARGUMENT_EXCEPTION);
         Assertion::regex($name, "/^[a-zA-Z ]*$/",self::STRING_ARGUMENT_EXCEPTION);
+
         $this->name = $name;
         $this->id = $id;
     }

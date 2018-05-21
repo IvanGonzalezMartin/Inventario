@@ -8,50 +8,30 @@
 
 namespace App\Infrastructure\Controller;
 
-
-use App\Application\ClotheCategory\Create\ClotheCategoryCreate;
-use App\Application\ClotheCategory\Update\ClotheCategoryUpdate;
 use App\Application\ClotheCategory\Create\ClotheCategoryCreateCommand;
 use App\Application\ClotheCategory\Update\ClotheCategoryUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
+use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class ClotheCategoryController
 {
-    private $clotheCategoryCreator;
-    private $clotheCategoryUpdate;
-
-    /**
-     * ClotheCategoryController constructor.
-     * @param $clotheCategoryCreator
-     */
-    public function __construct(ClotheCategoryCreate $clotheCategoryCreator, ClotheCategoryUpdate $clotheCategoryUpdate)
+    public function createClotheCategory(Request $request, CommandBus $commandBus)
     {
-        $this->clotheCategoryCreator = $clotheCategoryCreator;
-        $this->clotheCategoryUpdate = $clotheCategoryUpdate;
+        $newReq = json_decode($request->getContent());
+
+        $commandBus->handle(new ClotheCategoryCreateCommand($newReq->name, $newReq->typeSizeName));
+
+        return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function createClotheCategory(Request $request)
+    public function updateClotheCategory(Request $request, CommandBus $commandBus)
     {
+        $newReq = json_decode($request->getContent());
 
-        $name = $request->query->get('name');
-        $typeSizeName = $request->query->get('sizeName');
+        $commandBus->handle(new ClotheCategoryUpdateCommand($newReq->id, $newReq->name));
 
-        $clotheCategoryCreateCommand = new ClotheCategoryCreateCommand($name, $typeSizeName);
-        $this->clotheCategoryCreator->handler($clotheCategoryCreateCommand);
-
-        return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
-    }
-
-    public function updateClotheCategory(Request $request)
-    {
-        $id = $request->query->get('id');
-        $name = $request->query->get('name');
-
-        $clotheCategoryUpdateCommand = new ClotheCategoryUpdateCommand($id ,$name);
-        $this->clotheCategoryUpdate->handler($clotheCategoryUpdateCommand);
-
-        return new JsonResponse([], MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
     }
 }

@@ -8,8 +8,6 @@
 
 namespace App\Application\ParentDepartment\Create;
 
-
-use App\Domain\Model\Department\DepartmentRepository;
 use App\Domain\Model\ParentDepartment\ParentDepartment;
 use App\Domain\Services\ParentDepartment\ParentDepartmentCreatorService;
 
@@ -22,9 +20,8 @@ class ParentDepartmentCreate
         $this->parentDepartmentCreator = $parentDepartmentCreator;
     }
 
-    public function handler(ParentDepartmentCreateCommand $parentDepartmentCreateCommand)
+    public function handle(ParentDepartmentCreateCommand $parentDepartmentCreateCommand)
     {
-        $parent = new ParentDepartment($parentDepartmentCreateCommand->name());
-        $this->parentDepartmentCreator->__invoke($parent);
+        $this->parentDepartmentCreator->__invoke(new ParentDepartment($parentDepartmentCreateCommand->name()));
     }
 }

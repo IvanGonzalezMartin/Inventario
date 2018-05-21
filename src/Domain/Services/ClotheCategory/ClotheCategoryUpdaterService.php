@@ -21,20 +21,18 @@ class ClotheCategoryUpdaterService
 
     public function __invoke($id, $name)
     {
-
         $clotheCategory = $this->repository->findById($id);
-
 
         if (empty($clotheCategory))
             throw new ClotheCategoryDoesntExistException($id);
 
-        $clotheCategoryName=$this->repository->findByName($name);
+        $clotheCategoryName = $this->repository->findByName($name);
 
         if (false === empty($clotheCategoryName))
             throw new ClotheCategoryAlreadyExistsException($name);
 
          $clotheCategory->setName($name);
 
-         $this->repository->updateAll();
+         $this->repository->update();
     }
 }
