@@ -52,10 +52,10 @@ class ClotheSizeStockDoctrineRepository extends EntityRepository implements Clot
      */
     public function givMeAllStock($clotheId)
     {
-        return $this->createQueryBuilder('fc')
-            ->andWhere('fc.clotheID = :clotheId')
+        return $this->createQueryBuilder('clothe')
+            ->andWhere('clothe.clotheID = :clotheId')
             ->setParameter('clotheId', $clotheId)
-            ->select('SUM(fc.stock) as stock')
+            ->select('SUM(clothe.stock) as stock')
             ->getQuery()
             ->getSingleScalarResult();
     }
