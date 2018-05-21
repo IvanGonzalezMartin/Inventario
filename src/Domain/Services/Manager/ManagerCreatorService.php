@@ -43,5 +43,6 @@ class ManagerCreatorService
             throw new RolNotFoundException($manager->getRol());
 
         $this->repository->insert($manager);
+        $this->repository->update();
     }
 }

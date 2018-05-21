@@ -6,7 +6,6 @@ namespace App\Domain\Services\Department;
 use App\Domain\Model\Department\Department;
 use App\Domain\Model\Department\DepartmentRepository;
 use App\Domain\Model\Department\Exceptions\DepartmentAlreadyExistsException;
-use App\Domain\Model\Department\Exceptions\ParentDepartmentDoesntExistException;
 use App\Domain\Model\ParentDepartment\Exceptions\ParentDepartmentDosentExistsException;
 use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
 
@@ -32,5 +31,6 @@ class DepartmentCreator
             throw new DepartmentAlreadyExistsException($department->getName());
 
         $this->repository->insert($department);
+        $this->repository->updateAll();
     }
 }

@@ -34,7 +34,6 @@ class ManagerDoctrineRepository extends EntityRepository implements ManagerRepos
     {
         $entityManager = $this->getEntityManager();
         $entityManager->persist($manager);
-        $entityManager->flush();
     }
 
     /**
@@ -55,8 +54,8 @@ class ManagerDoctrineRepository extends EntityRepository implements ManagerRepos
         $this->getEntityManager()->flush();
     }
 
-    public function getAll()
+    public function getAll($rol)
     {
-        return $this->findBy(['deleteID' => null, 'rolID' => '2']);
+        return $this->findBy(['deleteID' => null, 'rol' => $rol]);
     }
 }

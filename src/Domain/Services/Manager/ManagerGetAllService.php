@@ -10,6 +10,7 @@ namespace App\Domain\Services\Manager;
 
 
 use App\Domain\Model\Manager\ManagerRepository;
+use App\Domain\Model\Role\Role;
 
 class ManagerGetAllService
 {
@@ -29,6 +30,6 @@ class ManagerGetAllService
      */
     public function __invoke()
     {
-        return $this->repository->getAll();
+        return $this->repository->getAll(Role::CURRENT_MANAGER);
     }
 }
