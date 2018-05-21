@@ -5,10 +5,10 @@ namespace App\Domain\Model\Role;
 class Role
 {
     const ADMIN = 'ADMIN';
-    const CURRENT = 'CURRENT';
+    const CURRENT_MANAGER = 'CURRENT MANAGER';
 
     const ROLES = [
         'ADMIN' => self::ADMIN,
-        'CURRENT' => self::CURRENT
+        'CURRENT MANAGER' => self::CURRENT_MANAGER
     ];
 }
