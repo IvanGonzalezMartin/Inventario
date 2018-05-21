@@ -23,7 +23,7 @@ class ClotheUpdateService
     private $clotheCategoryRepository;
     private $clotheSetAllParams;
 
-    public function __construct(ClotheRepository $clotheRepository ,ClotheCategoryRepository $clotheCategoryRepository, ClotheSetAllParamsService $clotheSetAllParams)
+    public function __construct(ClotheRepository $clotheRepository, ClotheCategoryRepository $clotheCategoryRepository, ClotheSetAllParamsService $clotheSetAllParams)
     {
         $this->repository = $clotheRepository;
         $this->clotheCategoryRepository = $clotheCategoryRepository;
@@ -54,6 +54,6 @@ class ClotheUpdateService
 
         $this->clotheSetAllParams->execute($oldClothe, $clothe, $clotheCategory, $this->clotheCategoryRepository->findById($oldClothe->getClotheCategoryId()));
 
-        $this->repository->updateAll();
+        $this->repository->update();
     }
 }

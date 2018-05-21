@@ -8,7 +8,6 @@
 
 namespace App\Application\Clothe\Update;
 
-
 use App\Domain\Model\Clothe\Clothe;
 use App\Domain\Services\Clothe\ClotheUpdateService;
 
@@ -21,9 +20,13 @@ class ClotheUpdate
         $this->clotheUpdate = $clotheUpdate;
     }
 
-    public function handler(ClotheUpdateCommand $clotheUpdateCommand)
+    public function handle(ClotheUpdateCommand $clotheUpdateCommand)
     {
-        $clothe = new Clothe($clotheUpdateCommand->getId(),$clotheUpdateCommand->getClotheCategoryID(),$clotheUpdateCommand->getName(),$clotheUpdateCommand->getGender(),$clotheUpdateCommand->getPhoto(),$clotheUpdateCommand->getDescription());
-        $this->clotheUpdate->__invoke($clothe);
+        $this->clotheUpdate->__invoke(new Clothe(   $clotheUpdateCommand->getId(),
+                                                    $clotheUpdateCommand->getClotheCategoryID(),
+                                                    $clotheUpdateCommand->getName(),
+                                                    $clotheUpdateCommand->getGender(),
+                                                    $clotheUpdateCommand->getPhoto(),
+                                                    $clotheUpdateCommand->getDescription()));
     }
 }

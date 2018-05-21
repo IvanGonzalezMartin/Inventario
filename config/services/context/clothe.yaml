@@ -1,0 +1,14 @@
+services:
+
+    _defaults:
+        autowire: true
+
+    clothe.create_handler:
+                class: App\Application\Clothe\Creator\ClotheCreate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Clothe\Creator\ClotheCreateCommand }
+
+    clothe.update_handler:
+                class: App\Application\Clothe\Update\ClotheUpdate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Clothe\Update\ClotheUpdateCommand }

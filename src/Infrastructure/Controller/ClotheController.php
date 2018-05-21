@@ -1,60 +1,42 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: programador
- * Date: 16/05/18
- * Time: 12:12
- */
 
 namespace App\Infrastructure\Controller;
 
-
-use App\Application\Clothe\Creator\ClotheCreate;
 use App\Application\Clothe\Creator\ClotheCreateCommand;
-use App\Application\Clothe\Update\ClotheUpdate;
 use App\Application\Clothe\Update\ClotheUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
+use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class ClotheController
 {
-    private $clotheCreate;
-    private $clotheUpdate;
-
-    public function __construct(ClotheCreate $clotheCreate ,ClotheUpdate $clotheUpdate)
+    public function createClothe(Request $request, CommandBus $commandBus)
     {
-        $this->clotheCreate = $clotheCreate;
-        $this->clotheUpdate = $clotheUpdate;
+        $newReq = json_encode($request->getContent());
+
+        $commandBus->handle(new ClotheCreateCommand($newReq->id,
+                                                    $newReq->clotheCategoryID,
+                                                    $newReq->name,
+                                                    $newReq->gender,
+                                                    $newReq->photo,
+                                                    $newReq->description));
+
+        return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
 
-    public function createClothe(Request $request)
+    public function updateClothe(Request $request, CommandBus $commandBus)
     {
-        $id = $request->query->get('id');
-        $clotheCategoryID = $request->query->get('clotheCategory');
-        $name = $request->query->get('name');
-        $gender = $request->query->get('gender');
-        $photo = $request->query->get('photo');
-        $description = $request->query->get('description');
+        $newReq = json_encode($request->getContent());
 
-        $clotheCreateCommand = new ClotheCreateCommand($id,$clotheCategoryID,$name,$gender,$photo,$description);
-        $this->clotheCreate->handler($clotheCreateCommand);
+        $commandBus->handle(new ClotheUpdateCommand( $newReq->id,
+                                                        $newReq->clotheCategoryID,
+                                                        $newReq->name,
+                                                        $newReq->gender,
+                                                        $newReq->photo,
+                                                        $newReq->description));
 
-        return new JsonResponse([],MyOwnHttpCodes::HTTP_OK);
-    }
 
-    public function updateClothe(Request $request)
-    {
-        $id = $request->query->get('id');
-        $clotheCategoryID = $request->query->get('clotheCategory');
-        $name = $request->query->get('name');
-        $gender = $request->query->get('gender');
-        $photo = $request->query->get('photo');
-        $description = $request->query->get('description');
-
-        $clotheUpdateCommand = new ClotheUpdateCommand($id,$clotheCategoryID,$name,$gender,$photo,$description);
-        $this->clotheUpdate->handler($clotheUpdateCommand);
-
-        return new JsonResponse([], MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
     }
 }

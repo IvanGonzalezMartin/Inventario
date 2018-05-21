@@ -27,7 +27,7 @@ class ClotheUpdateCommand
      * @param $photo
      * @param $description
      */
-    public function __construct($id,$clotheCategoryID, $name, $gender, $photo, $description)
+    public function __construct($id, $clotheCategoryID, $name, $gender, $photo, $description)
     {
         $this->id = $id;
         $this->clotheCategoryID = $clotheCategoryID;

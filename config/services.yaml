@@ -128,3 +128,4 @@ imports:
     - { resource: ./services/context/department.yaml }
     - { resource: ./services/context/parentDepartment.yaml }
     - { resource: ./services/context/clotheCategory.yaml }
+    - { resource: ./services/context/clothe.yaml }

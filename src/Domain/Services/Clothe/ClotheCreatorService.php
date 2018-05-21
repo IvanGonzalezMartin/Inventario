@@ -62,6 +62,6 @@ class ClotheCreatorService
 
         $this->repository->insert($clothe);
         $this->clotheSizeStockCreateService->execute($clothe);
-        $this->repository->updateAll();
+        $this->repository->update();
     }
 }
