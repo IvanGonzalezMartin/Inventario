@@ -17,24 +17,29 @@ use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
 class ParentDepartmentUpdaterService
 {
     /**
-     * @var ParentDepartment
+     * @var ParentDepartmentRepository
      */
-    private $parent;
     private $repository;
 
-    public function __construct(ParentDepartmentRepository $departmentRepository)
+    /**
+     * ParentDepartmentUpdaterService constructor.
+     * @param ParentDepartmentRepository $departmentRepository
+     */
+    public function __construct(ParentDepartmentRepository $parentDepartmentRepository)
     {
-        $this->repository = $departmentRepository;
+        $this->repository = $parentDepartmentRepository;
     }
 
+    /**
+     * @param $id
+     * @param $name
+     * @throws \Assert\AssertionFailedException
+     */
     public function __invoke($id, $name)
     {
-        $this->parent = $this->repository->getParentDepartmentByID($id);
+        $parent = $this->repository->getParentDepartmentByID($id);
 
-        if(empty($this->parent))
-            throw new ParentDepartmentDosentExistsException($id);
-
-        if(false === $this->parent->isNotDeleted())
+        if(empty($parent))
             throw new ParentDepartmentDosentExistsException($id);
 
         $parentName = $this->repository->findByName($name);
@@ -42,8 +47,8 @@ class ParentDepartmentUpdaterService
         if (false === empty($parentName))
             throw new ParentDepartmentAlreadyExistsException($name);
 
-        $this->parent->setName($name);
+        $parent->setName($name);
 
-        $this->repository->updateAll();
+        $this->repository->update();
     }
 }

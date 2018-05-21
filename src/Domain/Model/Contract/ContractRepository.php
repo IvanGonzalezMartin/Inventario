@@ -15,6 +15,6 @@ interface ContractRepository
     public function findByEndDate($endDate);
     public function findByRenovation($renovation);
     public function findById($id);
-    public function updateAll();
+    public function update();
     public function findByUserId($id);
 }

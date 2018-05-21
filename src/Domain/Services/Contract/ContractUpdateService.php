@@ -38,6 +38,6 @@ class ContractUpdateService
         $oldContract->setStartDate($contract->getStartDate()->format('d-m-Y'));
         $oldContract->setRenovation($contract->getRenovation());
 
-        $this->repository->updateAll();
+        $this->repository->update();
     }
 }

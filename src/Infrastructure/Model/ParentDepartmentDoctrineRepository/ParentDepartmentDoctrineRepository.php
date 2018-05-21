@@ -16,16 +16,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class ParentDepartmentDoctrineRepository extends EntityRepository implements ParentDepartmentRepository
 {
+
     /**
-     * @param ParentDepartment
+     * @param ParentDepartment $parentDepartment
      * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function insert(ParentDepartment $parentDepartment): void
     {
         $entityManager = $this->getEntityManager();
         $entityManager->persist($parentDepartment);
-        $entityManager->flush();
     }
 
     /**
@@ -34,7 +33,7 @@ class ParentDepartmentDoctrineRepository extends EntityRepository implements Par
      */
     public function getParentDepartmentByID($id)
     {
-       return $this->findOneBy(["id" => $id]);
+       return $this->findOneBy(['id' => $id, 'deleteID' => null]);
     }
 
     /**
@@ -43,14 +42,14 @@ class ParentDepartmentDoctrineRepository extends EntityRepository implements Par
      */
     public function findByName($name)
     {
-        return $this->findOneBy(['name' => $name]);
+        return $this->findOneBy(['name' => $name, 'deleteID' => null]);
     }
 
     /**
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function updateAll()
+    public function update()
     {
         $this->getEntityManager()->flush();
     }
