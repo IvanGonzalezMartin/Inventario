@@ -35,6 +35,7 @@ class ContractUpdateService
             throw new DateIsOldException(date_format($contract->getEndDate(), 'd-m-Y'));
 
         $oldContract->setEndDate($contract->getEndDate()->format('d-m-Y'));
+        $oldContract->setStartDate($contract->getStartDate()->format('d-m-Y'));
         $oldContract->setRenovation($contract->getRenovation());
 
         $this->repository->updateAll();

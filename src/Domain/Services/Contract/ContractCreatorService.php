@@ -37,7 +37,6 @@ class ContractCreatorService
 
     public function __invoke(Contract $contract)
     {
-
         if(CheckDateService::execute($contract->getEndDate()))
             throw new DateIsOldException(date_format($contract->getEndDate(), 'd-m-Y'));
 

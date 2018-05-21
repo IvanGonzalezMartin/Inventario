@@ -27,7 +27,8 @@ class ContractUpdate
     {
         $this->contractUpdateService->__invoke(new Contract($contractUpdateCommand->id(),
                                                             $contractUpdateCommand->endDate(),
-                                                            $contractUpdateCommand->renovation())
+                                                            $contractUpdateCommand->renovation(),
+                                                            $contractUpdateCommand->startDate())
                                                         );
     }
 }

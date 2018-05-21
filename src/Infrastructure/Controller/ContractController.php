@@ -23,8 +23,11 @@ class ContractController
     public function createContract(Request $request, CommandBus $commandBus)
     {
         $newReq = json_decode($request->getContent());
-        
-        $commandBus->handle(new ContractCreateCommand($newReq->id, $newReq->endDate, $newReq->renovation));
+
+        $commandBus->handle(new ContractCreateCommand(  $newReq->id,
+                                                        $newReq->endDate,
+                                                        $newReq->renovation,
+                                                        $newReq->startDate));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
@@ -33,7 +36,10 @@ class ContractController
     {
         $newReq = json_decode($request->getContent());
 
-        $commandBus->handle(new ContractUpdateCommand($newReq->id, $newReq->endDate, $newReq->renovation));
+        $commandBus->handle(new ContractUpdateCommand(  $newReq->id,
+                                                        $newReq->endDate,
+                                                        $newReq->renovation,
+                                                        $newReq->startDate));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
