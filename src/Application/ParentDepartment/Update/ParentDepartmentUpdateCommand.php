@@ -33,7 +33,7 @@ class ParentDepartmentUpdateCommand
     public function __construct($id, $name)
     {
         Assertion::notNull($id, self::INT_EMPTY_ARGUMENT_EXCEPTION);
-        Assertion::numeric($id, "/^[0-9]*$/",self::INT_ARGUMENT_EXCEPTION);
+        Assertion::numeric($id, self::INT_ARGUMENT_EXCEPTION);
 
         $this->id = $id;
         $this->name = $name;

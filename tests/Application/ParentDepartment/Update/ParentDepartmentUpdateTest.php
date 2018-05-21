@@ -25,6 +25,9 @@ class ParentDepartmentUpdateTest extends TestCase
      */
     private $handle;
 
+    /**
+     * @throws \ReflectionException
+     */
     public function setUp()
     {
         $this->stubRepository = $this->createMock(ParentDepartmentRepository::class);
@@ -44,7 +47,7 @@ class ParentDepartmentUpdateTest extends TestCase
 
         $this->expectException(ParentDepartmentAlreadyExistsException::class);
 
-        $this->handle->handler(new ParentDepartmentUpdateCommand("", ""));
+        $this->handle->handle(new ParentDepartmentUpdateCommand("1", "names"));
     }
 
     /**
@@ -57,11 +60,12 @@ class ParentDepartmentUpdateTest extends TestCase
 
         $this->expectException(ParentDepartmentDosentExistsException::class);
 
-        $this->handle->handler(new ParentDepartmentUpdateCommand("", ""));
+        $this->handle->handle(new ParentDepartmentUpdateCommand("1", "names"));
     }
 
     /**
      * @test
+     * @throws \Assert\AssertionFailedException
      */
     public function dado_un_deleteid_comprobar_si_puedes_modificar_un_departamentopadre()
     {
@@ -73,7 +77,7 @@ class ParentDepartmentUpdateTest extends TestCase
 
         $this->expectException(ParentDepartmentDosentExistsException::class);
 
-        $this->handle->handler(new ParentDepartmentUpdateCommand("", ""));
+        $this->handle->handle(new ParentDepartmentUpdateCommand("1", "names"));
     }
 
 }

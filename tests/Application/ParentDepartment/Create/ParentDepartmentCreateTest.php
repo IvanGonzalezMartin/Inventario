@@ -24,6 +24,9 @@ class ParentDepartmentCreateTest extends TestCase
      */
     private $handle;
 
+    /**
+     * @throws \ReflectionException
+     */
     public function setUp()
     {
         $this->stubRepository = $this->createMock(ParentDepartmentRepository::class);
@@ -32,6 +35,7 @@ class ParentDepartmentCreateTest extends TestCase
 
     /**
      * @test
+     * @throws \ReflectionException
      */
     public function given_an_parentname_when_exist_then_exception()
     {
@@ -40,7 +44,7 @@ class ParentDepartmentCreateTest extends TestCase
 
         $this->expectException(ParentDepartmentAlreadyExistsException::class);
 
-        $this->handle->handler(new ParentDepartmentCreateCommand('asdasdads'));
+        $this->handle->handle(new ParentDepartmentCreateCommand('asdasdads'));
     }
 
     /**
@@ -51,7 +55,7 @@ class ParentDepartmentCreateTest extends TestCase
         $this->stubRepository->method('findByName')
             ->willReturn(null);
 
-        $this->handle->handler(new ParentDepartmentCreateCommand('asdasdads'));
+        $this->handle->handle(new ParentDepartmentCreateCommand('asdasdads'));
 
         self::assertTrue(true);
     }

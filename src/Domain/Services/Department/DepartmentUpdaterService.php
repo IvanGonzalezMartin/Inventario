@@ -56,6 +56,6 @@ class DepartmentUpdaterService
         $oldDepartment->setName($newDepartment->getName());
         $oldDepartment->setParentDepartmentID($newDepartment->getParentDepartmentID());
 
-        $this->repository->updateAll();
+        $this->repository->update();
     }
 }

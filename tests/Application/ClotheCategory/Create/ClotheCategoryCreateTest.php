@@ -34,7 +34,7 @@ class ClotheCategoryCreateTest extends TestCase
     {
         $this->expectException(SizeTypeDosentExistException::class);
 
-        $this->handle->handler(new ClotheCategoryCreateCommand("asd", "ALPHABETI"));
+        $this->handle->handle(new ClotheCategoryCreateCommand("asd", "ALPHABETI"));
     }
 
     /**
@@ -42,7 +42,7 @@ class ClotheCategoryCreateTest extends TestCase
      */
     public function dado_un_typeSizeName_comprobar_si_es_valido()
     {
-        $this->handle->handler(new ClotheCategoryCreateCommand("", "ALPHABETIC"));
+        $this->handle->handle(new ClotheCategoryCreateCommand("", "ALPHABETIC"));
 
         self::assertTrue(true);
     }
@@ -53,7 +53,7 @@ class ClotheCategoryCreateTest extends TestCase
     public function comprobar_que_se_inserta_correctamente_un_clothe_category()
     {
 
-        $this->handle->handler(new ClotheCategoryCreateCommand('asdasdads', 'NUMERIC'));
+        $this->handle->handle(new ClotheCategoryCreateCommand('asdasdads', 'NUMERIC'));
 
         self::assertTrue(true);
     }

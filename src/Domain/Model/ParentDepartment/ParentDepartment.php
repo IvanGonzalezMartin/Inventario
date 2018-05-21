@@ -61,7 +61,7 @@ class ParentDepartment
     public function setName(string $name): self
     {
         Assertion::notNull($name, self::EMPTY_ARGUMENT_EXCEPTION);
-        Assertion::regex($name, "/^[a-zA-Z ]*$/",self::STRING_ARGUMENT_EXCEPTION);
+        Assertion::regex($name, "/^[a-zA-Z]*$/",self::STRING_ARGUMENT_EXCEPTION);
 
         if (self::MIN_LENGTH_NAME > strlen($name)){
             throw new ParentDepartmentNameException(self::MIN_LENGTH_NAME);

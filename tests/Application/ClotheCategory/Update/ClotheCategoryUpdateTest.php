@@ -26,6 +26,9 @@ class ClotheCategoryUpdateTest extends TestCase
      */
     private $handle;
 
+    /**
+     * @throws \ReflectionException
+     */
     public function setUp()
     {
         $this->stubRepository = $this->createMock(ClotheCategoryRepository::class);
@@ -42,7 +45,7 @@ class ClotheCategoryUpdateTest extends TestCase
 
         $this->expectException(ClotheCategoryDoesntExistException::class);
 
-        $this->handle->handler(new ClotheCategoryUpdateCommand("1","asd"));
+        $this->handle->handle(new ClotheCategoryUpdateCommand("1","asd"));
     }
 
     /**
@@ -58,7 +61,7 @@ class ClotheCategoryUpdateTest extends TestCase
 
         $this->expectException(ClotheCategoryAlreadyExistsException::class);
 
-        $this->handle->handler(new ClotheCategoryUpdateCommand("1","asd"));
+        $this->handle->handle(new ClotheCategoryUpdateCommand("1","asd"));
     }
 
     /**
@@ -70,7 +73,7 @@ class ClotheCategoryUpdateTest extends TestCase
             ->willReturn(new ClotheCategory("1","asdfg"));
 
 
-        $this->handle->handler(new ClotheCategoryUpdateCommand(1, 'asdasdasd'));
+        $this->handle->handle(new ClotheCategoryUpdateCommand(1, 'asdasdasd'));
 
         Assert::assertTrue(true);
     }
