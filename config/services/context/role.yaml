@@ -3,7 +3,7 @@ services:
     _defaults:
         autowire: true
 
-    Manager.all_handler:
+    Role.all_handler:
                 class: App\Application\Role\AllRoles\RoleAll
                 tags:
                     - { name: tactician.handler, command: App\Application\Role\AllRoles\RoleAllCommand }

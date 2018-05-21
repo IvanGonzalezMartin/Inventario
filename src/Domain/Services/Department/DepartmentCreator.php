@@ -31,6 +31,6 @@ class DepartmentCreator
             throw new DepartmentAlreadyExistsException($department->getName());
 
         $this->repository->insert($department);
-        $this->repository->updateAll();
+        $this->repository->update();
     }
 }
