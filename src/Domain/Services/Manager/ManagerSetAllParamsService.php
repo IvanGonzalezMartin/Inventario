@@ -22,7 +22,7 @@ class ManagerSetAllParamsService
     static function execute(Manager $manager, ManagerUpdateCommand $newManager): Manager
     {
         $manager->setEmail($newManager->email());
-        $manager->setRolID($newManager->rolID());
+        $manager->setRol($newManager->rol());
         $manager->setNickName($newManager->nickName());
         $manager->setPassword($newManager->password());
         $manager->setPhoto($newManager->photo());

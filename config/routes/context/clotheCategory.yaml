@@ -1,0 +1,9 @@
+CreateClotheCategory:
+    path: /ClotheCategory/create/
+    controller: App\Infrastructure\Controller\ClotheCategoryController::createClotheCategory
+    methods: [POST]
+
+UpdateClotheCategory:
+    path: /ClotheCategory/update/
+    controller: App\Infrastructure\Controller\ClotheCategoryController::updateClotheCategory
+    methods: [POST]

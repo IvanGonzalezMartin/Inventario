@@ -1,0 +1,9 @@
+CreateContract:
+    path: /Contract/create/
+    controller: App\Infrastructure\Controller\ContractController::createContract
+    methods: [POST]
+
+UpdateContract:
+    path: /Contract/update/
+    controller: App\Infrastructure\Controller\ContractController::updateContract
+    methods: [POST]

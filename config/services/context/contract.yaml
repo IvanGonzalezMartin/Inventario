@@ -1,0 +1,14 @@
+services:
+
+    _defaults:
+        autowire: true
+
+    Contract.update_handler:
+                class: App\Application\Contract\Update\ContractUpdate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Contract\Update\ContractUpdateCommand }
+
+    Contract.create_handler:
+                class: App\Application\Contract\Create\ContractCreate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Contract\Create\ContractCreateCommand }

@@ -2,106 +2,13 @@
 
 namespace App\Domain\Model\Role;
 
-use App\Domain\Model\Role\Exceptions\RolNameException;
-use Assert\Assertion;
-use Doctrine\ORM\Mapping as ORM;
-
-/**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Model\RoleDoctrineRepository\RoleDoctrineRepository")
- */
 class Role
 {
-    const MIN_LENGTH_NAME = 5;
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    const ADMIN = 'ADMIN';
+    const CURRENT = 'CURRENT';
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=false)
-     */
-    private $name;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $description;
-
-    /**
-     * @ORM\Column(type="string", length=50, nullable=true)
-     */
-    private $deleteID;
-
-    public function __construct($name)
-    {
-        $this->setName($name);
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        if (self::MIN_LENGTH_NAME > strlen($name))
-            throw new RolNameException(self::MIN_LENGTH_NAME);
-
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function isNotDeleted(): bool
-    {
-        $deleted = false;
-
-        if (null == $this->deleteID || '' == $this->deleteID)
-            $deleted = true;
-
-        return $deleted;
-    }
-
-    public function isDeleted(): bool
-    {
-        $deleted = true;
-
-        if (null == $this->deleteID || '' == $this->deleteID)
-            $deleted = false;
-
-        return $deleted;
-    }
-
-    /**
-     * @param string $deleteID
-     * @return Role
-     * @throws \Assert\AssertionFailedException
-     */
-    public function setDeleteID(string $deleteID): self
-    {
-        Assertion::uuid($deleteID);
-
-        $this->deleteID = $deleteID;
-
-        return $this;
-    }
+    const ROLES = [
+        'ADMIN' => self::ADMIN,
+        'CURRENT' => self::CURRENT
+    ];
 }

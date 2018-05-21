@@ -37,9 +37,9 @@ class Manager
     private $photo;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=20, nullable=false)
      */
-    private $rolID;
+    private $rol;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
@@ -65,11 +65,11 @@ class Manager
      * @param $email
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($nickName, $name, $rolID, $password, $email)
+    public function __construct($nickName, $name, $rol, $password, $email)
     {
         $this->nickName = $nickName;
         $this->name = $name;
-        $this->setRolID($rolID);
+        $this->setRol($rol);
         $this->setPassword($password);
         $this->setEmail($email);
     }
@@ -97,7 +97,7 @@ class Manager
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName($name): self
     {
         $this->name = $name;
 
@@ -109,16 +109,16 @@ class Manager
         return $this->photo;
     }
 
-    public function setPhoto(?string $photo): self
+    public function setPhoto($photo): self
     {
         $this->photo = $photo;
 
         return $this;
     }
 
-    public function getRolID(): ?int
+    public function getRol()
     {
-        return $this->rolID;
+        return $this->rol;
     }
 
     /**
@@ -126,22 +126,21 @@ class Manager
      * @return Manager
      * @throws \Assert\AssertionFailedException
      */
-    public function setRolID($rolID): self
+    public function setRol($rol): self
     {
-        Assertion::numeric($rolID, self::ROL_ID_FAIL);
-        $this->rolID = $rolID;
+        $this->rol = $rol;
 
         return $this;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword($password): self
     {
         $this->password = password_hash($password, PASSWORD_DEFAULT);
 
         return $this;
     }
 
-    public function checkPassword(string $password): bool
+    public function checkPassword($password): bool
     {
         return password_verify ($password, $this->password);
     }

@@ -1,0 +1,29 @@
+CheckNickName:
+    path: /Manager/checkNickName/
+    controller: App\Infrastructure\Controller\ManagerController::checkNickName
+    methods: [GET]
+
+CheckEmail:
+    path: /Manager/checkEmail/
+    controller: App\Infrastructure\Controller\ManagerController::checkEmail
+    methods: [GET]
+
+CreateManager:
+    path: /Manager/create/
+    controller: App\Infrastructure\Controller\ManagerController::createManager
+    methods: [POST]
+
+UpdateManager:
+    path: /Manager/update/
+    controller: App\Infrastructure\Controller\ManagerController::updateManager
+    methods: [POST]
+
+DeleteManager:
+    path: /Manager/delete/
+    controller: App\Infrastructure\Controller\ManagerController::deleteManager
+    methods: [POST]
+
+GetAllManager:
+    path: /Manager/
+    controller: App\Infrastructure\Controller\ManagerController::getAllManager
+    methods: [GET]

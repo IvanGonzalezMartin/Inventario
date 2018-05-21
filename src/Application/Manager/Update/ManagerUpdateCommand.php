@@ -14,7 +14,7 @@ class ManagerUpdateCommand
     private $nickName;
     private $name;
     private $photo;
-    private $rolID;
+    private $rol;
     private $password;
     private $email;
 
@@ -29,13 +29,13 @@ class ManagerUpdateCommand
      * @param $email
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($id, $nickName, $name, $photo, $rolID, $password, $email)
+    public function __construct($id, $nickName, $name, $photo, $rol, $password, $email)
     {
         $this->id = $id;
         $this->nickName = $nickName;
         $this->name = $name;
         $this->photo = $photo;
-        $this->rolID = $rolID;
+        $this->rol = $rol;
         $this->password = $password;
         $this->email = $email;
     }
@@ -75,9 +75,9 @@ class ManagerUpdateCommand
     /**
      * @return mixed
      */
-    public function rolID()
+    public function rol()
     {
-        return $this->rolID;
+        return $this->rol;
     }
 
     /**

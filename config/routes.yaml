@@ -1,95 +1,21 @@
-CreateRol:
-    path: /Role/create/
-    controller: App\Infrastructure\Controller\RoleController::createRole
-    methods: [POST]
+app_file_role:
+    resource: 'routes/context/role.yaml'
 
-UpdateRol:
-    path: /Role/update/
-    controller: App\Infrastructure\Controller\RoleController::updateRole
-    methods: [POST]
+app_file_department:
+    resource: 'routes/context/departament.yaml'
 
-AllRoles:
-    path: /Role/
-    controller: App\Infrastructure\Controller\RoleController::all
-    methods: [GET]
+app_file_manager:
+    resource: 'routes/context/manager.yaml'
 
-CreateDepartment:
-    path: /Department/create/
-    controller: App\Infrastructure\Controller\DepartmentController::createDepartment
-    methods: [POST]
+app_file_clothe:
+    resource: 'routes/context/clothe.yaml'
 
-UpdateDepartment:
-    path: /Department/update/
-    controller: App\Infrastructure\Controller\DepartmentController::updateDepartment
-    methods: [POST]
+app_file_parentDepartment:
+    resource: 'routes/context/parentDepartment.yaml'
 
-CreateParentDepartment:
-    path: /ParentDepartment/create/
-    controller: App\Infrastructure\Controller\ParentDepartmentController::createParentDepartment
-    methods: [POST]
+app_file_clotheCategory:
+    resource: 'routes/context/clotheCategory.yaml'
 
-UpdateParentDepartment:
-    path: /ParentDepartment/update/
-    controller: App\Infrastructure\Controller\ParentDepartmentController::updateParentDepartment
-    methods: [POST]
-
-CheckNickName:
-    path: /Manager/checkNickName/
-    controller: App\Infrastructure\Controller\ManagerController::checkNickName
-    methods: [GET]
-
-CheckEmail:
-    path: /Manager/checkEmail/
-    controller: App\Infrastructure\Controller\ManagerController::checkEmail
-    methods: [GET]
-
-CreateManager:
-    path: /Manager/create/
-    controller: App\Infrastructure\Controller\ManagerController::createManager
-    methods: [POST]
-
-UpdateManager:
-    path: /Manager/update/
-    controller: App\Infrastructure\Controller\ManagerController::updateManager
-    methods: [POST]
-
-DeleteManager:
-    path: /Manager/delete/
-    controller: App\Infrastructure\Controller\ManagerController::deleteManager
-    methods: [POST]
-
-GetAllManager:
-    path: /Manager/
-    controller: App\Infrastructure\Controller\ManagerController::getAllManager
-    methods: [GET]
-
-CreateClotheCategory:
-    path: /ClotheCategory/create/
-    controller: App\Infrastructure\Controller\ClotheCategoryController::createClotheCategory
-    methods: [POST]
-
-UpdateClotheCategory:
-    path: /ClotheCategory/update/
-    controller: App\Infrastructure\Controller\ClotheCategoryController::updateClotheCategory
-    methods: [POST]
-
-CreateContract:
-    path: /Contract/create/
-    controller: App\Infrastructure\Controller\ContractController::createContract
-    methods: [POST]
-
-UpdateContract:
-    path: /Contract/update/
-    controller: App\Infrastructure\Controller\ContractController::updateContract
-    methods: [POST]
-
-CreateClothe:
-    path: /Clothe/create/
-    controller: App\Infrastructure\Controller\ClotheController::createClothe
-    methods: [POST]
-
-UpdateClothe:
-    path: /Clothe/update/
-    controller: App\Infrastructure\Controller\ClotheController::updateClothe
-    methods: [POST]
+app_file_contract:
+    resource: 'routes/context/contract.yaml'
 

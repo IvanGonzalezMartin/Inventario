@@ -122,5 +122,6 @@ services:
 
 
 imports:
-    - { resource: ./services/manager.yaml }
-    - { resource: ./services/contract.yaml }
+    - { resource: ./services/context/manager.yaml }
+    - { resource: ./services/context/contract.yaml }
+    - { resource: ./services/context/role.yaml }

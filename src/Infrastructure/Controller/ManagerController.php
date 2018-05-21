@@ -45,13 +45,12 @@ class ManagerController
         $newReq = json_decode($request->getContent());
 
         $commandBus->handle(new ManagerCreateCommand(
-                                                $newReq->nickName,
-                                                $newReq->name,
-                                                $newReq->photo,
-                                                $newReq->rolID,
-                                                $newReq->password,
-                                                $newReq->email
-                                            )
+                                                    $newReq->nickName,
+                                                    $newReq->name,
+                                                    $newReq->photo,
+                                                    $newReq->rolID,
+                                                    $newReq->password,
+                                                    $newReq->email)
         );
 
         return new JsonResponse(null ,MyOwnHttpCodes::HTTP_OK);

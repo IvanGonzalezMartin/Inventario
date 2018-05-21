@@ -1,0 +1,4 @@
+AllRoles:
+    path: /Role/
+    controller: App\Infrastructure\Controller\RoleController::all
+    methods: [GET]

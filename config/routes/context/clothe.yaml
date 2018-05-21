@@ -1,0 +1,9 @@
+CreateClothe:
+    path: /Clothe/create/
+    controller: App\Infrastructure\Controller\ClotheController::createClothe
+    methods: [POST]
+
+UpdateClothe:
+    path: /Clothe/update/
+    controller: App\Infrastructure\Controller\ClotheController::updateClothe
+    methods: [POST]

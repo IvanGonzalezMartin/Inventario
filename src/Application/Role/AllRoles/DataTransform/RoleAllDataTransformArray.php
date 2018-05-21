@@ -16,11 +16,6 @@ class RoleAllDataTransformArray implements RoleAllDataTransform
 
     public function transform($data)
     {
-        $roles = [];
-        foreach ($data as $rol) {
-            $roles[$rol->getId()] = ["ID" => $rol->getId(), "NAME" => $rol->getName(), "DESCRIPTION" => $rol->getDescription()];
-        }
-
-       return $roles;
+       return $data;
     }
 }

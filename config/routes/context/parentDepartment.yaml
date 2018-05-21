@@ -1,0 +1,9 @@
+CreateParentDepartment:
+    path: /ParentDepartment/create/
+    controller: App\Infrastructure\Controller\ParentDepartmentController::createParentDepartment
+    methods: [POST]
+
+UpdateParentDepartment:
+    path: /ParentDepartment/update/
+    controller: App\Infrastructure\Controller\ParentDepartmentController::updateParentDepartment
+    methods: [POST]

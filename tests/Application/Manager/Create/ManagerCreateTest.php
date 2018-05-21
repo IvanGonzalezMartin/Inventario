@@ -32,10 +32,6 @@ class ManagerCreateTest extends TestCase
      */
     private $stubRepository;
 
-    /**
-     * @var RoleRepository
-     */
-    private $stubRepositoryRole;
 
     /**
      * @throws \ReflectionException
@@ -43,12 +39,10 @@ class ManagerCreateTest extends TestCase
     public function setUp()
     {
         $this->stubRepository = $this->createMock(ManagerRepository::class);
-        $this->stubRepositoryRole = $this->createMock(RoleRepository::class);
 
         $this->handle = new ManagerCreate(  new ManagerCreatorService($this->stubRepository,
                                                         $this->createMock(ManagerCheckNickNameService::class),
-                                                        $this->createMock(ManagerCheckEmailService::class),
-                                                        $this->stubRepositoryRole)
+                                                        $this->createMock(ManagerCheckEmailService::class))
                         );
     }
 
@@ -58,12 +52,9 @@ class ManagerCreateTest extends TestCase
      */
     public function falla_al_encontrar_rol_cuando_intenta_crear_manager()
     {
-        $this->stubRepositoryRole->method('getRolById')
-            ->willReturn(null);
-
         $this->expectException(RolNotFoundException::class);
 
-        $this->handle->handle(new ManagerCreateCommand('nickName','name','photo',3,'password','email@email.email'));
+        $this->handle->handle(new ManagerCreateCommand('nickName','name','photo','','password','email@email.email'));
     }
 
     /**
@@ -72,10 +63,7 @@ class ManagerCreateTest extends TestCase
      */
     public function insertando_bien()
     {
-        $this->stubRepositoryRole->method('getRolById')
-            ->willReturn(new Role('namesd'));
-
-        $this->handle->handle(new ManagerCreateCommand('nickName','name','photo',3,'password','email@email.email'));
+        $this->handle->handle(new ManagerCreateCommand('nickName','name','photo',Role::ADMIN,'password','email@email.email'));
 
         $this->assertTrue(true);
     }

@@ -1,0 +1,9 @@
+CreateDepartment:
+    path: /Department/create/
+    controller: App\Infrastructure\Controller\DepartmentController::createDepartment
+    methods: [POST]
+
+UpdateDepartment:
+    path: /Department/update/
+    controller: App\Infrastructure\Controller\DepartmentController::updateDepartment
+    methods: [POST]

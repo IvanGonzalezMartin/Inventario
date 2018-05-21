@@ -12,7 +12,7 @@ use App\Application\Manager\Update\ManagerUpdateCommand;
 use App\Domain\Model\Manager\Exceptions\ManagerWithIdDoesntExistsException;
 use App\Domain\Model\Manager\ManagerRepository;
 use App\Domain\Model\Role\Exceptions\RolNotFoundException;
-use App\Domain\Model\Role\RoleRepository;
+use App\Domain\Model\Role\Role;
 
 
 class ManagerUpdatorService
@@ -29,17 +29,14 @@ class ManagerUpdatorService
      * @var ManagerCheckEmailService
      */
     private $checkEmail;
-    /**
-     * @var RoleRepository
-     */
-    private $roleRepository;
 
-    public function __construct(ManagerRepository $managerRepository, ManagerCheckNickNameService $checkNickName, ManagerCheckEmailService $checkEmail, RoleRepository $roleRepository)
+
+    public function __construct(ManagerRepository $managerRepository, ManagerCheckNickNameService $checkNickName, ManagerCheckEmailService $checkEmail)
     {
         $this->repository = $managerRepository;
         $this->checkNickName = $checkNickName;
         $this->checkEmail = $checkEmail;
-        $this->roleRepository = $roleRepository;
+
     }
 
     /**
@@ -60,8 +57,8 @@ class ManagerUpdatorService
         if ($manager->nickName() != $oldManager->getNickName())
             $this->checkNickName->__invoke($manager->nickName());
 
-        if (empty($this->roleRepository->getRolById($manager->rolID())))
-            throw new RolNotFoundException($manager->rolID());
+        if (false === in_array($manager->rol(), Role::ROLES))
+            throw new RolNotFoundException($manager->rol());
 
         ManagerSetAllParamsService::execute($oldManager, $manager);
 

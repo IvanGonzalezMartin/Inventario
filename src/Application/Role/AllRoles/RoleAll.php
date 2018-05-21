@@ -8,7 +8,6 @@
 
 namespace App\Application\Role\AllRoles;
 
-
 use App\Domain\Services\Role\RoleAllService;
 
 class RoleAll
@@ -22,10 +21,8 @@ class RoleAll
         $this->dataTransform = $dataTransform;
     }
 
-    public function handler(RoleAllCommand $roleCreateCommand)
+    public function handle(RoleAllCommand $roleCreateCommand)
     {
-       $roles = $this->roleAll->__invoke();
-
-       return $this->dataTransform->transform($roles);
+       return $this->dataTransform->transform($this->roleAll->__invoke());
     }
 }
