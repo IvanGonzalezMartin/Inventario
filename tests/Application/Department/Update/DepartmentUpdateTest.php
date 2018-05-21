@@ -14,14 +14,18 @@ use App\Domain\Model\Department\Department;
 use App\Domain\Model\Department\DepartmentRepository;
 use App\Domain\Model\Department\Exceptions\DepartmentAlreadyExistsException;
 use App\Domain\Model\Department\Exceptions\DepartmentDoesntExistException;
+use App\Domain\Model\ParentDepartment\Exceptions\ParentDepartmentDosentExistsException;
+use App\Domain\Model\ParentDepartment\ParentDepartment;
 use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
 use App\Domain\Services\Department\DepartmentUpdaterService;
+
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
 class DepartmentUpdateTest extends TestCase
 {
     private $stubRepository;
+    private $stubParentRepository;
     /**
      * @var DepartmentUpdate
      */
@@ -33,8 +37,8 @@ class DepartmentUpdateTest extends TestCase
     public function setUp()
     {
         $this->stubRepository = $this->createMock(DepartmentRepository::class);
-
-        $this->handle = new DepartmentUpdate(new DepartmentUpdaterService($this->stubRepository, $this->createMock(ParentDepartmentRepository::class)));
+        $this->stubParentRepository = $this->createMock(ParentDepartmentRepository::class);
+        $this->handle = new DepartmentUpdate(new DepartmentUpdaterService($this->stubRepository, $this->stubParentRepository));
     }
 
     /**
@@ -52,47 +56,50 @@ class DepartmentUpdateTest extends TestCase
 
     /**
      * @test
-     * @throws \Assert\AssertionFailedException
      */
-    public function daod_un_departamento_borrado_lanzar_error()
+    public function dado_un_nombre_distinto_al_anterior_comprobar_si_ya_existe()
     {
-        $departmentRepository = new Department(1,'names');
-        $departmentRepository->setDeleteID('ecd76647-b59f-4869-9578-085bc72d1634');
+        $departmentVar = new Department("1","namess");
 
         $this->stubRepository->method('findById')
-            ->willReturn($departmentRepository);
-
-        $this->expectException(DepartmentDoesntExistException::class);
-
-        $this->handle->handle(new DepartmentUpdateCommand(1, 2,'names'));
-    }
-
-    /**
-     * @test
-     */
-    public function dado_un_nombre_que_ya_esta_en_la_base_de_datos_lanzar_error()
-    {
-        $this->stubRepository->method('findById')
-            ->willReturn(new Department(1,'names'));
+            ->willReturn($departmentVar);
 
         $this->stubRepository->method('findByName')
-            ->willReturn(new Department(1,'names'));
+            ->willReturn(new Department("1","names"));
 
         $this->expectException(DepartmentAlreadyExistsException::class);
 
-        $this->handle->handle(new DepartmentUpdateCommand(1,2, 'names'));
+        $this->handle->handle(new DepartmentUpdateCommand('2',1,'names'));
     }
 
     /**
      * @test
      */
-    public function comprobar_si_se_modifica_bien_un_departamento()
+    public function dado_un_departamento_padre_comprobar_si_existe()
     {
         $this->stubRepository->method('findById')
-            ->willReturn(new Department(1,'name'));
+            ->willReturn(new Department(1,'names'));
 
+        $this->stubParentRepository->method('getParentDepartmentByID')
+            ->willReturn(null);
 
-        $this->handle->handle( new DepartmentUpdateCommand(1, 2, 'name'));
+        $this->expectException(ParentDepartmentDosentExistsException::class);
+
+        $this->handle->handle(new DepartmentUpdateCommand(1,1,'names'));
+    }
+
+    /**
+     * @test
+     */
+    public function comprobar_si_hace_update()
+    {
+        $this->stubRepository->method('findById')
+            ->willReturn(new Department(1,'names'));
+
+        $this->stubParentRepository->method('getParentDepartmentByID')
+            ->willReturn(new ParentDepartment("names"));
+
+        $this->handle->handle(new DepartmentUpdateCommand(1,1,'names'));
 
         Assert::assertTrue(true);
     }

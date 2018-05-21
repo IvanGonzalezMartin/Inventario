@@ -13,6 +13,7 @@ class ContractCreateCommand
     private $id;
     private $endDate;
     private $renovation;
+    private $startDate;
 
     /**
      * ContractCreateCommand constructor.
@@ -20,11 +21,12 @@ class ContractCreateCommand
      * @param $endDate
      * @param $renovation
      */
-    public function __construct($id, $endDate, $renovation)
+    public function __construct($id, $endDate, $renovation, $startDate)
     {
         $this->id = $id;
         $this->endDate = $endDate;
         $this->renovation = $renovation;
+        $this->startDate = $startDate;
     }
 
     /**
@@ -50,4 +52,14 @@ class ContractCreateCommand
     {
         return $this->renovation;
     }
+
+    /**
+     * @return mixed
+     */
+    public function startDate()
+    {
+        return $this->startDate;
+    }
+
+
 }

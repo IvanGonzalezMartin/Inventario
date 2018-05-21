@@ -25,7 +25,8 @@ class ContractCreate
     {
         $this->contractCreatorService->__invoke(new Contract(   $contractCreateCommand->id(),
                                                                 $contractCreateCommand->endDate(),
-                                                                $contractCreateCommand->renovation())
+                                                                $contractCreateCommand->renovation(),
+                                                                $contractCreateCommand->startDate())
                                                             );
     }
 }

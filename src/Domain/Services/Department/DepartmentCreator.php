@@ -7,6 +7,7 @@ use App\Domain\Model\Department\Department;
 use App\Domain\Model\Department\DepartmentRepository;
 use App\Domain\Model\Department\Exceptions\DepartmentAlreadyExistsException;
 use App\Domain\Model\Department\Exceptions\ParentDepartmentDoesntExistException;
+use App\Domain\Model\ParentDepartment\Exceptions\ParentDepartmentDosentExistsException;
 use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
 
 class DepartmentCreator
@@ -25,7 +26,7 @@ class DepartmentCreator
         $parentDepartment = $this->parentRepository->getParentDepartmentByID($department->getParentDepartmentID());
 
         if (empty($parentDepartment))
-            throw new ParentDepartmentDoesntExistException($department->getParentDepartmentID());
+            throw new ParentDepartmentDosentExistsException($department->getParentDepartmentID());
 
         if(null == empty($this->repository->findByName($department->getName())))
             throw new DepartmentAlreadyExistsException($department->getName());

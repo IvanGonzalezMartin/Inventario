@@ -58,7 +58,7 @@ class Contract
      * @param $renovation
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($userID , $endDate, $renovation)
+    public function __construct($userID , $endDate, $renovation, $startDate)
     {
         Assertion::notNull($userID, self::EMPTY_ID_EXCEPTION);
         Assertion::uuid($userID, self::INTEGER_ARGUMENT_EXCEPTION);
@@ -66,6 +66,7 @@ class Contract
         $this->userID = $userID;
         $this->setEndDate($endDate);
         $this->setRenovation($renovation);
+        $this->startDate = $startDate;
     }
 
     public function getId()

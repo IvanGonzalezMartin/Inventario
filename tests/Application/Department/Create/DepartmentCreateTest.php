@@ -14,6 +14,7 @@ use App\Domain\Model\Department\Department;
 use App\Domain\Model\Department\DepartmentRepository;
 use App\Domain\Model\Department\Exceptions\DepartmentAlreadyExistsException;
 use App\Domain\Model\Department\Exceptions\ParentDepartmentDoesntExistException;
+use App\Domain\Model\ParentDepartment\Exceptions\ParentDepartmentDosentExistsException;
 use App\Domain\Model\ParentDepartment\ParentDepartment;
 use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
 use App\Domain\Services\Department\DepartmentCreator;
@@ -47,7 +48,7 @@ class DepartmentCreateTest extends TestCase
         $this->stubParentRepository->method('getParentDepartmentByID')
             ->willReturn(null);
 
-        $this->expectException(ParentDepartmentDoesntExistException::class);
+        $this->expectException(ParentDepartmentDosentExistsException::class);
 
         $this->creator->handle(new DepartmentCreateCommand(5, 'asdasdads'));
     }

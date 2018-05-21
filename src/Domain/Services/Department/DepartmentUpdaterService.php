@@ -12,7 +12,7 @@ use App\Domain\Model\Department\Department;
 use App\Domain\Model\Department\DepartmentRepository;
 use App\Domain\Model\Department\Exceptions\DepartmentAlreadyExistsException;
 use App\Domain\Model\Department\Exceptions\DepartmentDoesntExistException;
-use App\Domain\Model\Department\Exceptions\ParentDepartmentDoesntExistException;
+use App\Domain\Model\ParentDepartment\Exceptions\ParentDepartmentDosentExistsException;
 use App\Domain\Model\ParentDepartment\ParentDepartmentRepository;
 
 class DepartmentUpdaterService
@@ -51,7 +51,7 @@ class DepartmentUpdaterService
         $parentDepartment = $this->parentDepartmentRepository->getParentDepartmentByID($newDepartment->getParentDepartmentID());
 
         if (empty($parentDepartment))
-            throw new ParentDepartmentDoesntExistException($oldDepartment->getParentDepartmentID());
+            throw new ParentDepartmentDosentExistsException($oldDepartment->getParentDepartmentID());
 
         $oldDepartment->setName($newDepartment->getName());
         $oldDepartment->setParentDepartmentID($newDepartment->getParentDepartmentID());
