@@ -19,3 +19,6 @@ app_file_clotheCategory:
 app_file_contract:
     resource: 'routes/context/contract.yaml'
 
+app_file_user:
+    resource: 'routes/context/user.yaml'
+

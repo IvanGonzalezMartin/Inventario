@@ -23,8 +23,7 @@ class ParentDepartmentDoctrineRepository extends EntityRepository implements Par
      */
     public function insert(ParentDepartment $parentDepartment): void
     {
-        $entityManager = $this->getEntityManager();
-        $entityManager->persist($parentDepartment);
+        $this->getEntityManager()->persist($parentDepartment);
     }
 
     /**

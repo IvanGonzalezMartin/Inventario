@@ -77,7 +77,7 @@ class ContractCreateTest extends TestCase
     public function comprobar_si_se_crea_bien_un_contrato()
     {
         $this->stubUserRepository->method('findById')
-            ->willReturn(new User("213586ce-77b1-4481-b8b7-108e88281a89","","","","","","",""));
+            ->willReturn(new User("213586ce-77b1-4481-b8b7-108e88281a89","", '',"","","","","",""));
 
         $this->stubRepository->method('findById')
             ->willReturn(new Contract("213586ce-77b1-4481-b8b7-108e88281a89","10-12-2099","","10-12-1999"));

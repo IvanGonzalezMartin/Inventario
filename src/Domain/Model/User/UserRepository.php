@@ -12,4 +12,10 @@ namespace App\Domain\Model\User;
 interface UserRepository
 {
     public function findByID($id);
+    public function findByNickName($nickName);
+    public function findByEmail($email);
+    public function findByNif($nif);
+    public function findByEmployeeCode($employeeCode);
+    public function insert(User $user);
+    public function update();
 }

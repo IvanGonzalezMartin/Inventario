@@ -1,0 +1,9 @@
+services:
+
+    _defaults:
+        autowire: true
+
+    User.create_handler:
+                class: App\Application\User\Create\UserCreate
+                tags:
+                    - { name: tactician.handler, command: App\Application\User\Create\UserCreateCommand }

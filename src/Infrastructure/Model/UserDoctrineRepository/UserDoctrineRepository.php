@@ -16,10 +16,47 @@ use Doctrine\ORM\EntityRepository;
 class UserDoctrineRepository extends EntityRepository implements UserRepository
 {
 
-
     public function findByID($id)
     {
+        return $this->findOneBy(['id' => $id, 'deleteID' =>null]);
+    }
 
-        return $this->findOneBy(['id' => $id , 'deleteID' =>null]);
+    public function findByNickName($nickName)
+    {
+        return $this->findOneBy(['nickName' => $nickName, 'deleteID' =>null]);
+    }
+
+    public function findByEmail($email)
+    {
+        return $this->findOneBy(['email' => $email, 'deleteID' =>null]);
+    }
+
+    public function findByNif($nif)
+    {
+        return $this->findOneBy(['nif' => $nif, 'deleteID' =>null]);
+    }
+
+    public function findByEmployeeCode($employeeCode)
+    {
+        return $this->findOneBy(['employeeCode' => $employeeCode, 'deleteID' =>null]);
+    }
+
+    /**
+     * @param User $user
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function insert(User $user)
+    {
+        $this->getEntityManager()->persist($user);
+
+    }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function update()
+    {
+        $this->getEntityManager()->flush();
     }
 }

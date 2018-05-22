@@ -47,6 +47,11 @@ class User
     private $password;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nif;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $employeeCode;
@@ -81,6 +86,7 @@ class User
      * @param $id
      * @param $nickName
      * @param $nameSurname
+     * @param $nif
      * @param $email
      * @param $password
      * @param $employeeCode
@@ -88,13 +94,14 @@ class User
      * @param $gender
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct($id, $nickName, $nameSurname, $email, $password, $employeeCode, $departmentID, $gender)
+    public function __construct($id, $nickName, $nameSurname, $nif, $email, $password, $employeeCode, $departmentID, $gender)
     {
         Assertion::uuid($id);
 
         $this->id = $id;
         $this->nickName = $nickName;
         $this->nameSurname = $nameSurname;
+        $this->nif = $nif;
         $this->email = $email;
         $this->password = $password;
         $this->employeeCode = $employeeCode;
@@ -142,6 +149,22 @@ class User
         $this->photo = $photo;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNif()
+    {
+        return $this->nif;
+    }
+
+    /**
+     * @param mixed $nif
+     */
+    public function setNif($nif): void
+    {
+        $this->nif = $nif;
     }
 
     public function getEmail(): ?string

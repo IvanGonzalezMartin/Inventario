@@ -1,4 +1,4 @@
-CreateDepartment:
+CreateUser:
     path: /User/create/
     controller: App\Infrastructure\Controller\UserController::createUser
     methods: [GET]
