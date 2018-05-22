@@ -68,7 +68,7 @@ class DepartmentDeleteTest extends TestCase
             ->willReturn(new Department(1,"names"));
 
         $this->stubUserRepository->method('findById')
-            ->willReturn(new User('c82caa83-2fce-4d83-9ff2-bf05f72f3f20','names',"names","names","names","names",1,"names"));
+            ->willReturn(new User('c82caa83-2fce-4d83-9ff2-bf05f72f3f20','names','',"names","names","names","names",1,"names"));
 
         $this->expectException(DepartmentHaveUsersException::class);
 

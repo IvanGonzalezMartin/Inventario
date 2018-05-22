@@ -1,0 +1,4 @@
+GetSizeType:
+    path: /SizeType/
+    controller: App\Infrastructure\Controller\SizeTypeController::all
+    methods: [GET]

@@ -120,6 +120,33 @@ services:
     App\Domain\Model\ClotheSizeStock\ClotheSizeStockRepository:
         alias: app.clotheSizeStock_repository
 
+    app.gender_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - App\Domain\Model\Gender\Gender
+
+    App\Domain\Model\Gender\GenderRepository:
+        alias: app.gender_repository
+
+    app.sizeType_repository:
+            class: Doctrine\ORM\EntityRepository
+            factory: ['@doctrine.orm.default_entity_manager', getRepository]
+            arguments:
+                - App\Domain\Model\SizeType\SizeType
+
+    App\Domain\Model\SizeType\SizeTypeRepository:
+        alias: app.sizeType_repository
+
+    app.size_repository:
+            class: Doctrine\ORM\EntityRepository
+            factory: ['@doctrine.orm.default_entity_manager', getRepository]
+            arguments:
+                - App\Domain\Model\Sizes\Sizes
+
+    App\Domain\Model\Sizes\SizesRepository:
+        alias: app.size_repository
+
 
 imports:
     - { resource: ./services/context/manager.yaml }
@@ -130,3 +157,6 @@ imports:
     - { resource: ./services/context/clotheCategory.yaml }
     - { resource: ./services/context/clothe.yaml }
     - { resource: ./services/context/user.yaml }
+    - { resource: ./services/context/gender.yaml }
+    - { resource: ./services/context/sizeType.yaml }
+    - { resource: ./services/context/size.yaml }
