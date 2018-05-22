@@ -22,3 +22,12 @@ app_file_contract:
 app_file_user:
     resource: 'routes/context/user.yaml'
 
+app_file_gender:
+    resource: 'routes/context/gender.yaml'
+
+app_file_sizeType:
+    resource: 'routes/context/sizeType.yaml'
+
+app_file_size:
+    resource: 'routes/context/size.yaml'
+

@@ -1,0 +1,4 @@
+GetGender:
+    path: /Gender/
+    controller: App\Infrastructure\Controller\GenderController::all
+    methods: [GET]

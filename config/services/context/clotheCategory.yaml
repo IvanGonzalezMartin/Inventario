@@ -12,3 +12,8 @@ services:
                 class: App\Application\ClotheCategory\Update\ClotheCategoryUpdate
                 tags:
                     - { name: tactician.handler, command: App\Application\ClotheCategory\Update\ClotheCategoryUpdateCommand }
+
+    clotheCategory.delete_handler:
+                    class: App\Application\ClotheCategory\Delete\ClotheCategoryDelete
+                    tags:
+                        - { name: tactician.handler, command: App\Application\ClotheCategory\Delete\ClotheCategoryDeleteCommand }

@@ -7,3 +7,8 @@ UpdateClotheCategory:
     path: /ClotheCategory/update/
     controller: App\Infrastructure\Controller\ClotheCategoryController::updateClotheCategory
     methods: [POST]
+
+DeleteClotheCategory:
+    path: /ClotheCategory/delete/
+    controller: App\Infrastructure\Controller\ClotheCategoryController::deleteClotheCategory
+    methods: [GET]

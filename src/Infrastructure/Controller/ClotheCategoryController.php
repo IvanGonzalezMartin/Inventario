@@ -9,6 +9,7 @@
 namespace App\Infrastructure\Controller;
 
 use App\Application\ClotheCategory\Create\ClotheCategoryCreateCommand;
+use App\Application\ClotheCategory\Delete\ClotheCategoryDeleteCommand;
 use App\Application\ClotheCategory\Update\ClotheCategoryUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use League\Tactician\CommandBus;
@@ -45,6 +46,13 @@ class ClotheCategoryController
         $newReq = json_decode($request->getContent());
 
         $this->commandBus->handle(new ClotheCategoryUpdateCommand($newReq->id, $newReq->name));
+
+        return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
+    }
+
+    public function deleteClotheCategory(Request $request)
+    {
+        $this->commandBus->handle(new ClotheCategoryDeleteCommand($request->query->get('id')));
 
         return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
     }

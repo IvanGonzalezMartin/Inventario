@@ -1,0 +1,4 @@
+GetSize:
+    path: /Size/
+    controller: App\Infrastructure\Controller\SizeController::getPartOfArray
+    methods: [GET]
