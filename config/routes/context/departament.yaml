@@ -7,3 +7,14 @@ UpdateDepartment:
     path: /Department/update/
     controller: App\Infrastructure\Controller\DepartmentController::updateDepartment
     methods: [POST]
+
+DeleteDepartmen:
+    path: /Department/delete/
+    controller: App\Infrastructure\Controller\DepartmentController::deleteDepartment
+    methods: [POST]
+
+GetDepartmen:
+    path: /Department
+    controller: App\Infrastructure\Controller\DepartmentController::getPartDepartment
+    methods: [GET]
+

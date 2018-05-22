@@ -36,12 +36,26 @@ class ParentDepartmentDoctrineRepository extends EntityRepository implements Par
     }
 
     /**
+     * @param $id
+     * @return ParentDepartment|null
+     */
+    public function findById($id)
+    {
+        return $this->findOneBy(['id' => $id, 'deleteID' => null]);
+    }
+
+    /**
      * @param $name
      * @return ParentDepartment|null
      */
     public function findByName($name)
     {
         return $this->findOneBy(['name' => $name, 'deleteID' => null]);
+    }
+
+    public function getAll()
+    {
+        return $this->findBy(['deleteID' => null]);
     }
 
     /**

@@ -97,7 +97,7 @@ class ParentDepartment
      * @return ParentDepartment
      * @throws \Assert\AssertionFailedException
      */
-    public function setDeleteID(string $deleteID): self
+    public function setDeleteID($deleteID): self
     {
         Assertion::uuid($deleteID);
 

@@ -62,22 +62,4 @@ class ParentDepartmentUpdateTest extends TestCase
 
         $this->handle->handle(new ParentDepartmentUpdateCommand("1", "names"));
     }
-
-    /**
-     * @test
-     * @throws \Assert\AssertionFailedException
-     */
-    public function dado_un_deleteid_comprobar_si_puedes_modificar_un_departamentopadre()
-    {
-        $parentRepository = new ParentDepartment('sdfdfgdfgdfgcv');
-        $parentRepository->setDeleteID('327f3cf6-7ac6-4dc2-bf45-817a69645b65');
-
-        $this->stubRepository->method('getParentDepartmentByID')
-            ->willReturn($parentRepository);
-
-        $this->expectException(ParentDepartmentDosentExistsException::class);
-
-        $this->handle->handle(new ParentDepartmentUpdateCommand("1", "names"));
-    }
-
 }
