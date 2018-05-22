@@ -12,4 +12,12 @@ use PHPUnit\Framework\TestCase;
 
 class ClotheCreateTest extends TestCase
 {
+    /**
+     * @test
+     */
+    public function asTru()
+    {
+        $this->assertTrue(true);
+    }
 }
+
