@@ -45,4 +45,18 @@ class DepartmentDoctrineRepository extends EntityRepository implements Departmen
     {
         return $this->findOneBy(['id' => $id, 'deleteID' => null]);
     }
+
+    /**
+     * @param $parentDepartmentID
+     * @return Department[]
+     */
+    public function findByParentDepartment($parentDepartmentID)
+    {
+        return $this->findBy(['parentDepartmentID' => $parentDepartmentID, 'deleteID' => null]);
+    }
+
+    public function findArrayById($id)
+    {
+        return $this->findBy(['parentDepartmentID' => $id, 'deleteID' => null]);
+    }
 }

@@ -12,3 +12,13 @@ services:
                 class: App\Application\Department\Update\DepartmentUpdate
                 tags:
                     - { name: tactician.handler, command: App\Application\Department\Update\DepartmentUpdateCommand }
+
+    Department.delete_handler:
+                    class: App\Application\Department\Delete\DepartmentDelete
+                    tags:
+                        - { name: tactician.handler, command: App\Application\Department\Delete\DepartmentDeleteCommand }
+
+    Department.get_handler:
+                        class: App\Application\Department\GetPart\DepartmentGetPart
+                        tags:
+                            - { name: tactician.handler, command: App\Application\Department\GetPart\DepartmentGetPartCommand }

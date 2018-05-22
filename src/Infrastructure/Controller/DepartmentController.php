@@ -9,6 +9,8 @@
 namespace App\Infrastructure\Controller;
 
 use App\Application\Department\Create\DepartmentCreateCommand;
+use App\Application\Department\Delete\DepartmentDeleteCommand;
+use App\Application\Department\GetPart\DepartmentGetPartCommand;
 use App\Application\Department\Update\DepartmentUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use League\Tactician\CommandBus;
@@ -47,5 +49,19 @@ class DepartmentController
         $this->commandBus->handle(new DepartmentUpdateCommand($newReq->id, $newReq->parentID, $newReq->name));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
+    }
+
+    public function deleteDepartment(Request $request)
+    {
+        $newReq = json_decode($request->getContent());
+
+        $this->commandBus->handle(new DepartmentDeleteCommand($newReq->id));
+
+        return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
+    }
+
+    public function getPartDepartment(Request $request)
+    {
+        return new JsonResponse($this->commandBus->handle(new DepartmentGetPartCommand($request->query->get('id'))),MyOwnHttpCodes::HTTP_OK);
     }
 }

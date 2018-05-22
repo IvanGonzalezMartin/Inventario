@@ -15,4 +15,6 @@ interface DepartmentRepository
     public function findByName($name);
     public function findById($id);
     public function update();
+    public function findByParentDepartment($parentDepartmentID);
+    public function findArrayById($id);
 }

@@ -7,3 +7,14 @@ UpdateParentDepartment:
     path: /ParentDepartment/update/
     controller: App\Infrastructure\Controller\ParentDepartmentController::updateParentDepartment
     methods: [POST]
+
+DeleteParentDepartment:
+    path: /ParentDepartment/delete/
+    controller: App\Infrastructure\Controller\ParentDepartmentController::deleteParentDepartment
+    methods: [POST]
+
+
+GetAllParentDepartment:
+    path: /ParentDepartment/
+    controller: App\Infrastructure\Controller\ParentDepartmentController::getAllParentDepartment
+    methods: [GET]
