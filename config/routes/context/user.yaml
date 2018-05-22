@@ -2,3 +2,8 @@ CreateUser:
     path: /User/create/
     controller: App\Infrastructure\Controller\UserController::createUser
     methods: [GET]
+
+UpdateUser:
+    path: /User/update/
+    controller: App\Infrastructure\Controller\UserController::updateUser
+    methods: [GET]

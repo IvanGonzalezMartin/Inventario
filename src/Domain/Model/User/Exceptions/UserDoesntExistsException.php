@@ -7,10 +7,10 @@ namespace App\Domain\Model\User\Exceptions;
 use App\Domain\Shared\Exceptions\DomainError;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 
-class UserAlreadyExistsException extends DomainError
+class UserDoesntExistsException extends DomainError
 {
     const START_MESSAGE = 'User with UUID: ';
-    const END_MESSAGE = '  already exist';
+    const END_MESSAGE = '  doesnt exist';
     private $id;
 
     public function __construct($id)

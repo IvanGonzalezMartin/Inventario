@@ -67,12 +67,12 @@ class User
     private $gender;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $profilerDetailsID;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $contractID;
 
@@ -103,7 +103,7 @@ class User
         $this->nameSurname = $nameSurname;
         $this->nif = $nif;
         $this->email = $email;
-        $this->password = $password;
+        $this->setPassword($password);
         $this->employeeCode = $employeeCode;
         $this->departmentID = $departmentID;
         $this->gender = $gender;
@@ -186,9 +186,14 @@ class User
 
     public function setPassword(string $password): self
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
 
         return $this;
+    }
+
+    public function setPasswordHashed($password)
+    {
+        $this->password = $password;
     }
 
     public function getEmployeeCode(): ?int

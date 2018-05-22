@@ -7,3 +7,8 @@ services:
                 class: App\Application\User\Create\UserCreate
                 tags:
                     - { name: tactician.handler, command: App\Application\User\Create\UserCreateCommand }
+
+    User.update_handler:
+                class: App\Application\User\Update\UserUpdate
+                tags:
+                    - { name: tactician.handler, command: App\Application\User\Update\UserUpdateCommand }

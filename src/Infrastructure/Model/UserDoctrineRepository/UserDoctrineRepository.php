@@ -48,7 +48,6 @@ class UserDoctrineRepository extends EntityRepository implements UserRepository
     public function insert(User $user)
     {
         $this->getEntityManager()->persist($user);
-
     }
 
     /**
