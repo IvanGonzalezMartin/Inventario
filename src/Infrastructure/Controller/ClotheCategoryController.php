@@ -10,6 +10,7 @@ namespace App\Infrastructure\Controller;
 
 use App\Application\ClotheCategory\Create\ClotheCategoryCreateCommand;
 use App\Application\ClotheCategory\Delete\ClotheCategoryDeleteCommand;
+use App\Application\ClotheCategory\GetAll\ClotheCategoryAllCommand;
 use App\Application\ClotheCategory\Update\ClotheCategoryUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use League\Tactician\CommandBus;
@@ -55,5 +56,13 @@ class ClotheCategoryController
         $this->commandBus->handle(new ClotheCategoryDeleteCommand($request->query->get('id')));
 
         return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function all()
+    {
+        return new JsonResponse($this->commandBus->handle(new ClotheCategoryAllCommand()),MyOwnHttpCodes::HTTP_OK);
     }
 }

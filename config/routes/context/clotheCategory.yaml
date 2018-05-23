@@ -12,3 +12,8 @@ DeleteClotheCategory:
     path: /ClotheCategory/delete/
     controller: App\Infrastructure\Controller\ClotheCategoryController::deleteClotheCategory
     methods: [GET]
+
+GetClotheCategory:
+    path: /ClotheCategory/
+    controller: App\Infrastructure\Controller\ClotheCategoryController::all
+    methods: [GET]

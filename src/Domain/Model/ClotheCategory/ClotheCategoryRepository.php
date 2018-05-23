@@ -8,4 +8,5 @@ interface ClotheCategoryRepository
     public function findByName($name);
     public function findById($id);
     public function update();
+    public function getAll();
 }

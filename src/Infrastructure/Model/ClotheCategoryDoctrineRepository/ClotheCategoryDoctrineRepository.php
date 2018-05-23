@@ -43,4 +43,9 @@ class ClotheCategoryDoctrineRepository extends EntityRepository implements Cloth
     {
         $this->getEntityManager()->flush();
     }
+
+    public function getAll()
+    {
+        return $this->findBy(['deleteID' => null]);
+    }
 }

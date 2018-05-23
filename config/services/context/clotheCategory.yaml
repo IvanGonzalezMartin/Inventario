@@ -17,3 +17,8 @@ services:
                     class: App\Application\ClotheCategory\Delete\ClotheCategoryDelete
                     tags:
                         - { name: tactician.handler, command: App\Application\ClotheCategory\Delete\ClotheCategoryDeleteCommand }
+
+    clotheCategory.get_handler:
+                        class: App\Application\ClotheCategory\GetAll\ClotheCategoryAll
+                        tags:
+                            - { name: tactician.handler, command: App\Application\ClotheCategory\GetAll\ClotheCategoryAllCommand }
