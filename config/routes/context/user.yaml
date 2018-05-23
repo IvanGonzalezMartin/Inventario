@@ -12,3 +12,13 @@ DeleteUser:
     path: /User/delete/
     controller: App\Infrastructure\Controller\UserController::deleteUser
     methods: [POST]
+
+OneUser:
+    path: /User/one/
+    controller: App\Infrastructure\Controller\UserController::oneUser
+    methods: [GET]
+
+FilterUser:
+    path: /User/filter/
+    controller: App\Infrastructure\Controller\UserController::filterUser
+    methods: [GET]

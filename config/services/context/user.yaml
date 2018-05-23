@@ -17,3 +17,8 @@ services:
                 class: App\Application\User\Delete\UserDelete
                 tags:
                     - { name: tactician.handler, command: App\Application\User\Delete\UserDeleteCommand }
+
+    User.one_handler:
+                class: App\Application\User\GetByUuid\UserGetByUuid
+                tags:
+                    - { name: tactician.handler, command: App\Application\User\GetByUuid\UserGetByUuidCommand }
