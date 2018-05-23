@@ -7,3 +7,13 @@ UpdateClothe:
     path: /Clothe/update/
     controller: App\Infrastructure\Controller\ClotheController::updateClothe
     methods: [POST]
+
+DeleteCLothe:
+    path: /Clothe/delete/
+    controller: App\Infrastructure\Controller\ClotheController::deleteCLothe
+    methods: [POST]
+
+GetClothe:
+    path: /Clothe/
+    controller: App\Infrastructure\Controller\ClotheController::getAll
+    methods: [GET]

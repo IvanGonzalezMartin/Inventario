@@ -53,7 +53,9 @@ class ClotheCategoryController
 
     public function deleteClotheCategory(Request $request)
     {
-        $this->commandBus->handle(new ClotheCategoryDeleteCommand($request->query->get('id')));
+        $newReq = json_decode($request->getContent());
+
+        $this->commandBus->handle(new ClotheCategoryDeleteCommand($newReq->id));
 
         return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
     }

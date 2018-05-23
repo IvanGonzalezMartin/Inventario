@@ -53,6 +53,6 @@ class ContractDoctrineRepository extends EntityRepository implements ContractRep
 
     public function findByUserId($id)
     {
-        return $this->findOneBy(['userID' => $id, 'deleteID' => null]);
+        return $this->findBy(['userID' => $id, 'deleteID' => null]);
     }
 }

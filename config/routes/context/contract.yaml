@@ -7,3 +7,8 @@ UpdateContract:
     path: /Contract/update/
     controller: App\Infrastructure\Controller\ContractController::updateContract
     methods: [POST]
+
+GetContract:
+    path: /Contract/
+    controller: App\Infrastructure\Controller\ContractController::getPart
+    methods: [GET]

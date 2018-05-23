@@ -10,6 +10,7 @@ namespace App\Infrastructure\Controller;
 
 
 use App\Application\Contract\Create\ContractCreateCommand;
+use App\Application\Contract\GetPart\ContractGetPartCommand;
 use App\Application\Contract\Update\ContractUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use League\Tactician\CommandBus;
@@ -54,5 +55,10 @@ class ContractController
                                                         $newReq->startDate));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
+    }
+
+    public function getPart(Request $request)
+    {
+        return new JsonResponse($this->commandBus->handle(new ContractGetPartCommand($request->query->get('userID'))),MyOwnHttpCodes::HTTP_OK);
     }
 }
