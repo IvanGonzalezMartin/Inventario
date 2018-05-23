@@ -6,7 +6,7 @@
  * Time: 11:37
  */
 
-namespace App\Tests\Application\ParentDepartment\Create;
+namespace App\Tests\Application\User\Update;
 
 
 use App\Application\User\Update\UserUpdate;

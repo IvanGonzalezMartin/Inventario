@@ -10,6 +10,7 @@ namespace App\Infrastructure\Controller;
 
 
 use App\Application\User\Create\UserCreateCommand;
+use App\Application\User\Delete\UserDeleteCommand;
 use App\Application\User\Update\UserUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use League\Tactician\CommandBus;
@@ -68,6 +69,15 @@ class UserController
                                                         $newReq->departmentId,
                                                         $newReq->genderName)
         );
+
+        return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
+    }
+
+    public function deleteUser(Request $request)
+    {
+        $newReq = json_decode($request->getContent());
+
+        $this->commandBus->handle(new UserDeleteCommand($newReq->id));
 
         return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
     }

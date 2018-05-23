@@ -12,3 +12,8 @@ services:
                 class: App\Application\User\Update\UserUpdate
                 tags:
                     - { name: tactician.handler, command: App\Application\User\Update\UserUpdateCommand }
+
+    User.delete_handler:
+                class: App\Application\User\Delete\UserDelete
+                tags:
+                    - { name: tactician.handler, command: App\Application\User\Delete\UserDeleteCommand }

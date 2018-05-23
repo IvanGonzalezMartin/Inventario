@@ -6,7 +6,7 @@
  * Time: 11:37
  */
 
-namespace App\Tests\Application\ParentDepartment\Create;
+namespace App\Tests\Application\User\Create;
 
 use App\Application\User\Create\UserCreate;
 use App\Application\User\Create\UserCreateCommand;
