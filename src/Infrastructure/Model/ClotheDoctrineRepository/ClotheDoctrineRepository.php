@@ -36,6 +36,11 @@ class ClotheDoctrineRepository extends EntityRepository implements ClotheReposit
         return $this->findOneBy(['id' => $id, 'deleteID' => null]);
     }
 
+    public function findByClotheCategoryId($id)
+    {
+        return $this->findBy(['clotheCategoryID' => $id, 'deleteID' => null]);
+    }
+
     /**
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException

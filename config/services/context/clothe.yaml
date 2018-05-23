@@ -12,3 +12,13 @@ services:
                 class: App\Application\Clothe\Update\ClotheUpdate
                 tags:
                     - { name: tactician.handler, command: App\Application\Clothe\Update\ClotheUpdateCommand }
+
+    clothe.delete_handler:
+                    class: App\Application\Clothe\Delete\ClotheDelete
+                    tags:
+                        - { name: tactician.handler, command: App\Application\Clothe\Delete\ClotheDeleteCommand }
+
+    clothe.get_handler:
+                        class: App\Application\Clothe\GetPart\ClotheGetPart
+                        tags:
+                            - { name: tactician.handler, command: App\Application\Clothe\GetPart\ClotheGetPartCommand }

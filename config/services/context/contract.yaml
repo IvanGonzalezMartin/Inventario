@@ -12,3 +12,8 @@ services:
                 class: App\Application\Contract\Create\ContractCreate
                 tags:
                     - { name: tactician.handler, command: App\Application\Contract\Create\ContractCreateCommand }
+
+    Contract.get_handler:
+                    class: App\Application\Contract\GetPart\ContractGetPart
+                    tags:
+                        - { name: tactician.handler, command: App\Application\Contract\GetPart\ContractGetPartCommand }

@@ -15,4 +15,5 @@ interface ClotheRepository
     public function findByName($name);
     public function findById($id);
     public function update();
+    public function findByClotheCategoryId($id);
 }

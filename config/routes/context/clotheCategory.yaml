@@ -11,7 +11,7 @@ UpdateClotheCategory:
 DeleteClotheCategory:
     path: /ClotheCategory/delete/
     controller: App\Infrastructure\Controller\ClotheCategoryController::deleteClotheCategory
-    methods: [GET]
+    methods: [POST]
 
 GetClotheCategory:
     path: /ClotheCategory/
