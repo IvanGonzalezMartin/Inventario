@@ -27,3 +27,8 @@ GetAllManager:
     path: /Manager/
     controller: App\Infrastructure\Controller\ManagerController::getAllManager
     methods: [GET]
+
+GetOneManager:
+    path: /Manager/one/
+    controller: App\Infrastructure\Controller\ManagerController::getOneManager
+    methods: [GET]

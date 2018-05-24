@@ -24,6 +24,6 @@ class DepartmentGetPart
 
     public function handle(DepartmentGetPartCommand $departmentGetPartCommand)
     {
-        return $this->dataTransform->transform($this->departmentGetPartService->__invoke($departmentGetPartCommand->id()));
+        return $this->dataTransform->transform($this->departmentGetPartService->__invoke($departmentGetPartCommand));
     }
 }

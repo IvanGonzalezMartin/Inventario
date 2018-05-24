@@ -147,6 +147,23 @@ services:
     App\Domain\Model\Sizes\SizesRepository:
         alias: app.size_repository
 
+    app.order_repository:
+            class: Doctrine\ORM\EntityRepository
+            factory: ['@doctrine.orm.default_entity_manager', getRepository]
+            arguments:
+                - App\Domain\Model\Order\OrderClothe
+
+    App\Domain\Model\Order\OrderRepository:
+        alias: app.order_repository
+
+    app.orderDetails_repository:
+            class: Doctrine\ORM\EntityRepository
+            factory: ['@doctrine.orm.default_entity_manager', getRepository]
+            arguments:
+                - App\Domain\Model\OrderDetails\OrderDetails
+
+    App\Domain\Model\OrderDetails\OrderDetailsRepository:
+        alias: app.orderDetails_repository
 
 imports:
     - { resource: ./services/context/manager.yaml }
@@ -160,3 +177,5 @@ imports:
     - { resource: ./services/context/gender.yaml }
     - { resource: ./services/context/sizeType.yaml }
     - { resource: ./services/context/size.yaml }
+    - { resource: ./services/context/clotheSizeStock.yaml }
+    - { resource: ./services/context/order.yaml }

@@ -31,3 +31,9 @@ app_file_sizeType:
 app_file_size:
     resource: 'routes/context/size.yaml'
 
+app_file_clotheSizeStock:
+    resource: 'routes/context/clotheSizeStock.yaml'
+
+app_file_order:
+   resource: 'routes/context/order.yaml'
+

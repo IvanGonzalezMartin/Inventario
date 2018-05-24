@@ -36,6 +36,11 @@ class ManagerDoctrineRepository extends EntityRepository implements ManagerRepos
         $entityManager->persist($manager);
     }
 
+    public function findById($id)
+    {
+        return $this->findBy(['id' => $id, 'deleteID' => null]);
+    }
+
     /**
      * @param string $id
      * @return Manager

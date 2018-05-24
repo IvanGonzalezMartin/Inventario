@@ -36,4 +36,5 @@ interface ManagerRepository
 
     public function update(): void;
     public function getAll($rol);
+    public function findById($id);
 }

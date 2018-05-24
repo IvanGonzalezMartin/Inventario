@@ -15,33 +15,22 @@ use Doctrine\ORM\EntityRepository;
  */
 class OrderDetailsDoctrineRepository extends EntityRepository implements OrderDetailsRepository
 {
-
-//    /**
-//     * @return OrderEntity[] Returns an array of OrderEntity objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function update(): void
     {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $this->getEntityManager()->flush();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?OrderEntity
+    /**
+     * @param OrderDetails $orderDetails
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function insert(OrderDetails $orderDetails)
     {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($orderDetails);
     }
-    */
 }

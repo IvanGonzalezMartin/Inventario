@@ -76,9 +76,15 @@ class ClotheSizeStock
         return $this->stock;
     }
 
-    public function setStock(?int $stock): self
+    /**
+     * @param $stock
+     * @return ClotheSizeStock
+     * @throws \Assert\AssertionFailedException
+     */
+    public function setStock($stock): self
     {
-        $this->stock = $this->stock + $stock;
+        Assertion::numeric($stock, "Stock must be numeric");
+        $this->stock = $stock;
 
         return $this;
     }

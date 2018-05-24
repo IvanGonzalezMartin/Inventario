@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20180522104608 extends AbstractMigration
+class Version20180524102420 extends AbstractMigration
 {
     public function up(Schema $schema)
     {
@@ -25,11 +25,11 @@ class Version20180522104608 extends AbstractMigration
         $this->addSql('CREATE TABLE log_manager (token VARCHAR(255) NOT NULL, manager_id INTEGER NOT NULL, date DATETIME NOT NULL, PRIMARY KEY(token))');
         $this->addSql('CREATE TABLE log_user (id INTEGER NOT NULL, token VARCHAR(255) NOT NULL, user_id INTEGER NOT NULL, date DATETIME NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE manager (id INTEGER NOT NULL, nick_name VARCHAR(255) NOT NULL, name VARCHAR(255) NOT NULL, photo VARCHAR(255) DEFAULT NULL, rol VARCHAR(20) NOT NULL, password VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, delete_id VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id))');
-        $this->addSql('CREATE TABLE "order" (id INTEGER NOT NULL, user_id VARCHAR(50) NOT NULL, date DATETIME NOT NULL, description VARCHAR(255) DEFAULT NULL, delivery_id INTEGER DEFAULT NULL, delete_id VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE order_clothe (id INTEGER NOT NULL, user_id VARCHAR(50) NOT NULL, date DATETIME NOT NULL, description VARCHAR(255) DEFAULT NULL, delivery_id INTEGER DEFAULT NULL, delete_id VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE order_details (id INTEGER NOT NULL, clothe_size_stock_id INTEGER NOT NULL, order_id INTEGER NOT NULL, delete_id VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE parent_department (id INTEGER NOT NULL, name VARCHAR(255) NOT NULL, delete_id VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE profiler_details (id INTEGER NOT NULL, profiler_id INTEGER NOT NULL, size_name VARCHAR(50) NOT NULL, clothe_category_id VARCHAR(50) NOT NULL, PRIMARY KEY(id))');
-        $this->addSql('CREATE TABLE user (id VARCHAR(50) NOT NULL, nick_name VARCHAR(255) NOT NULL, name_surname VARCHAR(255) NOT NULL, photo VARCHAR(255) DEFAULT NULL, telephone INTEGER DEFAULT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, nif VARCHAR(255) NOT NULL, employee_code INTEGER NOT NULL, department_id INTEGER NOT NULL, gender VARCHAR(10) NOT NULL, profiler_details_id INTEGER NOT NULL, contract_id INTEGER NOT NULL, delete_id VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE user (id VARCHAR(50) NOT NULL, nick_name VARCHAR(255) NOT NULL, name_surname VARCHAR(255) NOT NULL, photo VARCHAR(255) DEFAULT NULL, telephone INTEGER DEFAULT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, nif VARCHAR(255) NOT NULL, employee_code INTEGER NOT NULL, department_id INTEGER NOT NULL, gender VARCHAR(10) NOT NULL, profiler_details_id INTEGER DEFAULT NULL, contract_id INTEGER DEFAULT NULL, delete_id VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id))');
     }
 
     public function down(Schema $schema)
@@ -47,7 +47,7 @@ class Version20180522104608 extends AbstractMigration
         $this->addSql('DROP TABLE log_manager');
         $this->addSql('DROP TABLE log_user');
         $this->addSql('DROP TABLE manager');
-        $this->addSql('DROP TABLE "order"');
+        $this->addSql('DROP TABLE order_clothe');
         $this->addSql('DROP TABLE order_details');
         $this->addSql('DROP TABLE parent_department');
         $this->addSql('DROP TABLE profiler_details');

@@ -10,6 +10,11 @@ services:
                 tags:
                     - { name: tactician.handler, command: App\Application\Manager\GetAll\ManagerGetAllCommand }
 
+    Manager.one_handler:
+                    class: App\Application\Manager\GetPart\ManagerGetPart
+                    tags:
+                        - { name: tactician.handler, command: App\Application\Manager\GetPart\ManagerGetPartCommand }
+
     Manager.checkNickName_handler:
                 class: App\Application\Manager\CheckNickName\ManagerCheckNickName
                 tags:

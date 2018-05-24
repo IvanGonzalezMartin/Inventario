@@ -1,0 +1,4 @@
+CreateOrder:
+    path: /Order/create/
+    controller: App\Infrastructure\Controller\OrderController::createOrder
+    methods: [GET]

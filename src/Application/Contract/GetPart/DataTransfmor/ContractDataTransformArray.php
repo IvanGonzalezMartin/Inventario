@@ -18,7 +18,7 @@ class ContractDataTransformArray implements ContractGetPartDataTransform
     {
         $contract = [];
         foreach ($data as $contracts){
-            $contract[]= [
+            $contract[] = [
                 "ID" => $contracts->getId(),
                 "User ID" => $contracts->getUserID(),
                 "Start Date" => $contracts->getStartDate(),
