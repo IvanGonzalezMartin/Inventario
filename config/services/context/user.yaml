@@ -22,3 +22,8 @@ services:
                 class: App\Application\User\GetByUuid\UserGetByUuid
                 tags:
                     - { name: tactician.handler, command: App\Application\User\GetByUuid\UserGetByUuidCommand }
+
+    User.filter_handler:
+                class: App\Application\User\Filter\UserFilter
+                tags:
+                    - { name: tactician.handler, command: App\Application\User\Filter\UserFilterCommand }

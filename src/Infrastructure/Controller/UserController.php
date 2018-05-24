@@ -11,6 +11,7 @@ namespace App\Infrastructure\Controller;
 
 use App\Application\User\Create\UserCreateCommand;
 use App\Application\User\Delete\UserDeleteCommand;
+use App\Application\User\Filter\UserFilterCommand;
 use App\Application\User\GetByUuid\UserGetByUuidCommand;
 use App\Application\User\Update\UserUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
@@ -90,6 +91,6 @@ class UserController
 
     public function filterUser(Request $request)
     {
-        return new JsonResponse($this->commandBus->handle(new UserGetByUuidCommand($request->query->get('uuid'))), MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse($this->commandBus->handle(new UserFilterCommand('', '', '', '1', '0', '5')), MyOwnHttpCodes::HTTP_OK);
     }
 }

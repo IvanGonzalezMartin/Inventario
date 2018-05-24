@@ -3,6 +3,7 @@
 namespace App\Domain\Model\User;
 
 use Assert\Assertion;
+use App\Domain\Model\Department;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -57,9 +58,16 @@ class User
     private $employeeCode;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Domain\Model\Department\Department")
+     * @ORM\JoinColumn(name="departmentID", referencedColumnName="id")
      */
     private $departmentID;
+
+//    /**
+//     * @ORM\ManyToOne(targetEntity="Department")
+//     * @ORM\JoinColumn(name="department_id", referencedColumnName="id")
+//     */
+//    private $department;
 
     /**
      * @ORM\Column(type="string", length=10, nullable=false)
@@ -107,6 +115,7 @@ class User
         $this->employeeCode = $employeeCode;
         $this->departmentID = $departmentID;
         $this->gender = $gender;
+
     }
 
 
