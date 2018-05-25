@@ -26,12 +26,12 @@ class UserFiltorService
 
     public function __invoke(UserFilterCommand $filterCommand)
     {
-        dump($this->repository->filter(   $filterCommand->name(),
+        return $this->repository->filter(   $filterCommand->name(),
                                             $filterCommand->codeEmployee(),
                                             $filterCommand->department(),
                                             $filterCommand->parentDepartment(),
                                             $filterCommand->page(),
                                             $filterCommand->usersPerPage()
-        ));
+        );
     }
 }

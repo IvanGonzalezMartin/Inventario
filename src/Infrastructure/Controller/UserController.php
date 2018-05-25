@@ -89,8 +89,21 @@ class UserController
         return new JsonResponse($this->commandBus->handle(new UserGetByUuidCommand($request->query->get('uuid'))), MyOwnHttpCodes::HTTP_OK);
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @throws \Assert\AssertionFailedException
+     */
     public function filterUser(Request $request)
     {
-        return new JsonResponse($this->commandBus->handle(new UserFilterCommand('', '', '', '1', '0', '5')), MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse($this->commandBus->handle(new UserFilterCommand($request->query->get('nameSurname'),
+                                                                                $request->query->get('codEmployee'),
+                                                                                $request->query->get('department'),
+                                                                                $request->query->get('parentDepartment'),
+                                                                                $request->query->get('page'),
+                                                                                $request->query->get('usersPerPage')
+                                                                                )
+        ),
+            MyOwnHttpCodes::HTTP_OK);
     }
 }
