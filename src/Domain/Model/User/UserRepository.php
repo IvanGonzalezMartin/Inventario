@@ -19,4 +19,5 @@ interface UserRepository
     public function insert(User $user);
     public function update();
     public function filter($name, $codEmployee, $department, $parentDepartment, $page, $usersPerPage);
+    public function findByUQ($anyThing);
 }

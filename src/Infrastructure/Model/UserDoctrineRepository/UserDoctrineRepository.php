@@ -112,4 +112,20 @@ class UserDoctrineRepository extends EntityRepository implements UserRepository
         }
         return $query;
     }
+
+    public function findByUQ($anyThing)
+    {
+       return $this ->getEntityManager()
+                    ->createQueryBuilder()
+                    ->select('users')
+                    ->from('App:User\User', 'users')
+                    ->where('users.nickName = :anyThing')
+                    ->orWhere('users.employeeCode = :anyThing')
+                    ->orWhere('users.email = :anyThing')
+                    ->orWhere('users.nif = :anyThing')
+                    ->andWhere('users.deleteID IS NULL')
+                    ->setParameter('anyThing', $anyThing)
+                    ->getQuery()
+                    ->execute();
+    }
 }
