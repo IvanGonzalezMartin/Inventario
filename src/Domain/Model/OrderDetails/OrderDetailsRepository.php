@@ -13,4 +13,5 @@ interface OrderDetailsRepository
 {
     public function update(): void;
     public function insert(OrderDetails $orderDetails);
+    public function givMeAllOrderDetailsById($orderID);
 }

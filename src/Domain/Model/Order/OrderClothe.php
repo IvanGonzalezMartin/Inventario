@@ -12,8 +12,7 @@ class OrderClothe
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $id;
 
@@ -48,10 +47,11 @@ class OrderClothe
      * @param string $userId
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(string $userId)
+    public function __construct($id, $userId)
     {
         Assertion::uuid($userId);
 
+        $this->id = $id;
         $this->userID = $userId;
         $this->date = new \DateTime() ;
     }

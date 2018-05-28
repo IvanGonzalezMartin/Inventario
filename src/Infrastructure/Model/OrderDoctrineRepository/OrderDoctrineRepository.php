@@ -38,4 +38,9 @@ class OrderDoctrineRepository extends EntityRepository implements OrderRepositor
         $entityManager = $this->getEntityManager();
         $entityManager->persist($orderClothe);
     }
+
+    public function findAllById($id)
+    {
+        return $this->findBy(['id' => $id , 'deleteID' => null]);
+    }
 }

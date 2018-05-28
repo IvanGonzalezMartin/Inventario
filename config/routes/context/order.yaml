@@ -1,4 +1,9 @@
 CreateOrder:
     path: /Order/create/
     controller: App\Infrastructure\Controller\OrderController::createOrder
-    methods: [GET]
+    methods: [POST]
+
+DeleteOrder:
+    path: /Order/delete/
+    controller: App\Infrastructure\Controller\OrderController::deleteOrder
+    methods: [POST]

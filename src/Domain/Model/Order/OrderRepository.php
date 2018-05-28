@@ -14,4 +14,5 @@ interface OrderRepository
     public function findById($id);
     public function insert(OrderClothe $orderClothe);
     public function update();
+    public function findAllById($id);
 }

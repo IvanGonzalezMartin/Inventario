@@ -7,3 +7,8 @@ services:
                 class: App\Application\Order\Create\OrderCreate
                 tags:
                     - { name: tactician.handler, command: App\Application\Order\Create\OrderCreateCommand }
+
+    order.delete_handler:
+                    class: App\Application\Order\Delete\OrderClotheDelete
+                    tags:
+                        - { name: tactician.handler, command: App\Application\Order\Delete\OrderClotheDeleteCommand }

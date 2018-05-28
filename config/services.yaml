@@ -165,6 +165,7 @@ services:
     App\Domain\Model\OrderDetails\OrderDetailsRepository:
         alias: app.orderDetails_repository
 
+
 imports:
     - { resource: ./services/context/manager.yaml }
     - { resource: ./services/context/contract.yaml }

@@ -22,7 +22,6 @@ class OrderCreate
 
     public function handle(OrderCreateCommand $orderCreateCommand)
     {
-        dump($this->orderCreatorService);
         $this->orderCreatorService->__invoke($orderCreateCommand);
     }
 }
