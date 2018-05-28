@@ -43,4 +43,31 @@ class OrderDoctrineRepository extends EntityRepository implements OrderRepositor
     {
         return $this->findBy(['id' => $id , 'deleteID' => null]);
     }
+
+    public function filter($pages, $maxOrder)
+    {
+        return $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('orderA')
+            ->from('App:Order\OrderClothe', 'orderA')
+            ->setMaxResults($maxOrder)
+            ->setFirstResult($pages)
+            ->getQuery()
+            ->execute();
+    }
+
+    public function filterByUserId($id, $maxOrder, $pages)
+    {
+        return $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('orderA')
+            ->from('App:Order\OrderClothe', 'orderA')
+            ->where('orderA.userID = :userID')
+            ->andWhere('orderA.deleteID IS NULL')
+            ->setMaxResults($maxOrder)
+            ->setFirstResult($pages)
+            ->setParameter('userID', $id)
+            ->getQuery()
+            ->execute();
+    }
 }

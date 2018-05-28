@@ -12,3 +12,13 @@ services:
                     class: App\Application\Order\Delete\OrderClotheDelete
                     tags:
                         - { name: tactician.handler, command: App\Application\Order\Delete\OrderClotheDeleteCommand }
+
+    order.getAll_handler:
+                        class: App\Application\Order\GetAll\OrderClotheGetAll
+                        tags:
+                            - { name: tactician.handler, command: App\Application\Order\GetAll\OrderClotheGetAllCommand }
+
+    order.getByUserID_handler:
+                            class: App\Application\Order\GetByUserID\OrderClotheGetByUserId
+                            tags:
+                                - { name: tactician.handler, command: App\Application\Order\GetByUserID\OrderClotheGetByUserIdCommand }

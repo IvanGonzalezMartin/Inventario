@@ -3,14 +3,15 @@
  * Created by PhpStorm.
  * User: programador
  * Date: 28/05/18
- * Time: 9:53
+ * Time: 11:38
  */
 
-namespace App\Application\Order\GetAll;
+namespace App\Application\Order\GetByUserID;
 
 
-class OrderClotheGetAllCommand
+class OrderClotheGetByUserIdCommand
 {
+    private $id;
     private $pages;
     private $orderPerPages;
 
@@ -18,14 +19,23 @@ class OrderClotheGetAllCommand
      * OrderClotheGetAllCommand constructor.
      * @param $id
      */
-    public function __construct($pages, $orderPerPages)
+    public function __construct($id, $pages, $orderPerPages)
     {
+        $this->id = $id;
+
         if ($pages > 0)
             $this->pages = ( $pages -1 ) * $orderPerPages;
 
         $this->orderPerPages = $orderPerPages;
     }
 
+    /**
+     * @return mixed
+     */
+    public function id()
+    {
+        return $this->id;
+    }
 
     /**
      * @return float|int
@@ -42,5 +52,4 @@ class OrderClotheGetAllCommand
     {
         return $this->orderPerPages;
     }
-
 }

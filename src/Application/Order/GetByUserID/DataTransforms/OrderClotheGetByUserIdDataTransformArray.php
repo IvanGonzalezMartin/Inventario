@@ -3,15 +3,15 @@
  * Created by PhpStorm.
  * User: programador
  * Date: 28/05/18
- * Time: 9:57
+ * Time: 11:40
  */
 
-namespace App\Application\Order\GetAll\DataTransforms;
+namespace App\Application\Order\GetByUserID\DataTransforms;
 
 
-use App\Application\Order\GetAll\OrderClotheGetAllDataTransform;
+use App\Application\Order\GetByUserID\OrderClotheGetByUserIdDataTransform;
 
-class OrderClotheGetAllDataTransformArray implements OrderClotheGetAllDataTransform
+class OrderClotheGetByUserIdDataTransformArray implements OrderClotheGetByUserIdDataTransform
 {
     public function transform($data)
     {

@@ -23,6 +23,6 @@ class OrderClotheGetAllService
 
     public function __invoke(OrderClotheGetAllCommand $orderClotheGetAllCommand)
     {
-        return true;
+        return $this->repository->filter($orderClotheGetAllCommand->pages(), $orderClotheGetAllCommand->oderPerPages());
     }
 }
