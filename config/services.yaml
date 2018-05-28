@@ -165,7 +165,6 @@ services:
     App\Domain\Model\OrderDetails\OrderDetailsRepository:
         alias: app.orderDetails_repository
 
-
 imports:
     - { resource: ./services/context/manager.yaml }
     - { resource: ./services/context/contract.yaml }
@@ -180,3 +179,4 @@ imports:
     - { resource: ./services/context/size.yaml }
     - { resource: ./services/context/clotheSizeStock.yaml }
     - { resource: ./services/context/order.yaml }
+    - { resource: ./services/context/ordeDetails.yaml }

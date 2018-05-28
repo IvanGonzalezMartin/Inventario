@@ -37,3 +37,6 @@ app_file_clotheSizeStock:
 app_file_order:
    resource: 'routes/context/order.yaml'
 
+app_file_orderDetails:
+  resource: 'routes/context/ordeDetails.yaml'
+

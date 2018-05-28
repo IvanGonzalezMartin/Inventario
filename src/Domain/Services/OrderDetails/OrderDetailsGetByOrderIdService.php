@@ -9,7 +9,23 @@
 namespace App\Domain\Services\OrderDetails;
 
 
+use App\Application\OrderDetails\GetByOrderID\OrderDetailsGetByOrderIdCommand;
+use App\Domain\Model\OrderDetails\OrderDetailsRepository;
+
 class OrderDetailsGetByOrderIdService
 {
+    private $repository;
 
+    public function __construct(OrderDetailsRepository $orderDetailsRepository)
+    {
+        $this->repository = $orderDetailsRepository;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function __invoke(OrderDetailsGetByOrderIdCommand $orderDetailsGetByOrderIdCommand)
+    {
+        return $this->repository->givMeAllOrderDetailsById($orderDetailsGetByOrderIdCommand->id());
+    }
 }

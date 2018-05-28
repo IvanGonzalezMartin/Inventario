@@ -11,5 +11,6 @@ namespace App\Application\OrderDetails\GetByOrderID;
 
 interface OrderDetailsGetByOrderIdDataTransform
 {
+    public function transform($data);
 
 }
