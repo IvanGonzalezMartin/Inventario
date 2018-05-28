@@ -27,6 +27,16 @@ class ClotheSizeStockDoctrineRepository extends EntityRepository implements Clot
         $this->getEntityManager()->persist($clotheSizeStock);
     }
 
+    public function findById($id)
+    {
+        return $this->findOneBy(['id' => $id, 'deleteID' => null]);
+    }
+
+    public function findByClotheId($id)
+    {
+        return $this->findBy(['clotheID' => $id ,'deleteID' => null]);
+    }
+
     /**
      * @return mixed|void
      * @throws \Doctrine\ORM\ORMException

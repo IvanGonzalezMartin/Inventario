@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Infrastructure\Model\OrderDoctrineRepository\OrderDoctrineRepository")
  */
-class Order
+class OrderClothe
 {
     /**
      * @ORM\Id()
@@ -117,7 +117,7 @@ class Order
 
     /**
      * @param string $deleteID
-     * @return Order
+     * @return OrderClothe
      * @throws \Assert\AssertionFailedException
      */
     public function setDeleteID(string $deleteID): self

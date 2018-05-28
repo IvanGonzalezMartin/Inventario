@@ -11,5 +11,6 @@ namespace App\Domain\Model\OrderDetails;
 
 interface OrderDetailsRepository
 {
-
+    public function update(): void;
+    public function insert(OrderDetails $orderDetails);
 }

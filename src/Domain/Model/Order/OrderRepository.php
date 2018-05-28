@@ -11,5 +11,7 @@ namespace App\Domain\Model\Order;
 
 interface OrderRepository
 {
-
+    public function findById($id);
+    public function insert(OrderClothe $orderClothe);
+    public function update();
 }

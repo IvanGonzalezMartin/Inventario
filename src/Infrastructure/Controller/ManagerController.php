@@ -13,6 +13,7 @@ use App\Application\Manager\CheckNickName\ManagerCheckNickNameCommand;
 use App\Application\Manager\Create\ManagerCreateCommand;
 use App\Application\Manager\Delete\ManagerDeleteCommand;
 use App\Application\Manager\GetAll\ManagerGetAllCommand;
+use App\Application\Manager\GetPart\ManagerGetPartCommand;
 use App\Application\Manager\Update\ManagerUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use League\Tactician\CommandBus;
@@ -107,5 +108,10 @@ class ManagerController
     public function getAllManager()
     {
         return new JsonResponse($this->commandBus->handle(new ManagerGetAllCommand()),MyOwnHttpCodes::HTTP_OK);
+    }
+
+    public function getOneManager(Request $request)
+    {
+        return new JsonResponse($this->commandBus->handle(new ManagerGetPartCommand($request->query->get('id'))));
     }
 }

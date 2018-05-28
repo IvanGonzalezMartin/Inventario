@@ -1,0 +1,9 @@
+services:
+
+    _defaults:
+        autowire: true
+
+    order.create_handler:
+                class: App\Application\Order\Create\OrderCreate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Order\Create\OrderCreateCommand }

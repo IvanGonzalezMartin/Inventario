@@ -1,0 +1,9 @@
+UpdateClotheSize:
+    path: /ClotheSizeStock/update/
+    controller: App\Infrastructure\Controller\ClotheSizeStockController::updateClotheSizeStock
+    methods: [POST]
+
+GetClotheSize:
+    path: /ClotheSizeStock/
+    controller: App\Infrastructure\Controller\ClotheSizeStockController::getPartClotheSizeStock
+    methods: [GET]

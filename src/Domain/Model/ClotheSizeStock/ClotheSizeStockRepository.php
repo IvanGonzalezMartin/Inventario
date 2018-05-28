@@ -35,4 +35,16 @@ interface ClotheSizeStockRepository
      * @return mixed
      */
     public function givMeAllStock($clotheId);
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function findById($id);
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function findByClotheId($id);
 }

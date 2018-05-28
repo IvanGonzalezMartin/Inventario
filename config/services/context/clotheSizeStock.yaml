@@ -1,0 +1,16 @@
+services:
+
+    _defaults:
+        autowire: true
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
+
+    clotheSizeStockUpdate_handler:
+                class: App\Application\ClotheSizeStock\Update\ClotheSizeStockUpdate
+                tags:
+                    - { name: tactician.handler, command: App\Application\ClotheSizeStock\Update\ClotheSizeStockUpdateCommand }
+
+    clotheSizeStockGet_handler:
+                        class: App\Application\ClotheSizeStock\GetPart\ClotheSizeStockGetPart
+                        tags:
+                            - { name: tactician.handler, command: App\Application\ClotheSizeStock\GetPart\ClotheSizeStockGetPartCommand }

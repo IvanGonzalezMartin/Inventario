@@ -59,6 +59,23 @@ class OrderDetails
         return $this->orderID;
     }
 
+    /**
+     * @param mixed $clotheSizeStockID
+     */
+    public function setClotheSizeStockID($clotheSizeStockID): void
+    {
+        $this->clotheSizeStockID = $clotheSizeStockID;
+    }
+
+    /**
+     * @param mixed $orderID
+     */
+    public function setOrderID($orderID): void
+    {
+        $this->orderID = $orderID;
+    }
+
+
     public function isNotDeleted(): bool
     {
         $deleted = false;
