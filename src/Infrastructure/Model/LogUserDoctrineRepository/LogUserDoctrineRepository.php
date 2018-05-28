@@ -43,4 +43,24 @@ class LogUserDoctrineRepository extends EntityRepository implements LogUserRepos
         ;
     }
     */
+    public function findByToken($token)
+    {
+        return $this->findOneBy(['token' => $token, 'endDate' => null]);
+    }
+
+    public function findByUser($user)
+    {
+        return $this->findOneBy(['userID' => $user, 'endDate' => null]);
+    }
+
+    /**
+     * @param LogUser $logUser
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function logIn(LogUser $logUser)
+    {
+        $this->getEntityManager()->persist($logUser);
+        $this->getEntityManager()->flush();
+    }
 }

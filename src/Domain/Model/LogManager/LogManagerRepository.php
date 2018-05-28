@@ -11,5 +11,8 @@ namespace App\Domain\Model\LogManager;
 
 interface LogManagerRepository
 {
-
+    public function update();
+    public function logIn(LogManager $logManager);
+    public function findByToken($token);
+    public function findByManager($manager);
 }

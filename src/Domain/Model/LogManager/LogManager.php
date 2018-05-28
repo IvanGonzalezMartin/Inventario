@@ -26,10 +26,22 @@ class LogManager
      */
     private $date;
 
-    public function __construct()
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $endDate;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $startDate;
+
+    public function __construct($managerId, $token)
     {
-        $this->date = new \DateTime();
-        $this->date->add(\DateInterval::createFromDateString('+20 minutes'));
+        $this->managerID = $managerId;
+        $this->token = $token;
+        $this->startDate = new \DateTime();
+        $this->addTime();
     }
 
     public function token(): ?string
@@ -37,15 +49,25 @@ class LogManager
         return $this->token;
     }
 
+    public function addTime(): void
+    {
+        $this->date = new \DateTime();
+        $this->date->add(\DateInterval::createFromDateString('+1 minutes'));
+    }
 
-    public function getManagerID(): ?int
+    public function getManagerID()
     {
         return $this->managerID;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function inRangeOfTime(): bool
     {
-        return $this->date;
+        if (1 == ($this->date <=> new \DateTime())) {
+            $this->addTime();
+            return false;
+        }
+        $this->logOut();
+        return true;
     }
 
     public function setDate(\DateTimeInterface $date): self
@@ -53,5 +75,10 @@ class LogManager
         $this->date = $date;
 
         return $this;
+    }
+
+    public function logOut()
+    {
+        $this->endDate = new \DateTime();
     }
 }

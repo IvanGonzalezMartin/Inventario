@@ -11,5 +11,7 @@ namespace App\Domain\Model\LogUser;
 
 interface LogUserRepository
 {
-
+    public function logIn(LogUser $logUser);
+    public function findByToken($token);
+    public function findByUser($user);
 }

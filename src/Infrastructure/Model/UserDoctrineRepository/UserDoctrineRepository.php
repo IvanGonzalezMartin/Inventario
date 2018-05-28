@@ -70,7 +70,7 @@ class UserDoctrineRepository extends EntityRepository implements UserRepository
      */
     public function filter($name, $codEmployee, $department, $parentDepartment, $page, $usersPerPage)
     {
-        return $this->givMeResult($name, $codEmployee, $department, $parentDepartment, $page, $usersPerPage)->getQuery()->execute();
+        return dump($this->givMeResult($name, $codEmployee, $department, $parentDepartment, $page, $usersPerPage)->getQuery()->execute());
     }
 
     /**

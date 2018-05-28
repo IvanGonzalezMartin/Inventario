@@ -5,18 +5,12 @@ namespace App\Domain\Model\LogUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Entity\LogUserDoctrineRepository\LogUserDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\LogUserDoctrineRepository\LogUserDoctrineRepository")
  */
 class LogUser
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $token;
@@ -31,43 +25,43 @@ class LogUser
      */
     private $date;
 
-    public function __construct()
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $endDate;
+
+    public function __construct($userID, $token)
     {
-        $this->date = date("Y-m-d H:i:s") ;
+        $this->userID = $userID;
+        $this->token = $token;
+        $this->date = new \DateTime();
+        $this->addTime();
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getToken(): ?string
+    public function token(): ?string
     {
         return $this->token;
     }
 
-    public function setToken(string $token): self
+    public function addTime(): void
     {
-        $this->token = $token;
-
-        return $this;
+        $this->date->add(\DateInterval::createFromDateString('+50 minutes'));
     }
 
-    public function getUserID(): ?int
+    public function getUserID()
     {
         return $this->userID;
     }
 
-    public function setUserID(int $userID): self
+    public function inRangeOfTime(): bool
     {
-        $this->userID = $userID;
+        if (1 == ($this->date <=> new \DateTime())) {
+            $this->addTime();
+            return false;
+        }
 
-        return $this;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
+        $this->logOut();
+        return true;
     }
 
     public function setDate(\DateTimeInterface $date): self
@@ -75,5 +69,10 @@ class LogUser
         $this->date = $date;
 
         return $this;
+    }
+
+    public function logOut()
+    {
+        $this->endDate = new \DateTime();
     }
 }

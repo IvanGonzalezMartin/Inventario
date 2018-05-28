@@ -38,7 +38,7 @@ class UserFilterCommand
         $this->parentDepartment = $parentDepartment;
         $this->page = ($page) * $usersPerPage;
         if ($page > 0)
-        $this->page = ($page - 1) * $usersPerPage;
+            $this->page = ($page - 1) * $usersPerPage;
         $this->usersPerPage = $usersPerPage;
     }
 

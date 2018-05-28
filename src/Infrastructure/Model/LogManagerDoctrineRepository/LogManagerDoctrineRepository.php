@@ -43,4 +43,34 @@ class LogManagerDoctrineRepository extends EntityRepository implements LogManage
         ;
     }
     */
+
+    public function findByToken($token)
+    {
+        return $this->findOneBy(['token' => $token, 'endDate' => null]);
+    }
+
+    public function findByManager($manager)
+    {
+        return $this->findOneBy(['managerID' => $manager, 'endDate' => null]);
+    }
+
+    /**
+     * @param LogManager $logManager
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function logIn(LogManager $logManager)
+    {
+        $this->getEntityManager()->persist($logManager);
+        $this->getEntityManager()->flush();
+    }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function update()
+    {
+        $this->getEntityManager()->flush();
+    }
 }
