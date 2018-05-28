@@ -197,3 +197,4 @@ imports:
     - { resource: ./services/context/size.yaml }
     - { resource: ./services/context/clotheSizeStock.yaml }
     - { resource: ./services/context/order.yaml }
+    - { resource: ./services/context/ordeDetails.yaml }

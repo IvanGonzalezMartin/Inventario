@@ -6,7 +6,7 @@ use Assert\Assertion;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Infrastructure\Model\OrderDoctrineRepository\OrderDoctrineRepository")
+ * @ORM\Entity(repositoryClass="App\Infrastructure\Model\OrderDetailsDoctrineRepository\OrderDetailsDoctrineRepository")
  */
 class OrderDetails
 {
@@ -23,7 +23,7 @@ class OrderDetails
     private $clotheSizeStockID;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
     private $orderID;
 
@@ -38,8 +38,10 @@ class OrderDetails
      * @param string $orderID
      * @throws \Assert\AssertionFailedException
      */
-    public function __construct(int $clotheSizeStockID, int $orderID)
+    public function __construct($clotheSizeStockID, $orderID)
     {
+        Assertion::numeric($clotheSizeStockID, 'Clothe Size Stock ID must be type numeric');
+        Assertion::uuid($orderID, '$order ID must be type numeric');
         $this->clotheSizeStockID = $clotheSizeStockID;
         $this->orderID = $orderID;
     }

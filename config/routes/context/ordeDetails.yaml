@@ -1,0 +1,4 @@
+GetOrdersDetails:
+    path: /OrderDetails/
+    controller: App\Infrastructure\Controller\OrderDetailsController::getByOrderID
+    methods: [GET]

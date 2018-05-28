@@ -1,0 +1,9 @@
+services:
+
+    _defaults:
+        autowire: true
+
+    ordeDetails.create_handler:
+                class: App\Application\OrderDetails\GetByOrderID\OrderDetailsGetByOrderId
+                tags:
+                    - { name: tactician.handler, command: App\Application\OrderDetails\GetByOrderID\OrderDetailsGetByOrderIdCommand }

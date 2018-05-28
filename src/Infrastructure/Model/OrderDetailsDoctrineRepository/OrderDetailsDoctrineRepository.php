@@ -33,4 +33,9 @@ class OrderDetailsDoctrineRepository extends EntityRepository implements OrderDe
         $entityManager = $this->getEntityManager();
         $entityManager->persist($orderDetails);
     }
+
+    public function givMeAllOrderDetailsById($orderID)
+    {
+        return $this->findBy(['orderID' => $orderID, 'deleteID' => null]);
+    }
 }

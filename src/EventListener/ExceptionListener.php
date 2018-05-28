@@ -33,7 +33,7 @@ class ExceptionListener
                 break;
             case $exception instanceof \ErrorException:
                 $response->setStatusCode(MyOwnHttpCodes::HTTP_BAD_REQUEST);
-                $response->setData(['message' => 'Please confirm all params are passed']);
+                $response->setData(['message' => $exception->getMessage()]);
                 break;
         }
 
