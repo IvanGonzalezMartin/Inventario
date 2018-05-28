@@ -58,4 +58,58 @@ class UserDoctrineRepository extends EntityRepository implements UserRepository
     {
         $this->getEntityManager()->flush();
     }
+
+    /**
+     * @param $name
+     * @param $codEmployee
+     * @param $department
+     * @param $parentDepartment
+     * @param $page
+     * @param $usersPerPage
+     * @return mixed
+     */
+    public function filter($name, $codEmployee, $department, $parentDepartment, $page, $usersPerPage)
+    {
+        return $this->givMeResult($name, $codEmployee, $department, $parentDepartment, $page, $usersPerPage)->getQuery()->execute();
+    }
+
+    /**
+     * @param $name
+     * @param $codEmployee
+     * @param $department
+     * @param $parentDepartment
+     * @param $page
+     * @param $usersPerPage
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    private function givMeResult($name, $codEmployee, $department, $parentDepartment, $page, $usersPerPage)
+    {
+        $name = '%'. $name. '%';
+        $codEmployee = '%'. $codEmployee .'%';
+
+        $query = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('users')
+            ->from('App:User\User', 'users')
+            ->where('users.nameSurname LIKE :name')
+            ->andWhere('users.employeeCode LIKE :codEmployee')
+            ->andWhere('users.deleteID IS NULL')
+            ->setMaxResults($usersPerPage)
+            ->setFirstResult($page)
+            ->setParameter('name', $name)
+            ->setParameter('codEmployee', $codEmployee);
+
+        switch (true){
+            case $department !== '':
+                        $query->andWhere('users.departmentID = :department')
+                        ->setParameter('department', $department);
+                break;
+            case $parentDepartment !== '':
+                        $query->innerJoin('users.departmentID', 'dep')
+                        ->andWhere('dep.parentDepartmentID = :parentDepartment')
+                        ->setParameter('parentDepartment', $parentDepartment);
+                break;
+        }
+        return $query;
+    }
 }

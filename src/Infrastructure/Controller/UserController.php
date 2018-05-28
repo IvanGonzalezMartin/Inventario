@@ -11,6 +11,8 @@ namespace App\Infrastructure\Controller;
 
 use App\Application\User\Create\UserCreateCommand;
 use App\Application\User\Delete\UserDeleteCommand;
+use App\Application\User\Filter\UserFilterCommand;
+use App\Application\User\GetByUuid\UserGetByUuidCommand;
 use App\Application\User\Update\UserUpdateCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use League\Tactician\CommandBus;
@@ -80,5 +82,28 @@ class UserController
         $this->commandBus->handle(new UserDeleteCommand($newReq->id));
 
         return new JsonResponse(null, MyOwnHttpCodes::HTTP_OK);
+    }
+
+    public function oneUser(Request $request)
+    {
+        return new JsonResponse($this->commandBus->handle(new UserGetByUuidCommand($request->query->get('uuid'))), MyOwnHttpCodes::HTTP_OK);
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @throws \Assert\AssertionFailedException
+     */
+    public function filterUser(Request $request)
+    {
+        return new JsonResponse($this->commandBus->handle(new UserFilterCommand($request->query->get('nameSurname'),
+                                                                                $request->query->get('codEmployee'),
+                                                                                $request->query->get('department'),
+                                                                                $request->query->get('parentDepartment'),
+                                                                                $request->query->get('page'),
+                                                                                $request->query->get('usersPerPage')
+                                                                                )
+        ),
+            MyOwnHttpCodes::HTTP_OK);
     }
 }
