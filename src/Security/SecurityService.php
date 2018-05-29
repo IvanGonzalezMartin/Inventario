@@ -9,8 +9,6 @@
 namespace App\Security;
 
 
-use Symfony\Component\HttpFoundation\Request;
-
 interface SecurityService
 {
     public function execute($request, $command);
