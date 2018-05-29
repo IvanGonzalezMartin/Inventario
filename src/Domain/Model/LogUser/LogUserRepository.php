@@ -14,4 +14,5 @@ interface LogUserRepository
     public function logIn(LogUser $logUser);
     public function findByToken($token);
     public function findByUser($user);
+    public function update();
 }

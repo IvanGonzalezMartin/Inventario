@@ -8,7 +8,6 @@
 
 namespace App\MiddelWare\Shared;
 
-
 use App\Application\Manager\CheckEmail\ManagerCheckEmailCommand;
 use App\Application\Manager\CheckEmail\ManagerCheckEmailSecurity;
 use App\Application\Manager\CheckNickName\ManagerCheckNickNameCommand;
@@ -57,6 +56,8 @@ use App\Application\User\GetByUuid\UserGetByUuidCommand;
 use App\Application\User\GetByUuid\UserGetByUuidSecurity;
 use App\Application\User\LogIn\UserLogInCommand;
 use App\Application\User\LogIn\UserLogInSecurity;
+use App\Application\User\LogOut\UserLogOutCommand;
+use App\Application\User\LogOut\UserLogOutSecurity;
 use App\Application\User\Update\UserUpdateCommand;
 use App\Application\User\Update\UserUpdateSecurity;
 use App\Domain\Model\LogManager\LogManagerRepository;
@@ -146,6 +147,7 @@ class FillFactory implements Middleware
 
         $factory->add(UserUpdateCommand::class, new UserUpdateSecurity());
         $factory->add(UserLogInCommand::class, new UserLogInSecurity());
+        $factory->add(UserLogOutCommand::class, new UserLogOutSecurity());
         $factory->add(UserGetByUuidCommand::class, new UserGetByUuidSecurity());
         $factory->add(UserFilterCommand::class, new UserFilterSecurity());
         $factory->add(UserDeleteCommand::class, new UserDeleteSecurity());

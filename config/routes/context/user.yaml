@@ -22,3 +22,13 @@ FilterUser:
     path: /User/filter/
     controller: App\Infrastructure\Controller\UserController::filterUser
     methods: [GET]
+
+LogInUser:
+    path: /User/logIn/
+    controller: App\Infrastructure\Controller\UserController::logIn
+    methods: [POST]
+
+LogOutnUser:
+    path: /User/logOut/
+    controller: App\Infrastructure\Controller\UserController::logOut
+    methods: [POST]

@@ -27,3 +27,13 @@ services:
                 class: App\Application\User\Filter\UserFilter
                 tags:
                     - { name: tactician.handler, command: App\Application\User\Filter\UserFilterCommand }
+
+    User.logIn_handler:
+                class: App\Application\User\LogIn\UserLogIn
+                tags:
+                    - { name: tactician.handler, command: App\Application\User\LogIn\UserLogInCommand }
+
+    User.LogOut_handler:
+                class: App\Application\User\LogOut\UserLogOut
+                tags:
+                    - { name: tactician.handler, command: App\Application\User\LogOut\UserLogOutCommand }
