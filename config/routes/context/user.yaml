@@ -31,4 +31,4 @@ LogInUser:
 LogOutnUser:
     path: /User/logOut/
     controller: App\Infrastructure\Controller\UserController::logOut
-    methods: [GET]
+    methods: [POST]

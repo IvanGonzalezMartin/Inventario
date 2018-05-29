@@ -114,9 +114,7 @@ class UserController
     {
         $newReq = json_decode($request->getContent());
 
-        $this->commandBus->handle(new UserLogInCommand($newReq->anyThing,$newReq->password));
-
-        return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
+        return new JsonResponse($this->commandBus->handle(new UserLogInCommand($newReq->anyThing, $newReq->password)),MyOwnHttpCodes::HTTP_OK);
     }
 
     public function logOut()
