@@ -1,0 +1,9 @@
+services:
+
+    _defaults:
+        autowire: true
+
+    Department.create_handler:
+                class: App\Application\Delivery\Create\DeliveryCreate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Delivery\Create\DeliveryCreateCommand }

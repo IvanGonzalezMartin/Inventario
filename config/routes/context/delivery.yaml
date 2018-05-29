@@ -1,0 +1,4 @@
+CreateDelivery:
+    path: /Delivery/create/
+    controller: App\Infrastructure\Controller\DeliveryController::createDelivery
+    methods: [GET]

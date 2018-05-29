@@ -183,6 +183,15 @@ services:
     App\Domain\Model\LogManager\LogManagerRepository:
         alias: app.log_manager_repository
 
+    app.delivery_repository:
+            class: Doctrine\ORM\EntityRepository
+            factory: ['@doctrine.orm.default_entity_manager', getRepository]
+            arguments:
+                - App\Domain\Model\Delivery\Delivery
+
+    App\Domain\Model\Delivery\DeliveryRepository:
+        alias: app.delivery_repository
+
 imports:
     - { resource: ./services/context/manager.yaml }
     - { resource: ./services/context/contract.yaml }
@@ -198,3 +207,4 @@ imports:
     - { resource: ./services/context/clotheSizeStock.yaml }
     - { resource: ./services/context/order.yaml }
     - { resource: ./services/context/ordeDetails.yaml }
+    - { resource: ./services/context/delivery.yaml }
