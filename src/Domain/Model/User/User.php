@@ -63,12 +63,6 @@ class User
      */
     private $departmentID;
 
-//    /**
-//     * @ORM\ManyToOne(targetEntity="Department")
-//     * @ORM\JoinColumn(name="department_id", referencedColumnName="id")
-//     */
-//    private $department;
-
     /**
      * @ORM\Column(type="string", length=10, nullable=false)
      */
@@ -188,9 +182,9 @@ class User
         return $this;
     }
 
-    public function getPassword(): ?string
+    public function comprobPassword($password): bool
     {
-        return $this->password;
+        return password_verify($password, $this->password);
     }
 
     public function setPassword(string $password): self

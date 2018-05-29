@@ -9,7 +9,7 @@
 namespace App\Domain\Security;
 
 
-class NativePasswordHaser implements PasswordHasher
+class NativePasswordHash implements PasswordHasher
 {
 
     public function codifyPassword(string $password): string

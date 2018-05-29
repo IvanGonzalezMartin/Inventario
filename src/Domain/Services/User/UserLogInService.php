@@ -8,10 +8,12 @@
 
 namespace App\Domain\Services\User;
 
-
 use App\Domain\Model\LogUser\LogUser;
 use App\Domain\Model\LogUser\LogUserRepository;
+use App\Domain\Model\User\Exceptions\UserDoesntExistsException;
+use App\Domain\Model\User\Exceptions\WrongPasswordException;
 use App\Domain\Model\User\UserRepository;
+use App\Domain\Services\Token\TokenGenerateWithEmail;
 
 class UserLogInService
 {
@@ -33,6 +35,18 @@ class UserLogInService
 
     public function __invoke($anyThing, $password)
     {
-        return $this->repository->findByID($getByUuidCommand->id());
+        $user = $this->repository->findByUQ($anyThing);
+
+        if (empty($user))
+            throw new UserDoesntExistsException($anyThing);
+
+        if (false === $user->comprobPassword($password))
+            throw new WrongPasswordException();
+
+        $token = TokenGenerateWithEmail::generate($user->getEmail());
+
+        $this->logUserRepository->logIn(new LogUser($user->getId(), $token));
+
+        return $token;
     }
 }
