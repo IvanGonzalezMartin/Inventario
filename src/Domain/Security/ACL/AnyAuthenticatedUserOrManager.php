@@ -6,7 +6,7 @@
  * Time: 10:15
  */
 
-namespace App\Domain\Security\Services;
+namespace App\Domain\Security\ACL;
 
 
 use App\Domain\Model\LogManager\LogManagerRepository;

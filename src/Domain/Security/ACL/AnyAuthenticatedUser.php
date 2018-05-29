@@ -6,7 +6,7 @@
  * Time: 11:44
  */
 
-namespace App\Domain\Security\Services;
+namespace App\Domain\Security\ACL;
 
 
 use App\Domain\Model\LogUser\LogUserRepository;
@@ -27,12 +27,12 @@ class AnyAuthenticatedUser
 
     public function __invoke($acesToken)
     {
-        $managerToken = $this->userRepository->findByToken($acesToken);
+        $userToken = $this->userRepository->findByToken($acesToken);
 
-        if (empty($managerToken))
+        if (empty($userToken))
             throw new AccessDenied();
 
-        if ($managerToken->inRangeOfTime()){
+        if ($userToken->inRangeOfTime()){
             $this->userRepository->update();
             throw new AccessDeniedTokenDied();
         }

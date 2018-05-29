@@ -121,11 +121,6 @@ class Manager
         return $this->rol;
     }
 
-    /**
-     * @param int|null $rolID
-     * @return Manager
-     * @throws \Assert\AssertionFailedException
-     */
     public function setRol($rol): self
     {
         $this->rol = $rol;

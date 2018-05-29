@@ -64,7 +64,10 @@ use App\Domain\Model\LogManager\LogManagerRepository;
 use App\Domain\Model\LogUser\LogUserRepository;
 use App\Domain\Model\Manager\ManagerRepository;
 use App\Domain\Model\User\UserRepository;
-use App\Domain\Security\Services\AnyAuthenticatedUserOrManager;
+use App\Domain\Security\ACL\AnyAuthenticatedManager;
+use App\Domain\Security\ACL\AnyAuthenticatedManagerAdmin;
+use App\Domain\Security\ACL\AnyAuthenticatedUser;
+use App\Domain\Security\ACL\AnyAuthenticatedUserOrManager;
 use League\Tactician\Middleware;
 use App\Application\Clothe\Creator\ClotheCreateCommand;
 use App\Application\Clothe\Creator\ClotheCreateSecurity;
@@ -211,5 +214,8 @@ class FillFactory implements Middleware
         $factory = FactoryOfServicesSecurity::getInstance();
 
         $factory->add(AnyAuthenticatedUserOrManager::class, new AnyAuthenticatedUserOrManager($this->logUserRepository, $this->logManagerRepository));
+        $factory->add(AnyAuthenticatedUser::class, new AnyAuthenticatedUser($this->logUserRepository));
+        $factory->add(AnyAuthenticatedManager::class, new AnyAuthenticatedManager($this->logManagerRepository));
+        $factory->add(AnyAuthenticatedManagerAdmin::class, new AnyAuthenticatedManagerAdmin($this->logManagerRepository, $this->managerRepository));
     }
 }
