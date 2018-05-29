@@ -49,10 +49,10 @@ class LogManager
         return $this->token;
     }
 
-    public function addTime(): void
+    private function addTime(): void
     {
         $this->date = new \DateTime();
-        $this->date->add(\DateInterval::createFromDateString('+1 minutes'));
+        $this->date->add(\DateInterval::createFromDateString('+30 minutes'));
     }
 
     public function getManagerID()
@@ -68,13 +68,6 @@ class LogManager
         }
         $this->logOut();
         return true;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
     }
 
     public function logOut()

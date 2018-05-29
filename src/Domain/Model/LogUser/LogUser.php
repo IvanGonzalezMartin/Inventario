@@ -30,11 +30,16 @@ class LogUser
      */
     private $endDate;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $startDate;
+
     public function __construct($userID, $token)
     {
         $this->userID = $userID;
         $this->token = $token;
-        $this->date = new \DateTime();
+        $this->startDate = new \DateTime();
         $this->addTime();
     }
 
@@ -43,9 +48,10 @@ class LogUser
         return $this->token;
     }
 
-    public function addTime(): void
+    private function addTime(): void
     {
-        $this->date->add(\DateInterval::createFromDateString('+50 minutes'));
+        $this->date = new \DateTime();
+        $this->date->add(\DateInterval::createFromDateString('+15 minutes'));
     }
 
     public function getUserID()
@@ -59,16 +65,8 @@ class LogUser
             $this->addTime();
             return false;
         }
-
         $this->logOut();
         return true;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
     }
 
     public function logOut()

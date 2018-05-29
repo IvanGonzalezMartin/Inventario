@@ -2,46 +2,38 @@
 /**
  * Created by PhpStorm.
  * User: programador
- * Date: 28/05/18
- * Time: 10:15
+ * Date: 29/05/18
+ * Time: 9:55
  */
 
 namespace App\Domain\Security\Services;
 
 
 use App\Domain\Model\LogManager\LogManagerRepository;
-use App\Domain\Model\LogUser\LogUserRepository;
 use App\Domain\Security\Exceptions\AccessDenied;
 use App\Domain\Security\Exceptions\AccessDeniedTokenDied;
 
-
-class AnyAuthenticatedUserOrManager
+class AnyAuthenticatedManager
 {
-    private $userRepository;
+    /**
+     * @var LogManagerRepository
+     */
     private $managerRepository;
 
-    public function __construct(LogUserRepository $userRepository, LogManagerRepository $managerRepository)
+    public function __construct(LogManagerRepository $managerRepository)
     {
-        $this->userRepository = $userRepository;
         $this->managerRepository = $managerRepository;
     }
 
     public function __invoke($acesToken)
     {
-
-        $userToken = $this->userRepository->findByToken($acesToken);
         $managerToken = $this->managerRepository->findByToken($acesToken);
 
-        if (empty($userToken) && empty($managerToken))
+        if (empty($managerToken))
             throw new AccessDenied();
 
-        if (false === empty($managerToken) && $managerToken->inRangeOfTime()){
+        if ($managerToken->inRangeOfTime()){
             $this->managerRepository->update();
-            throw new AccessDeniedTokenDied();
-        }
-
-        if (false === empty($userToken) && $userToken->inRangeOfTime()){
-            $this->userRepository->update();
             throw new AccessDeniedTokenDied();
         }
 
