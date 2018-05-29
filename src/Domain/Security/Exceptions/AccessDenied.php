@@ -18,7 +18,7 @@ class AccessDenied extends DomainError
 
     function statusCode()
     {
-        return MyOwnHttpCodes::HTTP_FORBIDDEN;
+        return MyOwnHttpCodes::HTTP_I_AM_A_TEAPOT;
     }
 
     function statusMessage()

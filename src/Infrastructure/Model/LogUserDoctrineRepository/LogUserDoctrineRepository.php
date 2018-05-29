@@ -63,4 +63,13 @@ class LogUserDoctrineRepository extends EntityRepository implements LogUserRepos
         $this->getEntityManager()->persist($logUser);
         $this->getEntityManager()->flush();
     }
+
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function update()
+    {
+        $this->getEntityManager()->flush();
+    }
 }
