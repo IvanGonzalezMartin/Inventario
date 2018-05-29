@@ -13,5 +13,5 @@ use Symfony\Component\HttpFoundation\Request;
 
 interface SecurityService
 {
-    public function execute(Request $request, $command);
+    public function execute($request, $command);
 }

@@ -33,7 +33,7 @@ class SecurityMiddelware implements Middleware
     {
         $newCommand = FactoryOfFilesSecurity::getInstance()->getSecurity(get_class($command))->execute($this->request, $command);
 
-        $next($newCommand);
+        return $next($newCommand);
     }
 
 }

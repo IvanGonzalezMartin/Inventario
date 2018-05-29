@@ -9,6 +9,8 @@
 namespace App\MiddelWare\Shared;
 
 
+use App\Application\OrderDetails\GetByOrderID\OrderDetailsGetByOrderIdCommand;
+use App\Application\OrderDetails\GetByOrderID\OrderDetailsSecurity;
 use App\Application\User\Filter\UserFilterCommand;
 use App\Application\User\Filter\UserFilterSecurity;
 use App\Domain\Model\LogManager\LogManagerRepository;
@@ -53,7 +55,7 @@ class FillFactory implements Middleware
     {
         $this->fillSecurity();
         $this->fillServices();
-        $next($command);
+        return $next($command);
     }
 
     private function fillSecurity()
@@ -61,6 +63,7 @@ class FillFactory implements Middleware
         $factory = FactoryOfFilesSecurity::getInstance();
 
         $factory->add(UserFilterCommand::class, new UserFilterSecurity());
+        $factory->add(OrderDetailsGetByOrderIdCommand::class, new OrderDetailsSecurity());
     }
 
     private function fillServices()
