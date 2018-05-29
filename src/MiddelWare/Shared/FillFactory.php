@@ -10,9 +10,19 @@ namespace App\MiddelWare\Shared;
 
 
 use App\Application\OrderDetails\GetByOrderID\OrderDetailsGetByOrderIdCommand;
-use App\Application\OrderDetails\GetByOrderID\OrderDetailsSecurity;
+use App\Application\OrderDetails\GetByOrderID\OrderDetailsGetByOrderIdSecurity;
+use App\Application\User\Create\UserCreateCommand;
+use App\Application\User\Create\UserCreateSecurity;
+use App\Application\User\Delete\UserDeleteCommand;
+use App\Application\User\Delete\UserDeleteSecurity;
 use App\Application\User\Filter\UserFilterCommand;
 use App\Application\User\Filter\UserFilterSecurity;
+use App\Application\User\GetByUuid\UserGetByUuidCommand;
+use App\Application\User\GetByUuid\UserGetByUuidSecurity;
+use App\Application\User\LogIn\UserLogInCommand;
+use App\Application\User\LogIn\UserLogInSecurity;
+use App\Application\User\Update\UserUpdateCommand;
+use App\Application\User\Update\UserUpdateSecurity;
 use App\Domain\Model\LogManager\LogManagerRepository;
 use App\Domain\Model\LogUser\LogUserRepository;
 use App\Domain\Model\Manager\ManagerRepository;
@@ -62,8 +72,18 @@ class FillFactory implements Middleware
     {
         $factory = FactoryOfFilesSecurity::getInstance();
 
+        $factory->add(UserUpdateCommand::class, new UserUpdateSecurity());
+        $factory->add(UserLogInCommand::class, new UserLogInSecurity());
+        $factory->add(UserGetByUuidCommand::class, new UserGetByUuidSecurity());
         $factory->add(UserFilterCommand::class, new UserFilterSecurity());
-        $factory->add(OrderDetailsGetByOrderIdCommand::class, new OrderDetailsSecurity());
+        $factory->add(UserDeleteCommand::class, new UserDeleteSecurity());
+        $factory->add(UserCreateCommand::class, new UserCreateSecurity());
+
+
+
+
+        $factory->add(OrderDetailsGetByOrderIdCommand::class, new OrderDetailsGetByOrderIdSecurity());
+
     }
 
     private function fillServices()
