@@ -10,6 +10,7 @@ namespace App\Infrastructure\Controller;
 
 
 use App\Application\Delivery\Create\DeliveryCreateCommand;
+use App\Application\Delivery\GetByOrderId\DeliveryGetOrderIdCommand;
 use App\Infrastructure\Utils\MyOwnHttpCodes;
 use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,12 +34,19 @@ class DeliveryController
 
     public function createDelivery(Request $request)
     {
-        //$newReq = json_decode($request->getContent());
+        $newReq = json_decode($request->getContent());
 
-        $this->commandBus->handle(new DeliveryCreateCommand($request->query->get('orderID'),
-                                                            $request->query->get('managerID'),
-                                                            $request->query->get('docSing')));
+        $this->commandBus->handle(new DeliveryCreateCommand($newReq->orderID,
+                                                            $newReq->managerID,
+                                                            $newReq->docSing));
 
         return new JsonResponse(null,MyOwnHttpCodes::HTTP_OK);
     }
+
+    public function getByOrderId(Request $request)
+    {
+        return new JsonResponse($this->commandBus->handle(new DeliveryGetOrderIdCommand($request->query->get('orderID'))),MyOwnHttpCodes::HTTP_OK);
+    }
+
+
 }

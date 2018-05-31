@@ -36,7 +36,7 @@ class DeliveryDoctrineRepository extends EntityRepository implements DeliveryRep
 
     public function findByOrder($orderID)
     {
-        // TODO: Implement findByOrder() method.
+        return $this->findBy(['orderID' => $orderID, 'deleteID' => null]);
     }
 
     public function findByManagerID($managerID)

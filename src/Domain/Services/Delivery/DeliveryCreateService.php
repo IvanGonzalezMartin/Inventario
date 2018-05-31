@@ -54,7 +54,5 @@ class DeliveryCreateService
         $orderObject->setDeliveryId($uuid);
 
         $this->repository->update();
-
-
     }
 }
