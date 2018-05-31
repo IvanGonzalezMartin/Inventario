@@ -12,8 +12,7 @@ class Delivery
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=55)
      */
     private $id;
 
@@ -52,12 +51,13 @@ class Delivery
      * @param $orderID
      * @param $managerID
      */
-    public function __construct($orderID, $managerID, $docSign)
+    public function __construct($id, $orderID, $managerID, $docSign)
     {
+        $this->id = $id;
         $this->orderID = $orderID;
         $this->managerID = $managerID;
         $this->docSign = $docSign;
-        $this->date = date("Y-m-d H:i:s") ;
+        $this->date = new \DateTime();
     }
 
     public function getId(): string

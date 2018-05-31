@@ -11,5 +11,8 @@ namespace App\Domain\Model\Delivery;
 
 interface DeliveryRepository
 {
-
+    public function insert(delivery $delivery);
+    public function update();
+    public function findByOrder($orderID);
+    public function findByManagerID($managerID);
 }

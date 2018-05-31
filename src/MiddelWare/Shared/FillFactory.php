@@ -8,6 +8,10 @@
 
 namespace App\MiddelWare\Shared;
 
+use App\Application\Delivery\Create\DeliveryCreateCommand;
+use App\Application\Delivery\Create\DeliveryCreateSecurity;
+use App\Application\Delivery\GetByOrderId\DeliveryGetOrderIdCommand;
+use App\Application\Delivery\GetByOrderId\DeliveryGetOrderIdSecurity;
 use App\Application\Manager\CheckEmail\ManagerCheckEmailCommand;
 use App\Application\Manager\CheckEmail\ManagerCheckEmailSecurity;
 use App\Application\Manager\CheckNickName\ManagerCheckNickNameCommand;
@@ -150,6 +154,9 @@ class FillFactory implements Middleware
     private function fillSecurity()
     {
         $factory = FactoryOfFilesSecurity::getInstance();
+
+        $factory->add(DeliveryCreateCommand::class,new DeliveryCreateSecurity());
+        $factory->add(DeliveryGetOrderIdCommand::class,new DeliveryGetOrderIdSecurity());
 
         $factory->add(UserUpdateCommand::class, new UserUpdateSecurity());
         $factory->add(UserLogInCommand::class, new UserLogInSecurity());

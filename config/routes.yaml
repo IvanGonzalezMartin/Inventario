@@ -40,3 +40,6 @@ app_file_order:
 app_file_orderDetails:
   resource: 'routes/context/ordeDetails.yaml'
 
+app_file_delivery:
+   resource: 'routes/context/delivery.yaml'
+

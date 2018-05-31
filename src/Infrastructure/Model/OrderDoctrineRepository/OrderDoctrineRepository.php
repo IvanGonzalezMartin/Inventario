@@ -20,6 +20,11 @@ class OrderDoctrineRepository extends EntityRepository implements OrderRepositor
         return $this->findOneBy(['id' => $id , 'deleteID' => null]);
     }
 
+    public function findByIdWhitNotDelivery($id)
+    {
+        return $this->findOneBy(['id' => $id , 'deliveryID' => null, 'deleteID' => null]);
+    }
+
     /**
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException

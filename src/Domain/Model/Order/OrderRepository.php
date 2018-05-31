@@ -17,4 +17,5 @@ interface OrderRepository
     public function findAllById($id);
     public function filter($maxOrder, $pages);
     public function filterByUserId($id, $maxOrder, $pages);
+    public function findByIdWhitNotDelivery($id);
 }

@@ -16,32 +16,31 @@ use Doctrine\ORM\EntityRepository;
 class DeliveryDoctrineRepository extends EntityRepository implements DeliveryRepository
 {
 
-//    /**
-//     * @return Delivery[] Returns an array of Delivery objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param Delivery $delivery
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function insert(delivery $delivery)
     {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('d.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $this->getEntityManager()->persist($delivery);
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Delivery
+    /**
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function update()
     {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $this->getEntityManager()->flush();
     }
-    */
+
+    public function findByOrder($orderID)
+    {
+        return $this->findBy(['orderID' => $orderID, 'deleteID' => null]);
+    }
+
+    public function findByManagerID($managerID)
+    {
+        // TODO: Implement findByManagerID() method.
+    }
 }

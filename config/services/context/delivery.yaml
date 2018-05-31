@@ -1,0 +1,14 @@
+services:
+
+    _defaults:
+        autowire: true
+
+    Department.create_handler:
+                class: App\Application\Delivery\Create\DeliveryCreate
+                tags:
+                    - { name: tactician.handler, command: App\Application\Delivery\Create\DeliveryCreateCommand }
+
+    Department.GET_handler:
+                class: App\Application\Delivery\GetByOrderId\DeliveryGetOrderId
+                tags:
+                    - { name: tactician.handler, command: App\Application\Delivery\GetByOrderId\DeliveryGetOrderIdCommand }

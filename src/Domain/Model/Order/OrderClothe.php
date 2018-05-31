@@ -12,7 +12,7 @@ class OrderClothe
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=250)
      */
     private $id;
 
@@ -32,7 +32,7 @@ class OrderClothe
     private $description;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=250, nullable=true)
      */
     private $deliveryID;
 
@@ -76,7 +76,7 @@ class OrderClothe
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    public function setDescription($description): self
     {
         $this->description = $description;
 
@@ -88,7 +88,7 @@ class OrderClothe
         return $this->deliveryID;
     }
 
-    public function setDeliveryId(int $deliveryID): self
+    public function setDeliveryId($deliveryID): self
     {
         $this->deliveryID = $deliveryID;
 
