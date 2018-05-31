@@ -18,11 +18,12 @@ class ManagerGetAllDataTransformArray implements ManagerGetAllDataTransform
         $arrayManagers = [];
         foreach ($managers as $manager){
             $arrayManagers[] = [
-                "ID" => $manager->getId(),
-                "NickName" => $manager->getNickName(),
-                "Email" => $manager->getEmail(),
-                "Name" => $manager->getName(),
-                "Photo" => $manager->getPhoto()
+                "id" => $manager->getId(),
+                "nick_name" => $manager->getNickName(),
+                "email" => $manager->getEmail(),
+                "name" => $manager->getName(),
+                "photo" => $manager->getPhoto(),
+                "rol" => $manager->getRol()
             ];
         }
         return $arrayManagers;

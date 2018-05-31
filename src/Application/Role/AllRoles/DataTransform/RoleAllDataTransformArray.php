@@ -14,8 +14,13 @@ use App\Application\Role\AllRoles\RoleAllDataTransform;
 class RoleAllDataTransformArray implements RoleAllDataTransform
 {
 
-    public function transform($data)
+    public function transform($rols)
     {
-       return $data;
+        $arrayRole = [];
+
+        foreach ($rols as $rol) {
+            $arrayRole[] = $rol;
+        }
+      return $arrayRole;
     }
 }
