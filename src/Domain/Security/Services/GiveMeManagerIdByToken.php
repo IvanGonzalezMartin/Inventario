@@ -3,17 +3,17 @@
  * Created by PhpStorm.
  * User: programador
  * Date: 29/05/18
- * Time: 9:55
+ * Time: 11:44
  */
 
-namespace App\Domain\Security\ACL;
+namespace App\Domain\Security\Services;
 
 
 use App\Domain\Model\LogManager\LogManagerRepository;
 use App\Domain\Security\Exceptions\AccessDenied;
 use App\Domain\Security\Exceptions\AccessDeniedTokenDied;
 
-class OnlyTheOwnerOrAdminManager
+class GiveMeManagerIdByToken
 {
     /**
      * @var LogManagerRepository
@@ -39,5 +39,6 @@ class OnlyTheOwnerOrAdminManager
 
         $this->managerRepository->update();
 
+        return $managerToken->getUserID();
     }
 }
